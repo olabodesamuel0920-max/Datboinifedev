@@ -1,0 +1,22 @@
+{
+  "name": "olabode-os",
+  "version": "1.0.4",
+  "description": "Olabode OS — Premium Personal Product Operating System & Living Proof Engine",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server ./ -p 3000 -c-1",
+    "dev": "http-server ./ -p 3000 -c-1"
+  },
+  "keywords": [
+    "portfolio",
+    "dashboard",
+    "operating-system",
+    "ai-assisted",
+    "interactive"
+  ],
+  "author": "Olabode Samuel",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olabode OS — Living Proof Engine</title>
+    <meta name="description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of production-ready applications. Explore interactive blueprints, verified performance cases, and local sandbox modules.">
+    <meta name="author" content="Samuel Olabode">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Olabode OS — Living Proof Engine">
+    <meta property="og:description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of production-ready applications.">
+    <meta property="og:image" content="https://samuelolabode.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Olabode OS — Living Proof Engine">
+    <meta property="twitter:description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of production-ready applications.">
+
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cyber-scanlines">
+
+    <!-- 1. RETRO-CYBER BOOT SCREEN OVERLAY -->
+    <div id="boot-screen" class="boot-screen">
+        <div class="boot-terminal">
+            <div class="boot-header">
+                <span class="boot-dot red"></span>
+                <span class="boot-dot yellow"></span>
+                <span class="boot-dot green"></span>
+                <span class="boot-title">OLABODE_OS_INIT.SH</span>
+            </div>
+            <div class="boot-log-container" id="boot-log">
+                <!-- Log entries will be populated dynamically via JavaScript -->
+            </div>
+            <div class="boot-progress-wrapper">
+                <div class="boot-progress-bar" id="boot-progress"></div>
+            </div>
+            <div class="boot-footer">
+                <span class="system-status">SYS_STATUS: SCALING</span>
+                <button type="button" id="skip-boot-btn" class="skip-btn" aria-label="Skip system boot and proceed to OS desktop">
+                    [ SKIP_BOOT.EXE ]
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN OS INTERFACE CONTAINER (Initially Hidden) -->
+    <div id="os-container" class="os-container hidden">
+        
+        <!-- TOP SYSTEM MENU BAR -->
+        <header id="os-top-bar" class="os-top-bar">
+            <div class="top-bar-left">
+                <div class="system-logo">
+                    <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="50,10 90,80 10,80" stroke="url(#logo-grad)" stroke-width="8" fill="none" />
+                        <circle cx="50" cy="50" r="12" fill="#00f2fe" class="pulse-glow" />
+                        <defs>
+                            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00f2fe" />
+                                <stop offset="100%" stop-color="#bd5eff" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="logo-text">OLABODE OS <span class="version-tag">v1.1.0</span></span>
+                </div>
+            </div>
+            
+            <nav class="top-bar-nav" aria-label="System Quick Links">
+                <a href="#proof-dashboard" class="nav-link"><span class="nav-num">01.</span> DASHBOARD</a>
+                <a href="#featured-projects" class="nav-link"><span class="nav-num">02.</span> BLUEPRINTS</a>
+                <a href="#system-modules" class="nav-link"><span class="nav-num">03.</span> MODULES</a>
+                <a href="#how-i-think" class="nav-link"><span class="nav-num">04.</span> PIPELINE</a>
+                <a href="#secure-uplink" class="nav-link"><span class="nav-num">05.</span> UPLINK</a>
+            </nav>
+
+            <div class="top-bar-right">
+                <div class="system-status-indicator">
+                    <span class="status-pulse"></span>
+                    <span class="status-label">ACTIVE / LEKKI, NG</span>
+                </div>
+                <div id="system-clock" class="system-clock">00:00:00 PST</div>
+            </div>
+        </header>
+
+        <!-- MAIN DESKTOP GRID -->
+        <main class="desktop-grid">
+            
+            <!-- COLUMN A: DIGITAL HERO & COMMAND CENTER (Left Rail) -->
+            <section class="desktop-left-rail" aria-label="Command Center Hero">
+                
+                <!-- HERO TERMINAL CONTAINER -->
+                <div class="window-panel hero-window">
+                    <div class="window-bar">
+                        <div class="window-actions">
+                            <span class="window-dot red"></span>
+                            <span class="window-dot yellow"></span>
+                            <span class="window-dot green"></span>
+                        </div>
+                        <span class="window-title">C:\OS\USER\HERO.SYS</span>
+                    </div>
+                    <div class="window-content hero-inner">
+                        <div class="badge">SYSTEM READY</div>
+                        <h1 class="hero-headline">
+                            I build digital products that make <span class="highlight-text-cyan">ideas look real.</span>
+                        </h1>
+                        <p class="hero-subtext">
+                            Samuel Olabode is a serious product engineer and frontend specialist, synthesizing premium user experiences, robust web architectures, and launch-focused application outcomes.
+                        </p>
+                        <div class="hero-stats-row">
+                            <div class="hero-mini-stat">
+                                <span class="label">CO-PILOT METHOD</span>
+                                <span class="val">AI-Scaffolded</span>
+                            </div>
+                            <div class="hero-mini-stat">
+                                <span class="label">UX SYSTEM</span>
+                                <span class="val">High-Fidelity</span>
+                            </div>
+                            <div class="hero-mini-stat">
+                                <span class="label">BUILD STATE</span>
+                                <span class="val">Launch-Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INTERACTIVE SYSTEM SHELL CLI -->
+                <div class="window-panel cli-window">
+                    <div class="window-bar">
+                        <div class="window-actions">
+                            <span class="window-dot red"></span>
+                            <span class="window-dot yellow"></span>
+                            <span class="window-dot green"></span>
+                        </div>
+                        <span class="window-title">C:\OS\BIN\TERMINAL.EXE</span>
+                    </div>
+                    <div class="window-content cli-inner">
+                        <div class="cli-output" id="cli-output-log">
+                            <p class="cli-line muted">Welcome to Olabode OS Command Interface.</p>
+                            <p class="cli-line muted">Type <span class="highlight-green">help</span> to view available system commands.</p>
+                        </div>
+                        <form id="cli-form" class="cli-input-line">
+                            <span class="cli-prompt">olabode_os://guest$</span>
+                            <input type="text" id="cli-input" class="cli-input" autofocus autocomplete="off" placeholder="Type command..." aria-label="Command line interface input">
+                        </form>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- COLUMN B: DASHBOARDS, PROJECTS, AND SPECIFICATIONS (Right Rail) -->
+            <div class="desktop-right-rail">
+                
+                <!-- SECTION 1: PROOF DASHBOARD -->
+                <section id="proof-dashboard" class="dashboard-section" aria-label="Living Proof Dashboard">
+                    <div class="section-header-row">
+                        <h2 class="section-title"><span class="section-num">01.</span> LIVING PROOF DASHBOARD</h2>
+                        <span class="system-ping">REAL-TIME LINKED</span>
+                    </div>
+                    
+                    <div class="dashboard-grid">
+                        
+                        <!-- WIDGET 1: PERFORMANCE INDEX -->
+                        <div class="dashboard-widget index-widget">
+                            <div class="widget-header">
+                                <span class="widget-tag">SYS_ENGINE</span>
+                                <h3>CAPABILITY METRIC INDEX</h3>
+                            </div>
+                            <div class="widget-body flex-center">
+                                <div class="radial-container">
+                                    <svg viewBox="0 0 100 100" class="radial-svg">
+                                        <circle cx="50" cy="50" r="40" class="radial-bg"></circle>
+                                        <circle cx="50" cy="50" r="40" class="radial-fill speed-dial"></circle>
+                                    </svg>
+                                    <div class="radial-text">
+                                        <span class="radial-val" id="perf-val" style="font-size: 13px;">READY</span>
+                                        <span class="radial-label">QA STABILIZED</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-footer-info">
+                                <span>UX Responsive: Mobile-First Review</span>
+                                <span>W3C Standards: Semantic HTML5</span>
+                            </div>
+                        </div>
+
+                        <!-- WIDGET 2: CO-PILOT SYNERGY METRIC -->
+                        <div class="dashboard-widget index-widget">
+                            <div class="widget-header">
+                                <span class="widget-tag">AI_CO_PILOT</span>
+                                <h3>DEVELOPMENT WORKFLOW WEIGHTS</h3>
+                            </div>
+                            <div class="widget-body">
+                                <div class="bar-chart-container">
+                                    <div class="bar-row">
+                                        <span class="bar-label">PROMPT SCAFFOLDING</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 95%;"></div></div>
+                                        <span class="bar-pct">95%</span>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">MANUAL REFINEMENT</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div>
+                                        <span class="bar-pct">85%</span>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">SYSTEM ARCHITECTURE</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div>
+                                        <span class="bar-pct">90%</span>
+                                    </div>
+                                    <div class="bar-row">
+                                        <span class="bar-label">UX STYLING FIDELITY</span>
+                                        <div class="bar-track"><div class="bar-fill" style="width: 98%;"></div></div>
+                                        <span class="bar-pct">98%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-footer-info">
+                                <span>Engine: Gemini 3 Flash Hybrid Setup</span>
+                            </div>
+                        </div>
+
+                        <!-- WIDGET 3: LIVE SYSTEM FEED -->
+                        <div class="dashboard-widget feed-widget span-two">
+                            <div class="widget-header">
+                                <span class="widget-tag">SYS_REFINEMENT_LOGS</span>
+                                <h3>LATEST DEVELOPMENT ACTIVITY FEED</h3>
+                            </div>
+                            <div class="widget-body feed-inner" id="system-logs-feed">
+                                <div class="feed-log-line">
+                                    <span class="log-time">[15:34:23]</span>
+                                    <span class="log-module">[CHIKINI_MONIE]</span>
+                                    <span class="log-msg">Hardened offline status checking and resolved staging preview constraints.</span>
+                                </div>
+                                <div class="feed-log-line">
+                                    <span class="log-time">[08:42:49]</span>
+                                    <span class="log-module">[ARISTO_AFRIKANA]</span>
+                                    <span class="log-msg">Completed dark-luxury parallax sections and dining/lounge routing funnels.</span>
+                                </div>
+                                <div class="feed-log-line">
+                                    <span class="log-time">[21:30:17]</span>
+                                    <span class="log-module">[PREDCHAIN]</span>
+                                    <span class="log-msg">Hardened frontend prediction pool state containers and wallet checks.</span>
+                                </div>
+                                <div class="feed-log-line">
+                                    <span class="log-time">[11:37:31]</span>
+                                    <span class="log-module">[MAMA_GUARD]</span>
+                                    <span class="log-msg">Deployed maternal wellness portal. Cached health checklists offline.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 2: FEATURED PROJECTS (BLUEPRINTS) -->
+                <section id="featured-projects" class="projects-section" aria-label="Featured Product Blueprints">
+                    <div class="section-header-row">
+                        <h2 class="section-title"><span class="section-num">02.</span> FEATURED SYSTEM BLUEPRINTS</h2>
+                        <span class="system-ping">INTERACTIVE TILES</span>
+                    </div>
+
+                    <div class="projects-grid">
+                        
+                        <!-- PROJECT 1: CHIKINI MONIE -->
+                        <div class="window-panel project-card" id="project-chikini" data-project="chikini">
+                            <div class="window-bar">
+                                <div class="window-actions">
+                                    <span class="window-dot red"></span>
+                                    <span class="window-dot yellow"></span>
+                                    <span class="window-dot green"></span>
+                                </div>
+                                <span class="window-title">BLUEPRINT:\CHIKINI_MONIE.SYS</span>
+                            </div>
+                            <div class="project-tabs">
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Chikini Monie summary">📁 SUMMARY</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Chikini Monie technical blueprint">💻 BLUEPRINT</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Chikini Monie project impact">⚡ IMPACT</button>
+                            </div>
+                            <div class="window-content project-card-body">
+                                
+                                <div class="tab-content active" data-tab-content="summary">
+                                    <div class="project-headline-row">
+                                        <h4>Chikini Monie</h4>
+                                        <div class="project-meta-badges">
+                                            <span class="status-tag stakeholder-ready">Stakeholder-Ready Demo</span>
+                                        </div>
+                                    </div>
+                                    <p class="project-desc">
+                                        Premium food-tech ordering and operations demo with menu/order flow, staff board, kitchen display, manager analytics, and cloud sync readiness.
+                                    </p>
+                                    <div class="project-tags-row">
+                                        <span class="p-tag">React</span>
+                                        <span class="p-tag">TailwindCSS</span>
+                                        <span class="p-tag">State Isolation</span>
+                                        <span class="p-tag">Status Checker</span>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="blueprint">
+                                    <pre class="code-block"><code>// component/BranchStatusChecker.tsx
+export const BranchStatusCard = ({ branch }) => {
+    const isOperational = branch.status === 'operational';
+    return (
+        &lt;div className="branch-card border border-glass"&gt;
+            &lt;span className={`pulse-dot ${isOperational ? 'online' : 'maintenance'}`} /&gt;
+            &lt;h4&gt;{branch.name}&lt;/h4&gt;
+            &lt;p&gt;Status: {isOperational ? 'Active' : 'Pending Management Approval'}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+};</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="impact">
+                                    <div class="metric-outcome-row">
+                                        <div class="metric-box">
+                                            <span class="metric-num">Audit OK</span>
+                                            <span class="metric-label">Copy Compliance</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Fast Static</span>
+                                            <span class="metric-label">Render Cycle</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Responsive</span>
+                                            <span class="metric-label">Touch Frame</span>
+                                        </div>
+                                    </div>
+                                    <p class="outcome-explanation">
+                                        Overhauled marketing structures, verified operations statuses, and aligned platform preview copy perfectly with strict "Business Review Prototype" requirements.
+                                    </p>
+                                </div>
+
+                                <div class="project-action-row">
+                                    <button type="button" class="case-study-btn" data-open-case-study="chikini" aria-label="View case study for Chikini Monie">[ SPECIFICATIONS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ OFFLINE_STAGING.EXE ]</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- PROJECT 2: ARISTO AFRIKANA -->
+                        <div class="window-panel project-card" id="project-aristo" data-project="aristo">
+                            <div class="window-bar">
+                                <div class="window-actions">
+                                    <span class="window-dot red"></span>
+                                    <span class="window-dot yellow"></span>
+                                    <span class="window-dot green"></span>
+                                </div>
+                                <span class="window-title">BLUEPRINT:\ARISTO_AFRIKANA.SYS</span>
+                            </div>
+                            <div class="project-tabs">
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Aristo Afrikana summary">📁 SUMMARY</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Aristo Afrikana technical blueprint">💻 BLUEPRINT</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Aristo Afrikana project impact">⚡ IMPACT</button>
+                            </div>
+                            <div class="window-content project-card-body">
+                                
+                                <div class="tab-content active" data-tab-content="summary">
+                                    <div class="project-headline-row">
+                                        <h4>Aristo Afrikana</h4>
+                                        <div class="project-meta-badges">
+                                            <span class="status-tag client-proposal">Client Proposal Direction</span>
+                                        </div>
+                                    </div>
+                                    <p class="project-desc">
+                                        Premium restaurant website and digital upgrade direction for a real client-facing restaurant experience, implementing multi-category booking pipelines.
+                                    </p>
+                                    <div class="project-tags-row">
+                                        <span class="p-tag">Vanilla CSS3</span>
+                                        <span class="p-tag">CSS Variables</span>
+                                        <span class="p-tag">Luxury UI</span>
+                                        <span class="p-tag">Funnels</span>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="blueprint">
+                                    <pre class="code-block"><code>/* style/luxury-theme.css */
+.luxury-container {
+    background: radial-gradient(circle at top, var(--gold-glow), var(--matte-black));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="impact">
+                                    <div class="metric-outcome-row">
+                                        <div class="metric-box">
+                                            <span class="metric-num">Production</span>
+                                            <span class="metric-label">Ready State</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Bespoke</span>
+                                            <span class="metric-label">Dark Aesthetics</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">3 Core</span>
+                                            <span class="metric-label">Experience Funnels</span>
+                                        </div>
+                                    </div>
+                                    <p class="outcome-explanation">
+                                        Eliminated layout placeholders, resolved style inconsistencies, and created an outstanding mobile-first presentation ready for customer booking operations.
+                                    </p>
+                                </div>
+
+                                <div class="project-action-row">
+                                    <button type="button" class="case-study-btn" data-open-case-study="aristo" aria-label="View case study for Aristo Afrikana">[ SPECIFICATIONS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Client Proposal Staging Only">[ PROPOSAL_STAGING.EXE ]</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- PROJECT 3: PREDCHAIN -->
+                        <div class="window-panel project-card" id="project-predchain" data-project="predchain">
+                            <div class="window-bar">
+                                <div class="window-actions">
+                                    <span class="window-dot red"></span>
+                                    <span class="window-dot yellow"></span>
+                                    <span class="window-dot green"></span>
+                                </div>
+                                <span class="window-title">BLUEPRINT:\PREDCHAIN.SYS</span>
+                            </div>
+                            <div class="project-tabs">
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View PredChain summary">📁 SUMMARY</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View PredChain technical blueprint">💻 BLUEPRINT</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View PredChain project impact">⚡ IMPACT</button>
+                            </div>
+                            <div class="window-content project-card-body">
+                                
+                                <div class="tab-content active" data-tab-content="summary">
+                                    <div class="project-headline-row">
+                                        <h4>PredChain</h4>
+                                        <div class="project-meta-badges">
+                                            <span class="status-tag experimental">Experimental Build</span>
+                                        </div>
+                                    </div>
+                                    <p class="project-desc">
+                                        Hardened experimental prediction dashboard managing staking pools, session handshakes, and wallet state isolation interfaces.
+                                    </p>
+                                    <div class="project-tags-row">
+                                        <span class="p-tag">TypeScript</span>
+                                        <span class="p-tag">Next.js</span>
+                                        <span class="p-tag">State Isolation</span>
+                                        <span class="p-tag">Web3 Handshake</span>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="blueprint">
+                                    <pre class="code-block"><code>// service/WalletSecurityService.ts
+export async function executeAtomicSwap(payload: TransactionPayload): Promise&lt;SwapResult&gt; {
+    const sessionToken = await validateSessionHandshake();
+    if (!sessionToken) throw new SecurityError("Unauthorized signature attempt");
+    return await blockchainProvider.commitAtomicTransaction(payload, sessionToken);
+}</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="impact">
+                                    <div class="metric-outcome-row">
+                                        <div class="metric-box">
+                                            <span class="metric-num">Hardened</span>
+                                            <span class="metric-label">Staking Views</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Isolated</span>
+                                            <span class="metric-label">State Containers</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Verified</span>
+                                            <span class="metric-label">Handshake Logic</span>
+                                        </div>
+                                    </div>
+                                    <p class="outcome-explanation">
+                                        Constructed atomic transaction interfaces and custom pool widgets using robust reactive state isolation models to secure frontend data flow.
+                                    </p>
+                                </div>
+
+                                <div class="project-action-row">
+                                    <button type="button" class="case-study-btn" data-open-case-study="predchain" aria-label="View case study for PredChain">[ SPECIFICATIONS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Repository Only">[ TOKENS_STAGING.EXE ]</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- PROJECT 4: MAMA GUARD -->
+                        <div class="window-panel project-card" id="project-mamaguard" data-project="mamaguard">
+                            <div class="window-bar">
+                                <div class="window-actions">
+                                    <span class="window-dot red"></span>
+                                    <span class="window-dot yellow"></span>
+                                    <span class="window-dot green"></span>
+                                </div>
+                                <span class="window-title">BLUEPRINT:\MAMA_GUARD.SYS</span>
+                            </div>
+                            <div class="project-tabs">
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Mama Guard summary">📁 SUMMARY</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Mama Guard technical blueprint">💻 BLUEPRINT</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Mama Guard project impact">⚡ IMPACT</button>
+                            </div>
+                            <div class="window-content project-card-body">
+                                
+                                <div class="tab-content active" data-tab-content="summary">
+                                    <div class="project-headline-row">
+                                        <h4>Mama Guard</h4>
+                                        <div class="project-meta-badges">
+                                            <span class="status-tag live-beta">Live Beta</span>
+                                        </div>
+                                    </div>
+                                    <p class="project-desc">
+                                        Maternal health tracking and clinical support platform helping mothers connect with verified wellness logs, guidelines, and emergency coordination.
+                                    </p>
+                                    <div class="project-tags-row">
+                                        <span class="p-tag">React</span>
+                                        <span class="p-tag">Next.js</span>
+                                        <span class="p-tag">Offline Caching</span>
+                                        <span class="p-tag">Serverless</span>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="blueprint">
+                                    <pre class="code-block"><code>// services/pregnancyTracker.ts
+export interface HealthLog {
+  systolic: number;
+  diastolic: number;
+  weightKg: number;
+  symptoms: string[];
+}
+
+export function evaluateVitals(log: HealthLog) {
+  const isElevated = log.systolic >= 140 || log.diastolic >= 90;
+  return {
+    status: isElevated ? 'attention_required' : 'stable',
+    actionCode: isElevated ? 'TRIGGER_PROVIDER_UPLINK' : 'CONTINUE_ROUTINE'
+  };
+}</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="impact">
+                                    <div class="metric-outcome-row">
+                                        <div class="metric-box">
+                                            <span class="metric-num">Verified</span>
+                                            <span class="metric-label">Health Guides</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Cached</span>
+                                            <span class="metric-label">Offline Logs</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Active</span>
+                                            <span class="metric-label">Community Beta</span>
+                                        </div>
+                                    </div>
+                                    <p class="outcome-explanation">
+                                        Developed with strict offline-first loading criteria so mothers in under-resourced regions can reliably check wellness logs and clinical guidelines.
+                                    </p>
+                                </div>
+
+                                <div class="project-action-row">
+                                    <button type="button" class="case-study-btn" data-open-case-study="mamaguard" aria-label="View case study for Mama Guard">[ SPECIFICATIONS ]</button>
+                                    <a href="https://guard-pink.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ LIVE_BETA.EXE ]</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- PROJECT 5: BETHEL PORTAL -->
+                        <div class="window-panel project-card" id="project-bethel" data-project="bethel">
+                            <div class="window-bar">
+                                <div class="window-actions">
+                                    <span class="window-dot red"></span>
+                                    <span class="window-dot yellow"></span>
+                                    <span class="window-dot green"></span>
+                                </div>
+                                <span class="window-title">BLUEPRINT:\BETHEL_SANCTUARY.SYS</span>
+                            </div>
+                            <div class="project-tabs">
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Bethel Sanctuary summary">📁 SUMMARY</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Bethel Sanctuary technical blueprint">💻 BLUEPRINT</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Bethel Sanctuary project impact">⚡ IMPACT</button>
+                            </div>
+                            <div class="window-content project-card-body">
+                                
+                                <div class="tab-content active" data-tab-content="summary">
+                                    <div class="project-headline-row">
+                                        <h4>Bethel Portal</h4>
+                                        <div class="project-meta-badges">
+                                            <span class="status-tag live-demo">Live Demo</span>
+                                        </div>
+                                    </div>
+                                    <p class="project-desc">
+                                        Unified community portal and resource platform managing sermon streaming archives, weekly program outlines, and congregation media coordinates.
+                                    </p>
+                                    <div class="project-tags-row">
+                                        <span class="p-tag">HTML5</span>
+                                        <span class="p-tag">Vanilla CSS3</span>
+                                        <span class="p-tag">Streaming APIs</span>
+                                        <span class="p-tag">LocalState</span>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="blueprint">
+                                    <pre class="code-block"><code>// utilities/MediaController.js
+export class AudioPlayer {
+  constructor(audioUrl, mediaId) {
+    this.audio = new Audio(audioUrl);
+    this.mediaId = mediaId;
+  }
+
+  savePlaybackProgress() {
+    const elapsed = this.audio.currentTime;
+    localStorage.setItem(`playback_progress_${this.mediaId}`, elapsed);
+  }
+
+  loadPlaybackProgress() {
+    return parseFloat(localStorage.getItem(`playback_progress_${this.mediaId}`)) || 0;
+  }
+}</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="impact">
+                                    <div class="metric-outcome-row">
+                                        <div class="metric-box">
+                                            <span class="metric-num">Indexed</span>
+                                            <span class="metric-label">Media Streams</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">LocalState</span>
+                                            <span class="metric-label">Playback Cache</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Zero Lag</span>
+                                            <span class="metric-label">Portal Routing</span>
+                                        </div>
+                                    </div>
+                                    <p class="outcome-explanation">
+                                        Replaced fragmented sites with a unified premium digital portal, optimizing media archives and media playback state caching for local users.
+                                    </p>
+                                </div>
+
+                                <div class="project-action-row">
+                                    <button type="button" class="case-study-btn" data-open-case-study="bethel" aria-label="View case study for Bethel Portal">[ SPECIFICATIONS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ PREVIEW_DEMO.EXE ]</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- PROJECT 6: PROOF -->
+                        <div class="window-panel project-card" id="project-proof" data-project="proof">
+                            <div class="window-bar">
+                                <div class="window-actions">
+                                    <span class="window-dot red"></span>
+                                    <span class="window-dot yellow"></span>
+                                    <span class="window-dot green"></span>
+                                </div>
+                                <span class="window-title">BLUEPRINT:\PROOF_BETA.SYS</span>
+                            </div>
+                            <div class="project-tabs">
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Proof summary">📁 SUMMARY</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Proof technical blueprint">💻 BLUEPRINT</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Proof project impact">⚡ IMPACT</button>
+                            </div>
+                            <div class="window-content project-card-body">
+                                
+                                <div class="tab-content active" data-tab-content="summary">
+                                    <div class="project-headline-row">
+                                        <h4>Proof</h4>
+                                        <div class="project-meta-badges">
+                                            <span class="status-tag live-beta">Live Beta</span>
+                                        </div>
+                                    </div>
+                                    <p class="project-desc">
+                                        Premium onboarding progress review application showing rapid product synthesis and structured client-side state logging.
+                                    </p>
+                                    <div class="project-tags-row">
+                                        <span class="p-tag">React</span>
+                                        <span class="p-tag">CSS Variables</span>
+                                        <span class="p-tag">State Logging</span>
+                                        <span class="p-tag">Gamified UI</span>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="blueprint">
+                                    <pre class="code-block"><code>// hooks/useChallengeProgress.ts
+import { useState, useEffect } from 'react';
+
+export const useChallengeProgress = (totalDays = 7) => {
+  const [completedDays, setCompletedDays] = useState&lt;number[]&gt;([]);
+
+  const toggleDayComplete = (day: number) => {
+    setCompletedDays(prev => 
+      prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]
+    );
+  };
+
+  const isFullyComplete = completedDays.length === totalDays;
+  return { completedDays, toggleDayComplete, isFullyComplete };
+};</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-tab-content="impact">
+                                    <div class="metric-outcome-row">
+                                        <div class="metric-box">
+                                            <span class="metric-num">60 fps</span>
+                                            <span class="metric-label">Mobile Render</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">7-Day</span>
+                                            <span class="metric-label">Onboarding Setup</span>
+                                        </div>
+                                        <div class="metric-box">
+                                            <span class="metric-num">Gamified</span>
+                                            <span class="metric-label">State Flow</span>
+                                        </div>
+                                    </div>
+                                    <p class="outcome-explanation">
+                                        Built a high-converting onboarding experience designed to maximize retention by visualizing user completion milestones dynamically with GPU-accelerated node transitions.
+                                    </p>
+                                </div>
+
+                                <div class="project-action-row">
+                                    <button type="button" class="case-study-btn" data-open-case-study="proof" aria-label="View case study for Proof">[ SPECIFICATIONS ]</button>
+                                    <a href="https://proof-7-day-beta.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ LIVE_BETA.EXE ]</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 3: SERVICES (SYSTEM MODULES) -->
+                <section id="system-modules" class="services-section" aria-label="System Capabilities &amp; Services">
+                    <div class="section-header-row">
+                        <h2 class="section-title"><span class="section-num">03.</span> ARCHITECTURAL SYSTEM MODULES</h2>
+                        <span class="system-ping">CORE SKILLS</span>
+                    </div>
+
+                    <div class="services-grid">
+                        
+                        <!-- MODULE 01 -->
+                        <div class="service-card">
+                            <div class="service-top">
+                                <span class="service-code">SYS_MOD_01</span>
+                                <div class="icon-glow">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Full-Stack Web Synthesis</h3>
+                            <p>Scaffolding bulletproof responsive frontends with vanilla frameworks, Next.js systems, optimized render cycles, and clean semantic structures.</p>
+                            <ul class="capability-list">
+                                <li>State Hardening &amp; Memory Safety</li>
+                                <li>Fluid Flexbox/Grid CSS Architecture</li>
+                                <li>Optimized Client-Side Bundling</li>
+                            </ul>
+                        </div>
+
+                        <!-- MODULE 02 -->
+                        <div class="service-card">
+                            <div class="service-top">
+                                <span class="service-code">SYS_MOD_02</span>
+                                <div class="icon-glow">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>AI Co-Pilot Integration</h3>
+                            <p>Supercharging engineering output by integrating prompt constructs, prompt-driven UI scaffolds, and utilizing LLM systems safely without adding technical debt.</p>
+                            <ul class="capability-list">
+                                <li>Prompt Chain Engineering</li>
+                                <li>Context Window Optimization</li>
+                                <li>Rapid Automated Iteration</li>
+                            </ul>
+                        </div>
+
+                        <!-- MODULE 03 -->
+                        <div class="service-card">
+                            <div class="service-top">
+                                <span class="service-code">SYS_MOD_03</span>
+                                <div class="icon-glow">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>High-Fidelity Rapid Prototyping</h3>
+                            <p>Translating conceptual client strategies and paper flowcharts into fully interactive, responsive digital applications that look and feel ready for launch.</p>
+                            <ul class="capability-list">
+                                <li>Interactive Command Shells</li>
+                                <li>Time-critical UX Overhauls</li>
+                                <li>Functional Preview Synthesis</li>
+                            </ul>
+                        </div>
+
+                        <!-- MODULE 04 -->
+                        <div class="service-card">
+                            <div class="service-top">
+                                <span class="service-code">SYS_MOD_04</span>
+                                <div class="icon-glow">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3>Aesthetic Hardening &amp; Micro-UX</h3>
+                            <p>Delivering high-end luxurious visuals through meticulously planned glassmorphism structures, radial gradients, animations, and custom vector patterns.</p>
+                            <ul class="capability-list">
+                                <li>Premium Dark Theme Orchestration</li>
+                                <li>Custom Hardware-Accelerated Timelines</li>
+                                <li>Visual Feedback Systems</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- SECTION 4: HOW I THINK (SYNAPSE PIPELINE) -->
+                <section id="how-i-think" class="thinking-section" aria-label="Development Methodology">
+                    <div class="section-header-row">
+                        <h2 class="section-title"><span class="section-num">04.</span> THE COGNITIVE SYNAPSE PIPELINE</h2>
+                        <span class="system-ping">HOW I THINK</span>
+                    </div>
+
+                    <div class="thinking-container">
+                        <p class="section-intro">
+                            Building high-end products isn't just about typing syntax. It's about a disciplined, AI-strengthened, micro-focused pipeline designed to construct flawless user experiences at lightning speed.
+                        </p>
+                        
+                        <div class="thinking-flowchart">
+                            <!-- Flow Step 1 -->
+                            <div class="flow-node" id="node-deconstruct">
+                                <div class="node-num">STAGE 01</div>
+                                <h4>Deconstruct &amp; Scaffold</h4>
+                                <p>Unpack complex specifications to their atomic user-value items. Map core system parameters and scaffold lightweight, high-performance wireframes.</p>
+                            </div>
+                            
+                            <div class="flow-connector">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="connector-arrow">
+                                    <path d="M5 20H35M35 20L25 10M35 20L25 30" stroke="#00f2fe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+
+                            <!-- Flow Step 2 -->
+                            <div class="flow-node" id="node-synthesize">
+                                <div class="node-num">STAGE 02</div>
+                                <h4>AI-Powered Synthesis</h4>
+                                <p>Execute prompt-driven engine construction. Combine rapid AI generation speed with rigorous human architectural logic review.</p>
+                            </div>
+
+                            <div class="flow-connector">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="connector-arrow">
+                                    <path d="M5 20H35M35 20L25 10M35 20L25 30" stroke="#bd5eff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+
+                            <!-- Flow Step 3 -->
+                            <div class="flow-node" id="node-harden">
+                                <div class="node-num">STAGE 03</div>
+                                <h4>Aesthetic &amp; QA Hardening</h4>
+                                <p>Audit layouts for absolute containment, optimize responsive breakpoints, clean out temporary styling, and polish active interface elements.</p>
+                            </div>
+
+                            <div class="flow-connector">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="connector-arrow">
+                                    <path d="M5 20H35M35 20L25 10M35 20L25 30" stroke="#39ff14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+
+                            <!-- Flow Step 4 -->
+                            <div class="flow-node" id="node-deploy">
+                                <div class="node-num">STAGE 04</div>
+                                <h4>Deployment</h4>
+                                <p>Perform production builds, eliminate layout warnings, enforce metadata compliance, and launch highly reliable digital solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 5: SKILLS MAPPED DIRECTLY TO OUTCOMES -->
+                <section id="skills-matrix" class="skills-matrix-section" aria-label="Skills to Outcomes Matrix">
+                    <div class="section-header-row">
+                        <h2 class="section-title"><span class="section-num">05.</span> SKILLS MAPPED DIRECTLY TO OUTCOMES</h2>
+                        <span class="system-ping">VERIFIED MAPPING</span>
+                    </div>
+
+                    <div class="matrix-container">
+                        <p class="section-intro">
+                            Every capability must map directly to a verified outcome. Here is the operational graph tracing engineering proficiencies to strategic product successes:
+                        </p>
+                        
+                        <div class="matrix-table-wrapper">
+                            <table class="matrix-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">OPERATIONAL SKILL</th>
+                                        <th scope="col">ENGINEERING TRANSLATION</th>
+                                        <th scope="col">STRATEGIC OUTCOME</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="matrix-row" data-skill="ui-dev">
+                                        <td class="skill-name">
+                                            <span class="matrix-dot cyan"></span>
+                                            High-Fidelity CSS Art &amp; Layout
+                                        </td>
+                                        <td class="skill-tech">Vanilla CSS variables, Backdrop filters, responsive subgrids</td>
+                                        <td class="skill-result highlight-cyan">Ultra-premium luxurious UX that captivates and converts users immediately.</td>
+                                    </tr>
+                                    <tr class="matrix-row" data-skill="ai-flow">
+                                        <td class="skill-name">
+                                            <span class="matrix-dot purple"></span>
+                                            AI Co-Pilot Scaffolding
+                                        </td>
+                                        <td class="skill-tech">Context window planning, safe model routing, automated QA checks</td>
+                                        <td class="skill-result highlight-purple">Accelerated delivery timelines with zero baseline technical debt.</td>
+                                    </tr>
+                                    <tr class="matrix-row" data-skill="state-opt">
+                                        <td class="skill-name">
+                                            <span class="matrix-dot green"></span>
+                                            Reactive State Isolation
+                                        </td>
+                                        <td class="skill-tech">Lightweight state containers, selective renders, memory cleanup</td>
+                                        <td class="skill-result highlight-green">Fast responsive actions under 120ms even on resource-constrained mobile phones.</td>
+                                    </tr>
+                                    <tr class="matrix-row" data-skill="qa-harden">
+                                        <td class="skill-name">
+                                            <span class="matrix-dot blue"></span>
+                                            Production Rigor
+                                        </td>
+                                        <td class="skill-tech">Type guards, defensive boundary catches, strict build rules</td>
+                                        <td class="skill-result highlight-blue">100% production-ready deployments with zero visual regressions.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 6: COMMUNICATIONS UPLINK & CONTACT ROUTE -->
+                <section id="secure-uplink" class="contact-section" aria-label="Communications Uplink & Contact Route">
+                    <div class="section-header-row">
+                        <h2 class="section-title"><span class="section-num">06.</span> COMMUNICATIONS UPLINK &amp; CONTACT ROUTE</h2>
+                        <span class="system-ping">VERIFIED ROUTE</span>
+                    </div>
+
+                    <div class="window-panel contact-window">
+                        <div class="window-bar">
+                            <div class="window-actions">
+                                <span class="window-dot red"></span>
+                                <span class="window-dot yellow"></span>
+                                <span class="window-dot green"></span>
+                            </div>
+                            <span class="window-title">COMMUNICATION_CHANNEL:\UPLINK.EXE</span>
+                        </div>
+                        <div class="window-content contact-inner">
+                            <p class="contact-intro">
+                                Prepare your message package below. The local compiler will prepare your payload and provide email dispatch operations.
+                            </p>
+                            
+                            <form id="secure-contact-form" class="contact-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="sender_identity">SENDER IDENTITY (Name) <span class="highlight-cyan">*</span></label>
+                                        <input type="text" id="sender_identity" name="sender_identity" required class="form-input" placeholder="e.g. Founder, CEO, or Reviewer" autocomplete="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="callback_coordinate">CALLBACK COORDINATE (Email) <span class="highlight-cyan">*</span></label>
+                                        <input type="email" id="callback_coordinate" name="callback_coordinate" required class="form-input" placeholder="e.g. contact@domain.com" autocomplete="email">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="communications_payload">COMMUNICATION PAYLOAD (Message) <span class="highlight-cyan">*</span></label>
+                                    <textarea id="communications_payload" name="communications_payload" required class="form-input form-textarea" placeholder="State your requirements, review comments, or project parameters..." rows="5"></textarea>
+                                </div>
+
+                                <div class="form-action-row">
+                                    <div class="form-feedback-console" id="form-console">
+                                        <span class="console-prompt">uplink_status://idle</span>
+                                    </div>
+                                    <button type="submit" id="submit-packet-btn" class="submit-btn" aria-label="Compile communication packet">
+                                        [ COMPILE_MESSAGE.EXE ]
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <!-- OS BOTTOM TASKBAR / SYSTEM FOOTER -->
+        <footer id="os-footer" class="os-footer">
+            <div class="footer-left">
+                <span>SYSTEM REGISTRY: VERIFIED</span>
+                <span class="footer-separator">|</span>
+                <span>CORE LOAD: OPTIMAL</span>
+            </div>
+            <div class="footer-center">
+                <span>© 2026 OLABODE SAMUEL. ALL SYSTEMS CONFIGURED.</span>
+            </div>
+            <div class="footer-right">
+                <span class="connection-status">CYBERNETICS_ONLINE: SECURE_TLS</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- CASE STUDY SLIDE-OUT DRAWER -->
+    <div id="case-study-drawer" class="drawer-container" aria-hidden="true">
+        <div class="drawer-overlay" id="drawer-overlay"></div>
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <span class="drawer-title">SPECIFICATION_SHEET:\CASE_STUDY.SYS</span>
+                <button type="button" class="close-drawer-btn" id="close-drawer-btn" aria-label="Close specifications">&times;</button>
+            </div>
+            <div class="drawer-body" id="drawer-body-content">
+                <!-- dynamically populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Grid Effect Overlay -->
+    <div class="neural-cyber-grid"></div>
+
+    <!-- Custom App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

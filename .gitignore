@@ -1,0 +1,10 @@
+# System & Tooling files
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Cache & logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
