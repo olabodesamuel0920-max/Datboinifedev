@@ -137,22 +137,28 @@
                         <span class="window-title">C:\OS\USER\HERO.SYS [ Creator Profile ]</span>
                     </div>
                     <div class="window-content hero-inner">
-                        <div class="badge" style="background: rgba(0, 242, 254, 0.05); border: 1px solid var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 242, 254, 0.25);">PORTFOLIO OF SAMUEL OLABODE</div>
+                        <div class="badge-strip" style="background: rgba(0, 242, 254, 0.08); border: 1px solid var(--neon-cyan); padding: 8px 12px; margin-bottom: 12px; border-radius: 4px; font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; box-shadow: 0 0 10px rgba(0, 242, 254, 0.15);">
+                            <span class="status-pulse hiring-pulse" style="margin-right: 0;"></span>
+                            <span><strong>I'm Olabode Samuel.</strong> I build premium websites, product demos, dashboards, and digital systems for businesses and founders.</span>
+                        </div>
                         <h1 class="hero-headline" style="margin-top: 8px;">
                             I build digital products that make <span class="highlight-text-cyan">ideas look real.</span><span class="terminal-caret"></span>
                         </h1>
                         <p class="hero-subtext">
-                            I’m Olabode Samuel, a product-minded frontend builder turning rough business ideas into live digital systems. I build live websites, product demos, dashboards, and digital platforms from concept to launch.
+                            I build premium websites, product demos, dashboards, and digital systems for businesses and founders. Fast, polished, and ready to launch.
                         </p>
                         <div class="hero-cta-row">
-                            <a href="#featured-projects" class="cta-btn primary-cta">[ VIEW PROJECTS ]</a>
-                            <a href="#secure-uplink" class="cta-btn secondary-cta">[ HIRE ME ]</a>
+                            <a href="#featured-projects" class="cta-btn primary-cta">[ VIEW LIVE BUILDS ]</a>
+                            <a href="#secure-uplink" class="cta-btn secondary-cta">[ CONTACT ME ]</a>
                             <a href="https://github.com/olabodesamuel0920-max" target="_blank" rel="noopener noreferrer" class="cta-btn github-cta">
                                 <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px; margin-top: -2px;">
                                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                 </svg>
-                                GITHUB.GIT
+                                [ GITHUB ]
                             </a>
+                        </div>
+                        <div class="hero-email-fallback">
+                            Direct Email: <a href="mailto:olabodesamuel0920@gmail.com">olabodesamuel0920@gmail.com</a>
                         </div>
                         <div class="hero-stats-row">
                             <div class="hero-mini-stat">
@@ -316,12 +322,12 @@
                                     <span class="window-dot yellow"></span>
                                     <span class="window-dot green"></span>
                                 </div>
-                                <span class="window-title">BLUEPRINT:\CHIKINI_MONIE.SYS [ Food-Tech Order Demo ]</span>
+                                <span class="window-title">Chikini Monie [ Food Ordering Demo ]</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Chikini Monie summary">📁 SUMMARY (Overview)</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Chikini Monie technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Chikini Monie project impact">⚡ IMPACT (Business Results)</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Chikini Monie summary">Overview</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Chikini Monie technical blueprint">Code Snippet</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Chikini Monie project impact">Results</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -399,8 +405,8 @@ export const BranchStatusCard = ({ branch }) => {
                                 </div>
 
                                 <div class="project-action-row">
-                                    <button type="button" class="case-study-btn" data-open-case-study="chikini" aria-label="View case study for Chikini Monie">[ SPECIFICATIONS ]</button>
-                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ OFFLINE_STAGING.EXE ]</button>
+                                    <button type="button" class="case-study-btn" data-open-case-study="chikini" aria-label="View case study for Chikini Monie">[ VIEW DETAILS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ OFFLINE STAGING ]</button>
                                 </div>
 
                             </div>
@@ -414,12 +420,12 @@ export const BranchStatusCard = ({ branch }) => {
                                     <span class="window-dot yellow"></span>
                                     <span class="window-dot green"></span>
                                 </div>
-                                <span class="window-title">BLUEPRINT:\ARISTO_AFRIKANA.SYS [ Luxury Restaurant Landing ]</span>
+                                <span class="window-title">Aristo Afrikana [ Luxury Restaurant Landing ]</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Aristo Afrikana summary">📁 SUMMARY (Overview)</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Aristo Afrikana technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Aristo Afrikana project impact">⚡ IMPACT (Business Results)</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Aristo Afrikana summary">Overview</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Aristo Afrikana technical blueprint">Code Snippet</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Aristo Afrikana project impact">Results</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -490,8 +496,8 @@ export const BranchStatusCard = ({ branch }) => {
                                 </div>
 
                                 <div class="project-action-row">
-                                    <button type="button" class="case-study-btn" data-open-case-study="aristo" aria-label="View case study for Aristo Afrikana">[ SPECIFICATIONS ]</button>
-                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Client Proposal Staging Only">[ PROPOSAL_STAGING.EXE ]</button>
+                                    <button type="button" class="case-study-btn" data-open-case-study="aristo" aria-label="View case study for Aristo Afrikana">[ VIEW DETAILS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Client Proposal Staging Only">[ PROPOSAL STAGING ]</button>
                                 </div>
 
                             </div>
@@ -505,12 +511,12 @@ export const BranchStatusCard = ({ branch }) => {
                                     <span class="window-dot yellow"></span>
                                     <span class="window-dot green"></span>
                                 </div>
-                                <span class="window-title">BLUEPRINT:\PREDCHAIN.SYS [ Web3 Staking Wallet Demo ]</span>
+                                <span class="window-title">PredChain [ Web3 Staking Wallet Demo ]</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View PredChain summary">📁 SUMMARY (Overview)</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View PredChain technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View PredChain project impact">⚡ IMPACT (Business Results)</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View PredChain summary">Overview</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View PredChain technical blueprint">Code Snippet</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View PredChain project impact">Results</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -583,9 +589,9 @@ export async function executeAtomicSwap(payload: TransactionPayload): Promise&lt
                                 </div>
 
                                 <div class="project-action-row">
-                                    <button type="button" class="case-study-btn" data-open-case-study="predchain" aria-label="View case study for PredChain">[ SPECIFICATIONS ]</button>
-                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Repository Only">[ TOKENS_STAGING.EXE ]</button>
-                                    <a href="https://github.com/olabodesamuel0920-max/predchain" target="_blank" rel="noopener noreferrer" class="repo-link-btn">[ REPOSITORY.GIT ]</a>
+                                    <button type="button" class="case-study-btn" data-open-case-study="predchain" aria-label="View case study for PredChain">[ VIEW DETAILS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Repository Only">[ TOKENS STAGING ]</button>
+                                    <a href="https://github.com/olabodesamuel0920-max/predchain" target="_blank" rel="noopener noreferrer" class="repo-link-btn">[ VIEW GITHUB ]</a>
                                 </div>
 
                             </div>
@@ -599,12 +605,12 @@ export async function executeAtomicSwap(payload: TransactionPayload): Promise&lt
                                     <span class="window-dot yellow"></span>
                                     <span class="window-dot green"></span>
                                 </div>
-                                <span class="window-title">BLUEPRINT:\MAMA_GUARD.SYS [ Maternal Health Portal ]</span>
+                                <span class="window-title">Mama Guard [ Maternal Health Portal ]</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Mama Guard summary">📁 SUMMARY (Overview)</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Mama Guard technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Mama Guard project impact">⚡ IMPACT (Business Results)</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Mama Guard summary">Overview</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Mama Guard technical blueprint">Code Snippet</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Mama Guard project impact">Results</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -679,9 +685,9 @@ export function evaluateVitals(log: HealthLog) {
                                 </div>
 
                                 <div class="project-action-row">
-                                    <button type="button" class="case-study-btn" data-open-case-study="mamaguard" aria-label="View case study for Mama Guard">[ SPECIFICATIONS ]</button>
-                                    <a href="https://guard-pink.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ LIVE_DEMO.EXE ]</a>
-                                    <a href="https://github.com/olabodesamuel0920-max/mamaguard" target="_blank" rel="noopener noreferrer" class="repo-link-btn">[ REPOSITORY.GIT ]</a>
+                                    <button type="button" class="case-study-btn" data-open-case-study="mamaguard" aria-label="View case study for Mama Guard">[ VIEW DETAILS ]</button>
+                                    <a href="https://guard-pink.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ VIEW LIVE SITE ]</a>
+                                    <a href="https://github.com/olabodesamuel0920-max/mamaguard" target="_blank" rel="noopener noreferrer" class="repo-link-btn">[ VIEW GITHUB ]</a>
                                 </div>
 
                             </div>
@@ -695,12 +701,12 @@ export function evaluateVitals(log: HealthLog) {
                                     <span class="window-dot yellow"></span>
                                     <span class="window-dot green"></span>
                                 </div>
-                                <span class="window-title">BLUEPRINT:\BETHEL_SANCTUARY.SYS [ Community Media Portal ]</span>
+                                <span class="window-title">Bethel Portal [ Community Media Portal ]</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Bethel Sanctuary summary">📁 SUMMARY (Overview)</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Bethel Sanctuary technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Bethel Sanctuary project impact">⚡ IMPACT (Business Results)</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Bethel Sanctuary summary">Overview</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Bethel Sanctuary technical blueprint">Code Snippet</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Bethel Sanctuary project impact">Results</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -782,8 +788,8 @@ export class AudioPlayer {
                                 </div>
 
                                 <div class="project-action-row">
-                                    <button type="button" class="case-study-btn" data-open-case-study="bethel" aria-label="View case study for Bethel Portal">[ SPECIFICATIONS ]</button>
-                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ PREVIEW_DEMO.EXE ]</button>
+                                    <button type="button" class="case-study-btn" data-open-case-study="bethel" aria-label="View case study for Bethel Portal">[ VIEW DETAILS ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ PREVIEW DEMO ]</button>
                                 </div>
 
                             </div>
@@ -797,12 +803,12 @@ export class AudioPlayer {
                                     <span class="window-dot yellow"></span>
                                     <span class="window-dot green"></span>
                                 </div>
-                                <span class="window-title">BLUEPRINT:\PROOF_BETA.SYS [ Onboarding Flow Demo ]</span>
+                                <span class="window-title">Proof [ Onboarding Flow Demo ]</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Proof summary">📁 SUMMARY (Overview)</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Proof technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Proof project impact">⚡ IMPACT (Business Results)</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Proof summary">Overview</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Proof technical blueprint">Code Snippet</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Proof project impact">Results</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -888,9 +894,9 @@ export const useChallengeProgress = (totalDays = 7) => {
                                 </div>
 
                                 <div class="project-action-row">
-                                    <button type="button" class="case-study-btn" data-open-case-study="proof" aria-label="View case study for Proof">[ SPECIFICATIONS ]</button>
-                                    <a href="https://proof-7-day-beta.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ LIVE_DEMO.EXE ]</a>
-                                    <a href="https://github.com/olabodesamuel0920-max/proof" target="_blank" rel="noopener noreferrer" class="repo-link-btn">[ REPOSITORY.GIT ]</a>
+                                    <button type="button" class="case-study-btn" data-open-case-study="proof" aria-label="View case study for Proof">[ VIEW DETAILS ]</button>
+                                    <a href="https://proof-7-day-beta.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ VIEW LIVE SITE ]</a>
+                                    <a href="https://github.com/olabodesamuel0920-max/proof" target="_blank" rel="noopener noreferrer" class="repo-link-btn">[ VIEW GITHUB ]</a>
                                 </div>
 
                             </div>
@@ -927,6 +933,7 @@ export const useChallengeProgress = (totalDays = 7) => {
                                 <li>Fluid Flexbox/Grid CSS Architecture</li>
                                 <li>Optimized Client-Side Bundling</li>
                             </ul>
+                            <p class="service-benefit"><strong>How this helps:</strong> You get a fast, responsive website that loads instantly and works perfectly on all devices, keeping visitors engaged.</p>
                         </div>
 
                         <!-- MODULE 02 -->
@@ -946,6 +953,7 @@ export const useChallengeProgress = (totalDays = 7) => {
                                 <li>Context Window Optimization</li>
                                 <li>Rapid Automated Iteration</li>
                             </ul>
+                            <p class="service-benefit"><strong>How this helps:</strong> Speeds up development times dramatically so you can launch your product weeks ahead of schedule.</p>
                         </div>
 
                         <!-- MODULE 03 -->
@@ -966,6 +974,7 @@ export const useChallengeProgress = (totalDays = 7) => {
                                 <li>Time-critical UX Overhauls</li>
                                 <li>Functional Preview Synthesis</li>
                             </ul>
+                            <p class="service-benefit"><strong>How this helps:</strong> Turns your abstract ideas into a clickable, realistic prototype you can show to investors or test with users.</p>
                         </div>
 
                         <!-- MODULE 04 -->
@@ -986,6 +995,7 @@ export const useChallengeProgress = (totalDays = 7) => {
                                 <li>Custom Hardware-Accelerated Timelines</li>
                                 <li>Visual Feedback Systems</li>
                             </ul>
+                            <p class="service-benefit"><strong>How this helps:</strong> Gives your product a premium, world-class feel that builds instant trust and credibility with clients.</p>
                         </div>
 
                     </div>
@@ -1131,17 +1141,17 @@ export const useChallengeProgress = (totalDays = 7) => {
                         </div>
                         <div class="window-content contact-inner">
                             <p class="contact-intro">
-                                Prepare your message package below. The local compiler will prepare your payload and provide email dispatch operations.
+                                Send a direct email to <a href="mailto:olabodesamuel0920@gmail.com" class="highlight-text-cyan">olabodesamuel0920@gmail.com</a> or compile a secure message below to get in touch.
                             </p>
                             
                             <form id="secure-contact-form" class="contact-form">
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="sender_identity">SENDER IDENTITY (Name) <span class="highlight-cyan">*</span></label>
+                                        <label for="sender_identity">SENDER IDENTITY (Your Name) <span class="highlight-cyan">*</span></label>
                                         <input type="text" id="sender_identity" name="sender_identity" required class="form-input" placeholder="e.g. Founder, CEO, or Reviewer" autocomplete="name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="callback_coordinate">CALLBACK COORDINATE (Email) <span class="highlight-cyan">*</span></label>
+                                        <label for="callback_coordinate">CALLBACK COORDINATE (Your Email) <span class="highlight-cyan">*</span></label>
                                         <input type="email" id="callback_coordinate" name="callback_coordinate" required class="form-input" placeholder="e.g. contact@domain.com" autocomplete="email">
                                     </div>
                                 </div>
@@ -1201,6 +1211,11 @@ export const useChallengeProgress = (totalDays = 7) => {
 
     <!-- Background Grid Effect Overlay -->
     <div class="neural-cyber-grid"></div>
+
+    <!-- Back to Top Button -->
+    <button type="button" id="back-to-top" class="back-to-top-btn" aria-label="Scroll to top of the page">
+        [ ↑ BACK_TO_TOP ]
+    </button>
 
     <!-- Custom App Script -->
     <script src="app.js"></script>
