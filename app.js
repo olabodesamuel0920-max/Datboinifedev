@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "  I accelerate development timelines while strictly avoiding technical debt."
         ],
         projects: [
-            "blueprints:// ACTIVE PRODUCTION-READY ARCHITECTURES:",
+            "blueprints:// ACTIVE LAUNCH-FOCUSED ARCHITECTURES:",
             "  1. <span class='highlight-green'>Chikini Monie</span> - Stakeholder-Ready food-tech ordering & kitchen operations demo",
             "  2. <span class='highlight-green'>Aristo Afrikana</span> - Client Proposal restaurant and lounge booking platform",
             "  3. <span class='highlight-green'>PredChain</span> - Experimental predictive blockchain and wallet dashboard",
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "profile:// MAMA GUARD — LIVE BETA",
             "  - Stack: React, Next.js, Offline Caching, Serverless, TailwindCSS",
             "  - Problem: Pregnant mothers in remote regions lack quick, offline-friendly medical guidelines.",
-            "  - What I built: Deployed clinical support portal caching pregnancy logs and clinician checkups offline.",
+            "  - What I built: Deployed maternal safety support portal caching pregnancy logs and clinician checkups offline.",
             "  - Live Beta Link: https://guard-pink.vercel.app/",
             "  Type: <span class='highlight-green'>details mamaguard</span> to open full specifications panel."
         ],
@@ -293,6 +293,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 5B. SYSTEM THEME SWITCHER CONTROLLER ---
+    const themeButtons = document.querySelectorAll('[data-theme-select]');
+    const currentTheme = localStorage.getItem('olabode_os_theme') || 'cyberpunk';
+
+    // Align switcher UI button states with current loaded theme
+    themeButtons.forEach(btn => {
+        const themeName = btn.getAttribute('data-theme-select');
+        if (themeName === currentTheme) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+
+        // Click handler to switch themes
+        btn.addEventListener('click', () => {
+            const selectedTheme = btn.getAttribute('data-theme-select');
+
+            // Apply selected theme to body
+            document.body.setAttribute('data-theme', selectedTheme);
+            localStorage.setItem('olabode_os_theme', selectedTheme);
+
+            // Sync UI active classes
+            themeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Set up clean human-friendly theme names for local trace logging
+            const themeNames = {
+                cyberpunk: "Cyberpunk Cyan",
+                luxury: "Luxury Gold",
+                matrix: "Matrix Green",
+                stealth: "Stealth Mono"
+            };
+            const friendlyName = themeNames[selectedTheme] || selectedTheme;
+
+            // Type local safe accent update diagnostics in main terminal
+            printCliOutput(`sys_theme:// Theme accent layout updated locally to [${friendlyName}].`, true);
+            const line = cliOutputLog.lastChild;
+            if (line && line.classList) {
+                line.classList.add('system');
+            }
+        });
+    });
 
     // --- 6. PROJECT WINDOW TAB SYSTEM ---
     const projectCards = document.querySelectorAll('.project-card');
@@ -395,15 +438,15 @@ document.addEventListener('DOMContentLoaded', () => {
             tagline: "Maternal Health Tracking & Support Platform",
             status: "Live Beta",
             statusClass: "live-beta",
-            problem: "Pregnant mothers in under-resourced regions often lack secure, direct access to trusted clinical guidance, vital sign self-check logs, and rapid emergency service coordinates.",
-            whatIBuilt: "Created an online maternal support portal featuring a responsive symptom analyzer log, a clinical wellness guidelines center, and a quick-action healthcare uplink trigger.",
+            problem: "Pregnant mothers in under-resourced regions often lack secure, direct access to trusted maternal safety guidance, vital sign self-check logs, and rapid emergency service coordinates.",
+            whatIBuilt: "Created an online maternal support portal featuring a responsive symptom analyzer log, a maternal safety guidelines center, and a quick-action healthcare uplink trigger.",
             myRole: "Full-Stack Engineer & Product Builder",
             stack: ["React", "Next.js", "TailwindCSS", "Vercel Serverless Functions"],
             special: "Programmed a highly resilient offline-first caching system so mothers in low-connectivity areas can reliably read vital symptom checklists without internet connection.",
             currentStatus: "Live Beta. Active community evaluation showing positive engagement in maternal logging trials.",
             liveLink: "https://guard-pink.vercel.app/",
             liveLinkLabel: "Launch Live Beta",
-            nextImprovement: "Implement automated SMS notification fallbacks for clinical updates."
+            nextImprovement: "Implement automated SMS notification fallbacks for maternal safety updates."
         },
         bethel: {
             title: "Bethel Portal",
@@ -429,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
             whatIBuilt: "Designed an engaging 7-day challenge onboarding suite. Includes interactive task lists, immediate motivational checkpoints, and clean state progress logs.",
             myRole: "Lead Product & Interaction Engineer",
             stack: ["React", "CSS Variables", "Interactive State Tracking", "GSAP Transitions"],
-            special: "Optimized transitions using GPU-accelerated CSS properties to guarantee absolute fluid 60fps renders even on entry-level mobile devices.",
+            special: "Optimized transitions using GPU-accelerated CSS properties to guarantee absolute fluid, smooth renders even on entry-level mobile devices.",
             currentStatus: "Active public beta testing. Utilized as an onboarding proof-of-concept template.",
             liveLink: "https://proof-7-day-beta.vercel.app/",
             liveLinkLabel: "Launch Live Beta",
@@ -469,33 +512,33 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="drawer-section" style="margin-bottom: 20px;">
-                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ THE PROBLEM ]</h4>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">${data.problem}</p>
+                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ THE PROBLEM (Why it was needed) ]</h4>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">${data.problem}</p>
             </div>
 
             <div class="drawer-section" style="margin-bottom: 20px;">
-                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ WHAT I BUIlT ]</h4>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">${data.whatIBuilt}</p>
+                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ THE SOLUTION (What I built) ]</h4>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">${data.whatIBuilt}</p>
             </div>
 
             <div class="drawer-section" style="margin-bottom: 20px;">
-                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ MY ROLE ]</h4>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">${data.myRole}</p>
+                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ ENGINEERING ROLE ]</h4>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">${data.myRole}</p>
             </div>
 
             <div class="drawer-section" style="margin-bottom: 20px;">
-                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ WHAT MAKES IT SPECIAL ]</h4>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">${data.special}</p>
+                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ SYSTEM INNOVATION (What makes it special) ]</h4>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">${data.special}</p>
             </div>
 
             <div class="drawer-section" style="margin-bottom: 20px;">
-                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ CURRENT STATUS ]</h4>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">${data.currentStatus}</p>
+                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ READINESS STATUS ]</h4>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">${data.currentStatus}</p>
             </div>
 
             <div class="drawer-section" style="margin-bottom: 20px;">
-                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ NEXT IMPROVEMENT ]</h4>
-                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">${data.nextImprovement}</p>
+                <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ FUTURE ROADMAP ]</h4>
+                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.65;">${data.nextImprovement}</p>
             </div>
 
             ${liveButtonHtml}
@@ -621,6 +664,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
             printFormProgress();
         });
+    }
+
+    // --- 10. PREMIUM 3D-LITE PARALLAX FOR HERO WINDOW ---
+    const heroWindow = document.querySelector('.hero-window');
+    if (heroWindow) {
+        const handleMouseMove = (e) => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                heroWindow.style.transform = '';
+                return;
+            }
+
+            const rect = heroWindow.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within element
+            const y = e.clientY - rect.top;  // y position within element
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Calculate rotation values (limit rotation to about 2.5 degrees max)
+            const rotateX = ((centerY - y) / centerY) * 2.5; 
+            const rotateY = ((x - centerX) / centerX) * 2.5;
+            
+            heroWindow.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        };
+
+        const handleMouseLeave = () => {
+            heroWindow.style.transform = '';
+        };
+
+        // Use passive listener to avoid blocking scroll and keep performance buttery smooth
+        heroWindow.addEventListener('mousemove', handleMouseMove, { passive: true });
+        heroWindow.addEventListener('mouseleave', handleMouseLeave, { passive: true });
     }
 
 });

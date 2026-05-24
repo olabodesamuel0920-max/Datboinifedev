@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olabode OS — Living Proof Engine</title>
-    <meta name="description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of production-ready applications. Explore interactive blueprints, verified performance cases, and local sandbox modules.">
+    <meta name="description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of launch-focused applications. Explore interactive blueprints, verified performance cases, and local sandbox modules.">
     <meta name="author" content="Samuel Olabode">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Olabode OS — Living Proof Engine">
-    <meta property="og:description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of production-ready applications.">
+    <meta property="og:description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of launch-focused applications.">
     <meta property="og:image" content="https://samuelolabode.com/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Olabode OS — Living Proof Engine">
-    <meta property="twitter:description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of production-ready applications.">
+    <meta property="twitter:description" content="A premium product-builder command center showcasing Samuel Olabode's portfolio of launch-focused applications.">
 
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="cyber-scanlines">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('olabode_os_theme') || 'cyberpunk';
+            document.body.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
 
     <!-- 1. RETRO-CYBER BOOT SCREEN OVERLAY -->
     <div id="boot-screen" class="boot-screen">
@@ -61,11 +67,11 @@
                 <div class="system-logo">
                     <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <polygon points="50,10 90,80 10,80" stroke="url(#logo-grad)" stroke-width="8" fill="none" />
-                        <circle cx="50" cy="50" r="12" fill="#00f2fe" class="pulse-glow" />
+                        <circle cx="50" cy="50" r="12" fill="var(--neon-cyan)" class="pulse-glow" />
                         <defs>
                             <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#00f2fe" />
-                                <stop offset="100%" stop-color="#bd5eff" />
+                                <stop offset="0%" stop-color="var(--neon-cyan)" />
+                                <stop offset="100%" stop-color="var(--neon-purple)" />
                             </linearGradient>
                         </defs>
                     </svg>
@@ -74,11 +80,11 @@
             </div>
             
             <nav class="top-bar-nav" aria-label="System Quick Links">
-                <a href="#proof-dashboard" class="nav-link"><span class="nav-num">01.</span> DASHBOARD</a>
-                <a href="#featured-projects" class="nav-link"><span class="nav-num">02.</span> BLUEPRINTS</a>
-                <a href="#system-modules" class="nav-link"><span class="nav-num">03.</span> MODULES</a>
-                <a href="#how-i-think" class="nav-link"><span class="nav-num">04.</span> PIPELINE</a>
-                <a href="#secure-uplink" class="nav-link"><span class="nav-num">05.</span> UPLINK</a>
+                <a href="#proof-dashboard" class="nav-link"><span class="nav-num">01.</span> DASHBOARD <span style="font-size: 8px; opacity: 0.6; font-family: var(--font-mono); margin-left: 3px; display: inline-block;">(SYS STATE)</span></a>
+                <a href="#featured-projects" class="nav-link"><span class="nav-num">02.</span> BLUEPRINTS <span style="font-size: 8px; opacity: 0.6; font-family: var(--font-mono); margin-left: 3px; display: inline-block;">(REAL BUILDS)</span></a>
+                <a href="#system-modules" class="nav-link"><span class="nav-num">03.</span> MODULES <span style="font-size: 8px; opacity: 0.6; font-family: var(--font-mono); margin-left: 3px; display: inline-block;">(SERVICES)</span></a>
+                <a href="#how-i-think" class="nav-link"><span class="nav-num">04.</span> PIPELINE <span style="font-size: 8px; opacity: 0.6; font-family: var(--font-mono); margin-left: 3px; display: inline-block;">(WORKFLOW)</span></a>
+                <a href="#secure-uplink" class="nav-link"><span class="nav-num">05.</span> UPLINK <span style="font-size: 8px; opacity: 0.6; font-family: var(--font-mono); margin-left: 3px; display: inline-block;">(CONTACT)</span></a>
             </nav>
 
             <div class="top-bar-right">
@@ -86,6 +92,26 @@
                     <span class="status-pulse"></span>
                     <span class="status-label">ACTIVE / LEKKI, NG</span>
                 </div>
+                
+                <!-- COCKPIT SYSTEM THEME SWITCHER -->
+                <div class="theme-switcher-wrapper">
+                    <span class="switcher-label">THEME:</span>
+                    <div class="theme-buttons-container">
+                        <button type="button" class="theme-btn active" data-theme-select="cyberpunk" title="Cyberpunk Cyan" aria-label="Switch Theme to Cyberpunk Cyan">
+                            <span class="theme-dot cyberpunk"></span>
+                        </button>
+                        <button type="button" class="theme-btn" data-theme-select="luxury" title="Luxury Gold" aria-label="Switch Theme to Luxury Gold">
+                            <span class="theme-dot luxury"></span>
+                        </button>
+                        <button type="button" class="theme-btn" data-theme-select="matrix" title="Matrix Green" aria-label="Switch Theme to Matrix Green">
+                            <span class="theme-dot matrix"></span>
+                        </button>
+                        <button type="button" class="theme-btn" data-theme-select="stealth" title="Stealth Mono" aria-label="Switch Theme to Stealth Mono">
+                            <span class="theme-dot stealth"></span>
+                        </button>
+                    </div>
+                </div>
+
                 <div id="system-clock" class="system-clock">00:00:00 PST</div>
             </div>
         </header>
@@ -107,25 +133,25 @@
                         <span class="window-title">C:\OS\USER\HERO.SYS</span>
                     </div>
                     <div class="window-content hero-inner">
-                        <div class="badge">SYSTEM READY</div>
-                        <h1 class="hero-headline">
-                            I build digital products that make <span class="highlight-text-cyan">ideas look real.</span>
+                        <div class="badge" style="background: rgba(0, 242, 254, 0.05); border: 1px solid var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 242, 254, 0.25);">ENGINEERING PORTFOLIO</div>
+                        <h1 class="hero-headline" style="margin-top: 8px;">
+                            I build digital products that make <span class="highlight-text-cyan">ideas look real.</span><span class="terminal-caret"></span>
                         </h1>
                         <p class="hero-subtext">
-                            Samuel Olabode is a serious product engineer and frontend specialist, synthesizing premium user experiences, robust web architectures, and launch-focused application outcomes.
+                            Live websites, product demos, dashboards, and digital systems built from rough ideas to launch-focused experiences.
                         </p>
                         <div class="hero-stats-row">
                             <div class="hero-mini-stat">
-                                <span class="label">CO-PILOT METHOD</span>
-                                <span class="val">AI-Scaffolded</span>
+                                <span class="label">SPECIALTY</span>
+                                <span class="val" style="color: var(--neon-cyan);">UX & Front-End</span>
                             </div>
                             <div class="hero-mini-stat">
-                                <span class="label">UX SYSTEM</span>
-                                <span class="val">High-Fidelity</span>
+                                <span class="label">WORKFLOW</span>
+                                <span class="val">AI-Supercharged</span>
                             </div>
                             <div class="hero-mini-stat">
-                                <span class="label">BUILD STATE</span>
-                                <span class="val">Launch-Ready</span>
+                                <span class="label">QUALITY INDEX</span>
+                                <span class="val" style="color: var(--neon-green);">Launch Focused</span>
                             </div>
                         </div>
                     </div>
@@ -161,8 +187,8 @@
                 <!-- SECTION 1: PROOF DASHBOARD -->
                 <section id="proof-dashboard" class="dashboard-section" aria-label="Living Proof Dashboard">
                     <div class="section-header-row">
-                        <h2 class="section-title"><span class="section-num">01.</span> LIVING PROOF DASHBOARD</h2>
-                        <span class="system-ping">REAL-TIME LINKED</span>
+                        <h2 class="section-title" title="Real-time capability metrics"><span class="section-num">01.</span> LIVING PROOF DASHBOARD <span style="font-family: var(--font-sans); font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 8px; text-transform: none; letter-spacing: 0;">[ SYSTEM OVERVIEW: Real-Time Development Metrics ]</span></h2>
+                        <span class="system-ping">SYS_LIVE</span>
                     </div>
                     
                     <div class="dashboard-grid">
@@ -262,8 +288,8 @@
                 <!-- SECTION 2: FEATURED PROJECTS (BLUEPRINTS) -->
                 <section id="featured-projects" class="projects-section" aria-label="Featured Product Blueprints">
                     <div class="section-header-row">
-                        <h2 class="section-title"><span class="section-num">02.</span> FEATURED SYSTEM BLUEPRINTS</h2>
-                        <span class="system-ping">INTERACTIVE TILES</span>
+                        <h2 class="section-title" title="Active flagship builds"><span class="section-num">02.</span> FEATURED SYSTEM BLUEPRINTS <span style="font-family: var(--font-sans); font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 8px; text-transform: none; letter-spacing: 0;">[ PORTFOLIO SHOWCASE: Real, Launch-Focused Product Builds ]</span></h2>
+                        <span class="system-ping">REAL_SYSTEMS</span>
                     </div>
 
                     <div class="projects-grid">
@@ -279,9 +305,9 @@
                                 <span class="window-title">BLUEPRINT:\CHIKINI_MONIE.SYS</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Chikini Monie summary">📁 SUMMARY</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Chikini Monie technical blueprint">💻 BLUEPRINT</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Chikini Monie project impact">⚡ IMPACT</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Chikini Monie summary">📁 SUMMARY (Overview)</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Chikini Monie technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Chikini Monie project impact">⚡ IMPACT (Business Results)</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -290,6 +316,27 @@
                                         <h4>Chikini Monie</h4>
                                         <div class="project-meta-badges">
                                             <span class="status-tag stakeholder-ready">Stakeholder-Ready Demo</span>
+                                        </div>
+                                    </div>
+                                    <!-- Visual Preview Block -->
+                                    <div class="project-preview-box">
+                                        <div class="mock-kitchen-grid">
+                                            <div class="mock-kitchen-card">
+                                                <div class="mock-kitchen-header">
+                                                    <span class="mock-kitchen-id">ORDER #1042</span>
+                                                    <span class="mock-kitchen-badge cooking">COOKING</span>
+                                                </div>
+                                                <span class="mock-kitchen-item">Jollof Rice & Grilled Chicken</span>
+                                                <span class="mock-kitchen-time">EST: 4 MINS</span>
+                                            </div>
+                                            <div class="mock-kitchen-card">
+                                                <div class="mock-kitchen-header">
+                                                    <span class="mock-kitchen-id">ORDER #1043</span>
+                                                    <span class="mock-kitchen-badge ready">READY</span>
+                                                </div>
+                                                <span class="mock-kitchen-item">Fried Plantain (Dodo) & Pepper Fish</span>
+                                                <span class="mock-kitchen-time">EST: 0 MINS</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <p class="project-desc">
@@ -356,9 +403,9 @@ export const BranchStatusCard = ({ branch }) => {
                                 <span class="window-title">BLUEPRINT:\ARISTO_AFRIKANA.SYS</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Aristo Afrikana summary">📁 SUMMARY</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Aristo Afrikana technical blueprint">💻 BLUEPRINT</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Aristo Afrikana project impact">⚡ IMPACT</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Aristo Afrikana summary">📁 SUMMARY (Overview)</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Aristo Afrikana technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Aristo Afrikana project impact">⚡ IMPACT (Business Results)</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -367,6 +414,23 @@ export const BranchStatusCard = ({ branch }) => {
                                         <h4>Aristo Afrikana</h4>
                                         <div class="project-meta-badges">
                                             <span class="status-tag client-proposal">Client Proposal Direction</span>
+                                        </div>
+                                    </div>
+                                    <!-- Visual Preview Block -->
+                                    <div class="project-preview-box">
+                                        <div class="mock-luxury-seating">
+                                            <div class="mock-table-slot">
+                                                <span class="mock-table-num">VIP SALON A</span>
+                                                <span class="mock-table-status reserved">RESERVED</span>
+                                            </div>
+                                            <div class="mock-table-slot">
+                                                <span class="mock-table-num">TERRACE 04</span>
+                                                <span class="mock-table-status available">AVAILABLE</span>
+                                            </div>
+                                            <div class="mock-table-slot">
+                                                <span class="mock-table-num">LOUNGE C1</span>
+                                                <span class="mock-table-status reserved">RESERVED</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <p class="project-desc">
@@ -430,9 +494,9 @@ export const BranchStatusCard = ({ branch }) => {
                                 <span class="window-title">BLUEPRINT:\PREDCHAIN.SYS</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View PredChain summary">📁 SUMMARY</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View PredChain technical blueprint">💻 BLUEPRINT</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View PredChain project impact">⚡ IMPACT</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View PredChain summary">📁 SUMMARY (Overview)</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View PredChain technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View PredChain project impact">⚡ IMPACT (Business Results)</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -441,6 +505,27 @@ export const BranchStatusCard = ({ branch }) => {
                                         <h4>PredChain</h4>
                                         <div class="project-meta-badges">
                                             <span class="status-tag experimental">Experimental Build</span>
+                                        </div>
+                                    </div>
+                                    <!-- Visual Preview Block -->
+                                    <div class="project-preview-box">
+                                        <div class="mock-wallet-chart">
+                                            <div class="mock-wallet-header">
+                                                <span class="mock-wallet-addr">ADDR: 0x71F...2b9a</span>
+                                                <span class="mock-wallet-balance">12.4042 ETH</span>
+                                            </div>
+                                            <div class="mock-chart-canvas">
+                                                <div class="mock-chart-bar" style="height: 45%;"></div>
+                                                <div class="mock-chart-bar" style="height: 60%;"></div>
+                                                <div class="mock-chart-bar" style="height: 80%;"></div>
+                                                <div class="mock-chart-bar" style="height: 50%;"></div>
+                                                <div class="mock-chart-bar" style="height: 70%;"></div>
+                                                <div class="mock-chart-bar" style="height: 95%;"></div>
+                                            </div>
+                                            <div class="mock-wallet-footer">
+                                                <span>STAKING POOL A2</span>
+                                                <span>EST. APY: +14.2%</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <p class="project-desc">
@@ -502,9 +587,9 @@ export async function executeAtomicSwap(payload: TransactionPayload): Promise&lt
                                 <span class="window-title">BLUEPRINT:\MAMA_GUARD.SYS</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Mama Guard summary">📁 SUMMARY</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Mama Guard technical blueprint">💻 BLUEPRINT</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Mama Guard project impact">⚡ IMPACT</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Mama Guard summary">📁 SUMMARY (Overview)</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Mama Guard technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Mama Guard project impact">⚡ IMPACT (Business Results)</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -515,8 +600,21 @@ export async function executeAtomicSwap(payload: TransactionPayload): Promise&lt
                                             <span class="status-tag live-beta">Live Beta</span>
                                         </div>
                                     </div>
+                                    <!-- Visual Preview Block -->
+                                    <div class="project-preview-box">
+                                        <div class="mock-vitals-box">
+                                            <div class="mock-vitals-row">
+                                                <span class="mock-vitals-label">BLOOD PRESSURE STATUS</span>
+                                                <span class="mock-vitals-val">120/80 mmHg (NORMAL)</span>
+                                            </div>
+                                            <div class="mock-vitals-row">
+                                                <span class="mock-vitals-label">VITAL WARNING TRIGGER</span>
+                                                <span class="mock-vitals-val elevated">142/95 mmHg (NEEDS ATTENTION)</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <p class="project-desc">
-                                        Maternal health tracking and clinical support platform helping mothers connect with verified wellness logs, guidelines, and emergency coordination.
+                                        Maternal health tracking and maternal safety platform helping mothers connect with verified wellness logs, guidelines, and emergency coordination.
                                     </p>
                                     <div class="project-tags-row">
                                         <span class="p-tag">React</span>
@@ -560,7 +658,7 @@ export function evaluateVitals(log: HealthLog) {
                                         </div>
                                     </div>
                                     <p class="outcome-explanation">
-                                        Developed with strict offline-first loading criteria so mothers in under-resourced regions can reliably check wellness logs and clinical guidelines.
+                                        Developed with strict offline-first loading criteria so mothers in under-resourced regions can reliably check wellness logs and maternal safety guidelines.
                                     </p>
                                 </div>
 
@@ -583,9 +681,9 @@ export function evaluateVitals(log: HealthLog) {
                                 <span class="window-title">BLUEPRINT:\BETHEL_SANCTUARY.SYS</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Bethel Sanctuary summary">📁 SUMMARY</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Bethel Sanctuary technical blueprint">💻 BLUEPRINT</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Bethel Sanctuary project impact">⚡ IMPACT</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Bethel Sanctuary summary">📁 SUMMARY (Overview)</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Bethel Sanctuary technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Bethel Sanctuary project impact">⚡ IMPACT (Business Results)</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -594,6 +692,26 @@ export function evaluateVitals(log: HealthLog) {
                                         <h4>Bethel Portal</h4>
                                         <div class="project-meta-badges">
                                             <span class="status-tag live-demo">Live Demo</span>
+                                        </div>
+                                    </div>
+                                    <!-- Visual Preview Block -->
+                                    <div class="project-preview-box">
+                                        <div class="mock-playback-widget">
+                                            <div class="mock-playback-title">SERMON PLAYBACK: Navigating Dynamic Seasons</div>
+                                            <div class="mock-waves-container">
+                                                <div class="mock-wave-bar"></div>
+                                                <div class="mock-wave-bar"></div>
+                                                <div class="mock-wave-bar"></div>
+                                                <div class="mock-wave-bar"></div>
+                                                <div class="mock-wave-bar"></div>
+                                                <div class="mock-wave-bar"></div>
+                                                <div class="mock-wave-bar"></div>
+                                                <div class="mock-wave-bar"></div>
+                                            </div>
+                                            <div class="mock-playback-timer">
+                                                <span>00:34:12</span>
+                                                <span>01:12:00</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <p class="project-desc">
@@ -665,9 +783,9 @@ export class AudioPlayer {
                                 <span class="window-title">BLUEPRINT:\PROOF_BETA.SYS</span>
                             </div>
                             <div class="project-tabs">
-                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Proof summary">📁 SUMMARY</button>
-                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Proof technical blueprint">💻 BLUEPRINT</button>
-                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Proof project impact">⚡ IMPACT</button>
+                                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View Proof summary">📁 SUMMARY (Overview)</button>
+                                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View Proof technical blueprint">💻 BLUEPRINT (Code Snippet)</button>
+                                <button type="button" class="tab-btn" data-tab="impact" aria-label="View Proof project impact">⚡ IMPACT (Business Results)</button>
                             </div>
                             <div class="window-content project-card-body">
                                 
@@ -676,6 +794,31 @@ export class AudioPlayer {
                                         <h4>Proof</h4>
                                         <div class="project-meta-badges">
                                             <span class="status-tag live-beta">Live Beta</span>
+                                        </div>
+                                    </div>
+                                    <!-- Visual Preview Block -->
+                                    <div class="project-preview-box">
+                                        <div class="mock-milestones-track">
+                                            <div class="mock-milestone-node">
+                                                <div class="mock-node-dot complete">✓</div>
+                                                <span class="mock-node-label">Day 1</span>
+                                            </div>
+                                            <div class="mock-milestone-node">
+                                                <div class="mock-node-dot complete">✓</div>
+                                                <span class="mock-node-label">Day 2</span>
+                                            </div>
+                                            <div class="mock-milestone-node">
+                                                <div class="mock-node-dot active">●</div>
+                                                <span class="mock-node-label active">Day 3</span>
+                                            </div>
+                                            <div class="mock-milestone-node">
+                                                <div class="mock-node-dot">4</div>
+                                                <span class="mock-node-label">Day 4</span>
+                                            </div>
+                                            <div class="mock-milestone-node">
+                                                <div class="mock-node-dot">5</div>
+                                                <span class="mock-node-label">Day 5</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <p class="project-desc">
@@ -710,7 +853,7 @@ export const useChallengeProgress = (totalDays = 7) => {
                                 <div class="tab-content" data-tab-content="impact">
                                     <div class="metric-outcome-row">
                                         <div class="metric-box">
-                                            <span class="metric-num">60 fps</span>
+                                            <span class="metric-num">Smooth</span>
                                             <span class="metric-label">Mobile Render</span>
                                         </div>
                                         <div class="metric-box">
@@ -741,8 +884,8 @@ export const useChallengeProgress = (totalDays = 7) => {
                 <!-- SECTION 3: SERVICES (SYSTEM MODULES) -->
                 <section id="system-modules" class="services-section" aria-label="System Capabilities &amp; Services">
                     <div class="section-header-row">
-                        <h2 class="section-title"><span class="section-num">03.</span> ARCHITECTURAL SYSTEM MODULES</h2>
-                        <span class="system-ping">CORE SKILLS</span>
+                        <h2 class="section-title" title="Engineering capabilities"><span class="section-num">03.</span> ARCHITECTURAL SYSTEM MODULES <span style="font-family: var(--font-sans); font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 8px; text-transform: none; letter-spacing: 0;">[ CORE CAPABILITIES: Premium Services I Provide ]</span></h2>
+                        <span class="system-ping">CAPABILITIES</span>
                     </div>
 
                     <div class="services-grid">
@@ -799,7 +942,7 @@ export const useChallengeProgress = (totalDays = 7) => {
                                 </div>
                             </div>
                             <h3>High-Fidelity Rapid Prototyping</h3>
-                            <p>Translating conceptual client strategies and paper flowcharts into fully interactive, responsive digital applications that look and feel ready for launch.</p>
+                            <p>Translating conceptual client strategies and paper flowcharts into fully interactive, responsive digital applications that look and feel demo-ready.</p>
                             <ul class="capability-list">
                                 <li>Interactive Command Shells</li>
                                 <li>Time-critical UX Overhauls</li>
@@ -833,8 +976,8 @@ export const useChallengeProgress = (totalDays = 7) => {
                 <!-- SECTION 4: HOW I THINK (SYNAPSE PIPELINE) -->
                 <section id="how-i-think" class="thinking-section" aria-label="Development Methodology">
                     <div class="section-header-row">
-                        <h2 class="section-title"><span class="section-num">04.</span> THE COGNITIVE SYNAPSE PIPELINE</h2>
-                        <span class="system-ping">HOW I THINK</span>
+                        <h2 class="section-title" title="Development process flowchart"><span class="section-num">04.</span> THE COGNITIVE SYNAPSE PIPELINE <span style="font-family: var(--font-sans); font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 8px; text-transform: none; letter-spacing: 0;">[ OPERATIONAL PROCESS: How I Turn Ideas Into Working Systems ]</span></h2>
+                        <span class="system-ping">PROCESS</span>
                     </div>
 
                     <div class="thinking-container">
@@ -895,8 +1038,8 @@ export const useChallengeProgress = (totalDays = 7) => {
                 <!-- SECTION 5: SKILLS MAPPED DIRECTLY TO OUTCOMES -->
                 <section id="skills-matrix" class="skills-matrix-section" aria-label="Skills to Outcomes Matrix">
                     <div class="section-header-row">
-                        <h2 class="section-title"><span class="section-num">05.</span> SKILLS MAPPED DIRECTLY TO OUTCOMES</h2>
-                        <span class="system-ping">VERIFIED MAPPING</span>
+                        <h2 class="section-title" title="Skill outcome matrix"><span class="section-num">05.</span> SKILLS MAPPED DIRECTLY TO OUTCOMES <span style="font-family: var(--font-sans); font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 8px; text-transform: none; letter-spacing: 0;">[ TRANSLATION MATRIX: Technical Capabilities vs Business Results ]</span></h2>
+                        <span class="system-ping">OUTCOMES</span>
                     </div>
 
                     <div class="matrix-container">
@@ -944,7 +1087,7 @@ export const useChallengeProgress = (totalDays = 7) => {
                                             Production Rigor
                                         </td>
                                         <td class="skill-tech">Type guards, defensive boundary catches, strict build rules</td>
-                                        <td class="skill-result highlight-blue">100% production-ready deployments with zero visual regressions.</td>
+                                        <td class="skill-result highlight-blue">Launch-focused deployments with zero visual regressions.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -955,8 +1098,8 @@ export const useChallengeProgress = (totalDays = 7) => {
                 <!-- SECTION 6: COMMUNICATIONS UPLINK & CONTACT ROUTE -->
                 <section id="secure-uplink" class="contact-section" aria-label="Communications Uplink & Contact Route">
                     <div class="section-header-row">
-                        <h2 class="section-title"><span class="section-num">06.</span> COMMUNICATIONS UPLINK &amp; CONTACT ROUTE</h2>
-                        <span class="system-ping">VERIFIED ROUTE</span>
+                        <h2 class="section-title" title="Direct contact channels"><span class="section-num">06.</span> COMMUNICATIONS UPLINK &amp; CONTACT ROUTE <span style="font-family: var(--font-sans); font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 8px; text-transform: none; letter-spacing: 0;">[ DIRECT CONNECTION: Hire Me / Start a Project ]</span></h2>
+                        <span class="system-ping">SECURE_CONNECT</span>
                     </div>
 
                     <div class="window-panel contact-window">
