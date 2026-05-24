@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tagline: "Maternal Health Tracking & Support Platform",
             status: "Live Beta",
             statusClass: "live-beta",
-            problem: "Pregnant mothers in under-resourced regions often lack secure, direct access to trusted maternal safety guidance, vital sign self-check logs, and rapid emergency service coordinates.",
+            problem: "Pregnant mothers in under-resourced regions often lack secure, direct access to trusted maternal safety guidance, vital sign self-check logs, and rapid healthcare provider summary and safety guidance.",
             whatIBuilt: "Created an online maternal support portal featuring a responsive symptom analyzer log, a maternal safety guidelines center, and a quick-action healthcare uplink trigger.",
             myRole: "Full-Stack Engineer & Product Builder",
             stack: ["React", "Next.js", "TailwindCSS", "Vercel Serverless Functions"],
