@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (cmdText === 'clear') {
                 cliOutputLog.innerHTML = `
-                    <p class="cli-line muted">Welcome to Olabode OS Command Interface.</p>
+                    <p class="cli-line muted">Welcome to Olabode OS (by Samuel Olabode) Command Interface.</p>
                     <p class="cli-line muted">Type <span class="highlight-green">help</span> to view available system commands.</p>
                 `;
                 return;
@@ -544,6 +544,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ${liveButtonHtml}
         `;
 
+        drawer.style.display = 'block';
+        drawer.offsetHeight; // Force reflow to ensure CSS transitions run smoothly
         drawer.classList.add('active');
         drawer.setAttribute('aria-hidden', 'false');
     }
@@ -552,6 +554,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (drawer) {
             drawer.classList.remove('active');
             drawer.setAttribute('aria-hidden', 'true');
+            // Set display to none after transition completes to remove from layout
+            setTimeout(() => {
+                if (!drawer.classList.contains('active')) {
+                    drawer.style.display = 'none';
+                }
+            }, 400);
         }
     }
 

@@ -16,7 +16,7 @@ async function runVerification() {
 
         const page = await browser.newPage();
 
-        // Target URL is the live production site
+        // Target URL is the production Vercel site
         const targetUrl = 'https://datboinifedev.vercel.app/';
         console.log(`Navigating to target: ${targetUrl}`);
         await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 30000 });
@@ -70,17 +70,115 @@ async function runVerification() {
                 const docWidth = document.documentElement.scrollWidth;
                 const winWidth = window.innerWidth;
                 const bodyWidth = document.body.scrollWidth;
+                const hasOverflow = docWidth > winWidth || bodyWidth > winWidth;
+                
+                const overflowingElements = [];
+                if (hasOverflow) {
+                    const elements = Array.from(document.querySelectorAll('*'));
+                    elements.forEach(el => {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.right > winWidth) {
+                            const path = [];
+                            let parent = el;
+                            while (parent && parent.parentNode) {
+                                let str = parent.nodeName.toLowerCase();
+                                if (parent.id) str += '#' + parent.id;
+                                if (parent.className) str += '.' + Array.from(parent.classList).join('.').replace(/\s+/g, '.');
+                                path.unshift(str);
+                                parent = parent.parentNode;
+                            }
+                            overflowingElements.push({
+                                tag: el.nodeName,
+                                selector: path.join(' > '),
+                                right: rect.right,
+                                width: rect.width
+                            });
+                        }
+                    });
+                }
+                
                 return {
                     docWidth,
                     winWidth,
                     bodyWidth,
-                    hasOverflow: docWidth > winWidth || bodyWidth > winWidth
+                    hasOverflow,
+                    overflowingElements
                 };
             });
 
             console.log(`Viewport: ${width}px | Window width: ${scrollData.winWidth}px | Document scroll width: ${scrollData.docWidth}px`);
             if (scrollData.hasOverflow) {
                 console.warn(`[WARNING] Horizontal scroll detected at viewport ${width}px!`);
+                console.warn('Overflowing elements details:', JSON.stringify(scrollData.overflowingElements, null, 2));
+                
+                // Inspect structural elements sizes
+                const structuralSizes = await page.evaluate(() => {
+                    const selectors = [
+                        'html', 'body', '#os-container', '#os-top-bar', '.top-bar-left', '.top-bar-nav', '.top-bar-right', '.desktop-grid',
+                        '.desktop-left-rail', '.desktop-right-rail',
+                        '#proof-dashboard', '#featured-projects', '#system-modules',
+                        '#how-i-think', '#skills-matrix', '#secure-uplink', '#os-footer', '.footer-left', '.footer-center', '.footer-right', '#case-study-drawer', '.drawer-content'
+                    ];
+                    return selectors.map(sel => {
+                        const el = document.querySelector(sel);
+                        if (!el) return { selector: sel, exists: false };
+                        const rect = el.getBoundingClientRect();
+                        return {
+                            selector: sel,
+                            exists: true,
+                            width: rect.width,
+                            right: rect.right,
+                            clientWidth: el.clientWidth,
+                            scrollWidth: el.scrollWidth,
+                            offsetWidth: el.offsetWidth
+                        };
+                    });
+                });
+                console.warn('Structural elements sizes:');
+                console.warn(JSON.stringify(structuralSizes, null, 2));
+
+                // Find overflowing elements within top-bar
+                const topBarChildren = await page.evaluate(() => {
+                    const topBarEl = document.querySelector('#os-top-bar');
+                    if (!topBarEl) return [];
+                    const children = Array.from(topBarEl.children);
+                    return children.map(el => {
+                        const rect = el.getBoundingClientRect();
+                        return {
+                            tag: el.nodeName,
+                            id: el.id,
+                            className: el.className,
+                            width: rect.width,
+                            right: rect.right,
+                            left: rect.left,
+                            clientWidth: el.clientWidth,
+                            scrollWidth: el.scrollWidth
+                        };
+                    });
+                });
+                console.warn('Top bar direct children:');
+                console.warn(JSON.stringify(topBarChildren, null, 2));
+
+                const topBarOverflows = await page.evaluate(() => {
+                    const topBarRight = document.querySelector('.top-bar-right');
+                    if (!topBarRight) return [];
+                    const allInner = Array.from(topBarRight.querySelectorAll('*'));
+                    return allInner.map(el => {
+                        const rect = el.getBoundingClientRect();
+                        return {
+                            tag: el.nodeName,
+                            id: el.id,
+                            className: el.className,
+                            width: rect.width,
+                            right: rect.right,
+                            left: rect.left,
+                            clientWidth: el.clientWidth,
+                            scrollWidth: el.scrollWidth
+                        };
+                    });
+                });
+                console.warn('Top bar right inner elements:');
+                console.warn(JSON.stringify(topBarOverflows, null, 2));
             } else {
                 console.log(`[PASS] Zero horizontal overflow at viewport ${width}px.`);
             }
