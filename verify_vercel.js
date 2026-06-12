@@ -16,8 +16,8 @@ async function runVerification() {
 
         const page = await browser.newPage();
 
-        // Target URL is the production Vercel site
-        const targetUrl = 'https://datboinifedev.vercel.app/';
+        // Target URL: check if process argument is passed (for local testing)
+        const targetUrl = process.argv[2] || 'http://localhost:3000';
         console.log(`Navigating to target: ${targetUrl}`);
         await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 30000 });
 
@@ -116,7 +116,7 @@ async function runVerification() {
                     const selectors = [
                         'html', 'body', '#os-container', '#os-top-bar', '.top-bar-left', '.top-bar-nav', '.top-bar-right', '.desktop-grid',
                         '.desktop-left-rail', '.desktop-right-rail',
-                        '#proof-dashboard', '#featured-projects', '#system-modules',
+                        '.hero-section-window', '#featured-projects', '#system-modules',
                         '#how-i-think', '#skills-matrix', '#secure-uplink', '#os-footer', '.footer-left', '.footer-center', '.footer-right', '#case-study-drawer', '.drawer-content'
                     ];
                     return selectors.map(sel => {

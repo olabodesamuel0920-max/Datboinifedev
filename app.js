@@ -247,6 +247,52 @@ document.addEventListener('DOMContentLoaded', () => {
         cliOutputLog.scrollTop = cliOutputLog.scrollHeight;
     }
 
+    // --- SIGNATURE HERO DECK CONTROLLER ---
+    const mockupCards = document.querySelectorAll('.mockup-card');
+    
+    function setDeckActive(projectKey) {
+        const targetCard = document.querySelector(`.mockup-card[data-deck-project="${projectKey}"]`);
+        if (!targetCard) return;
+        
+        const styleAttr = targetCard.getAttribute('style') || '';
+        const match = styleAttr.match(/--index:\s*(\d+)/);
+        if (!match) return;
+        const activeIndex = parseInt(match[1]);
+        
+        mockupCards.forEach(card => {
+            card.classList.remove('active', 'deck-pos-1', 'deck-pos-2');
+            const cardStyle = card.getAttribute('style') || '';
+            const cardMatch = cardStyle.match(/--index:\s*(\d+)/);
+            if (!cardMatch) return;
+            const cardIndex = parseInt(cardMatch[1]);
+            
+            if (cardIndex === activeIndex) {
+                card.classList.add('active');
+            } else if (cardIndex === (activeIndex + 1) % 3) {
+                card.classList.add('deck-pos-1');
+            } else if (cardIndex === (activeIndex + 2) % 3) {
+                card.classList.add('deck-pos-2');
+            }
+        });
+    }
+
+    // Initialize initial state deck-pos classes
+    setDeckActive('mamaguard');
+    
+    mockupCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectKey = card.getAttribute('data-deck-project');
+            setDeckActive(projectKey);
+            
+            // Also print update to terminal
+            printCliOutput(`sys_deck:// Focused deck project mockup [${projectKey.toUpperCase()}].`, true);
+            const line = cliOutputLog.lastChild;
+            if (line && line.classList) {
+                line.classList.add('system');
+            }
+        });
+    });
+
     if (cliForm) {
         cliForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -286,6 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 cliCommands[cmdText].forEach(line => {
                     printCliOutput(line, true);
                 });
+                
+                // Trigger mockup deck rotation for active projects
+                if (['mamaguard', 'chikini', 'bethel'].includes(cmdText)) {
+                    setDeckActive(cmdText);
+                }
             } else {
                 printCliOutput(`cli_error:// Command not found: '${cmdText}'. Type 'help' for instructions.`, false);
                 const line = cliOutputLog.lastChild;
