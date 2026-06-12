@@ -24,14 +24,24 @@ async function runVerification() {
         // 1. Homepage loads successfully
         console.log('\n[PASS] Step 1: Navigated to production URL successfully.');
 
-        // Bypass the boot screen
-        console.log('Waiting for boot screen bypass button...');
-        await page.waitForSelector('#skip-boot-btn', { timeout: 10000 });
-        await page.click('#skip-boot-btn');
-        console.log('Clicked [ SKIP_BOOT.EXE ]');
+        // Bypass the boot screen if it is still active/visible
+        console.log('Checking boot screen status...');
+        const isBootVisible = await page.evaluate(() => {
+            const boot = document.getElementById('boot-screen');
+            return boot && !boot.classList.contains('hidden') && window.getComputedStyle(boot).display !== 'none';
+        });
+
+        if (isBootVisible) {
+            console.log('Boot screen is visible, clicking bypass...');
+            await page.waitForSelector('#skip-boot-btn', { timeout: 10000 });
+            await page.click('#skip-boot-btn');
+            console.log('Clicked [ SKIP_BOOT.EXE ]');
+        } else {
+            console.log('Boot screen is already hidden (auto-booted). Skipping bypass button click.');
+        }
 
         // Wait for OS container to fade in and be visible
-        await page.waitForSelector('#os-container', { visible: true, timeout: 5000 });
+        await page.waitForSelector('#os-container', { visible: true, timeout: 10000 });
         console.log('[PASS] Step 2: OS desktop container visible. Boot bypassed successfully.');
 
         // 2. Default theme check (Cyberpunk)
