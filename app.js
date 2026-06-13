@@ -444,44 +444,44 @@ document.addEventListener('DOMContentLoaded', () => {
             tagline: "Premium Food-Tech Ordering & Operations Demo",
             status: "Stakeholder-Ready Demo",
             statusClass: "stakeholder-ready",
-            problem: "Traditional restaurant operations suffer from disconnected systems between customer table ordering, kitchen status boards, and manager analytics, leading to service delays and fragmented operational data.",
-            whatIBuilt: "An end-to-end hospitality operations prototype. Engineered a multi-role layout consisting of a customer menu selector and order coordinator, a real-time kitchen queue view, a staff schedule board, and an administrative analytics dashboard.",
-            myRole: "Solo Product Architect & Frontend Engineer",
+            problem: "Quick-service food enterprises in high-volume settings struggle with synchronization latency between point-of-sale systems, kitchen preparation status logs, and administrative inventory trackers. This leads to operational bottlenecks, wrong orders, and untracked ingredient utilization.",
+            whatIBuilt: "Architected a unified hospitality operations simulator. Created three synchronized workspaces: a customer digital menu catalog for order dispatch, an administrative kitchen terminal queue tracking ticket ages, and a manager dashboard presenting real-time business health indicators.",
+            myRole: "Solo Product Architect & Frontend Engineer. Conceived the visual design system, set up the global state orchestrator, and programmed the real-time simulation queues.",
             stack: ["React", "TailwindCSS", "State Isolation", "Status Checker"],
-            special: "Designed with a strict operational safety framework, featuring an offline-first branch status monitor that safely checks network connection state before initiating data transactions.",
-            currentStatus: "Stable stakeholder preview. Deployed as a verification model for operational feasibility studies.",
-            liveLink: "",
-            liveLinkLabel: "Offline Review Staging",
-            nextImprovement: "Implement WebSocket state channels for instant kitchen-to-staff notifications."
+            special: "Features an integrated offline-first branch network health monitor. The application performs defensive connectivity handshakes before executing data state transitions, preventing local queues from breaking during simulated dropouts.",
+            currentStatus: "Staging demo deployed to Vercel. Fully optimized for customer reviews and operational walkthroughs.",
+            liveLink: "https://chikini-monie-one.vercel.app/",
+            liveLinkLabel: "Launch Live Demo",
+            nextImprovement: "Connect to local node endpoints to test webhooks and persistent state storage using Redis queues."
         },
         aristo: {
             title: "Aristo Afrikana",
-            tagline: "Premium Restaurant Website & Luxury Digital upgrade",
+            tagline: "Premium Restaurant Website & Luxury Digital Upgrade",
             status: "Client Proposal Direction",
             statusClass: "client-proposal",
-            problem: "Luxury dining brands require digital interfaces that mirror their physical hospitality standards. Generic booking platforms or template websites dilute brand prestige and fail to convert premium patrons.",
-            whatIBuilt: "Synthesized a luxury-tier digital presence. Created three discrete booking experience funnels (Fine Dining, Lounge reservations, and Cultural/Gaming events) tied together by subtle parallax effects and modern custom vectors.",
-            myRole: "Lead UI Developer & Brand Synthesizer",
+            problem: "Bespoke fine-dining and cultural brands require digital portals that match the premium visual and tactile standards of their physical establishments. Standard pre-packaged booking tools or low-tier templates fail to communicate prestige and lead to low booking conversion rates.",
+            whatIBuilt: "Created a premium digital brand portal for Aristo Afrikana. Built an immersive visual landing page featuring bespoke layout structures, a multi-tier reservation pipeline (Fine Dining, Lounge reservations, and Event tickets), and sleek parallax interactions.",
+            myRole: "Lead UI/UX Developer & Brand Strategist. Engineered the custom layout structures, set up the CSS token system, and optimized graphic assets for rapid browser loading.",
             stack: ["HTML5", "Vanilla CSS3", "Javascript (ES6)", "Custom CSS Variables"],
-            special: "100% bespoke CSS styling without bulky external component libraries, achieving extremely fast load indices and absolute visual fidelity on all mobile viewports.",
-            currentStatus: "Staging sandbox proposal delivered to management stakeholders for brand alignment validation.",
-            liveLink: "",
+            special: "Authored 100% custom CSS code without any third-party framework layout overhead (like Bootstrap or Tailwind). The entire site maintains lightweight, sub-second visual load performance indices and scales responsively on viewports down to 320px.",
+            currentStatus: "Staging sandbox proposal live on Vercel, demonstrating design viability to target client stakeholders.",
+            liveLink: "https://aristo-africana.vercel.app/",
             liveLinkLabel: "Proposal Sandbox Preview",
-            nextImprovement: "Integrate a 3D interactive table selector using WebGL/Three.js."
+            nextImprovement: "Implement an interactive digital table reservation engine using customized SVG maps."
         },
         predchain: {
             title: "PredChain",
             tagline: "Experimental Predictive Blockchain Pool Dashboard",
             status: "Experimental Build",
             statusClass: "experimental",
-            problem: "Web3 predictive markets are frequently hindered by cluttered, text-heavy data visualizations and poor defensive error handling during high-velocity user interactions.",
+            problem: "Web3 predictive pools and decentralized staking applications require deep technical clarity, yet most dashboards overload the user with complex charts and fail to handle network errors gracefully during high-velocity state changes.",
             whatIBuilt: "Constructed a high-fidelity prediction pool management dashboard featuring reactive pool statistics, staking analytics graphs, and interactive contract validation triggers.",
-            myRole: "Frontend Developer & Interface Hardener",
+            myRole: "Frontend Developer & Interface Hardener. Integrated the state machine, styled interactive chart components, and implemented error-handling screens.",
             stack: ["TypeScript", "Next.js", "Atomic State Isolation", "TailwindCSS"],
             special: "Engineered strict atomic state isolation guards inside the frontend container to securely simulate block transactions and prevent race-condition UI regressions.",
             currentStatus: "Functional experimental repository. Verified and frozen as a master design token reference point.",
-            liveLink: "",
-            liveLinkLabel: "Repository Token Staging",
+            liveLink: "https://predchain.vercel.app/",
+            liveLinkLabel: "Launch Live Site",
             nextImprovement: "Connect direct wallet providers (MetaMask, WalletConnect) to EVM testnet pools."
         },
         mamaguard: {
@@ -489,45 +489,46 @@ document.addEventListener('DOMContentLoaded', () => {
             tagline: "Maternal Health Tracking & Support Platform",
             status: "Live Beta",
             statusClass: "live-beta",
-            problem: "Pregnant mothers in under-resourced regions often lack secure, direct access to trusted maternal safety guidance, vital sign self-check logs, and rapid healthcare provider summary and safety guidance.",
-            whatIBuilt: "Created an online maternal support portal featuring a responsive symptom analyzer log, a maternal safety guidelines center, and a quick-action healthcare uplink trigger.",
-            myRole: "Full-Stack Engineer & Product Builder",
+            problem: "In low-income and under-resourced medical environments, pregnant mothers face significant challenges tracking pregnancy milestones, identifying dangerous symptoms, and coordinating timely contact with clinical providers. Fragmented health education and lack of instant, offline-capable digital logs lead to delayed care and avoidable prenatal risks.",
+            whatIBuilt: "Engineered Mama Guard, an interactive maternal support simulator and patient portal. Built a responsive vital health symptom logger, a guidelines lookup dashboard, and a provider summary dashboard that simulates data syncs. Designed as a high-fidelity patient-facing interface to model how critical symptoms can be structured and communicated to clinicians under varying bandwidth constraints.",
+            myRole: "Solo Frontend Architect & System Designer. Responsible for prototyping the complete client-side simulation, designing the dashboard data structures, setting up local state tracking, and building the user interaction flow.",
             stack: ["React", "Next.js", "TailwindCSS", "Vercel Serverless Functions"],
-            special: "Programmed a highly resilient offline-first caching system so mothers in low-connectivity areas can reliably read vital symptom checklists without internet connection.",
-            currentStatus: "Live Beta. Active community evaluation showing positive engagement in maternal logging trials.",
+            special: "Engineered an offline-first service architecture utilizing service caching simulations, allowing the client-side system to load educational safety checklists and previous symptom logs without an active internet connection. Programmed automatic queue sync triggers that mock data dispatch as soon as the simulated network is restored.",
+            currentStatus: "Technical verification prototype and high-fidelity simulator. Active demo deployed to Vercel for stakeholder reviews and UI/UX validation.",
             liveLink: "https://guard-pink.vercel.app/",
             liveLinkLabel: "Launch Live Beta",
-            nextImprovement: "Implement automated SMS notification fallbacks for maternal safety updates."
+            nextImprovement: "Refine simulated offline queues with a local IndexedDB store and implement a secure SMS fallback engine for offline alert delivery.",
+            disclaimer: "IMPORTANT SAFETY & PROTOTYPE DISCLAIMER: Mama Guard is a high-fidelity diagnostic simulation and interactive prototype built for technology verification. It is NOT a medical-grade or HIPAA-compliant system, does not diagnose or treat medical conditions, and should not be used as a substitute for professional clinical guidance or emergency services."
         },
         bethel: {
             title: "Bethel Portal",
             tagline: "Unified Community Portal & Media Hub",
             status: "Live Demo",
             statusClass: "live-demo",
-            problem: "Modern spiritual communities struggle to organize digital sermon databases, media streaming playbacks, weekly event bullet registries, and community coordinates within one central hub.",
-            whatIBuilt: "Developed a premium, unified church portal incorporating searchable media distribution playlists, interactive announcements, and coordinate administration registers.",
-            myRole: "Solo Developer",
+            problem: "Local faith and community organizations often lack unified web spaces to archive weekly media, broadcast streams, organize coordinates, and manage weekly calendars, resulting in fragmented communication across external third-party platforms.",
+            whatIBuilt: "Developed a unified community media portal. Integrated a custom audio playback queue with interactive waveforms, a searchable media archive, a digital bulletin registry, and community contact logs.",
+            myRole: "Solo Full-Stack Developer. Designed the database structure (simulated), frontend architecture, and custom audio playback hooks.",
             stack: ["HTML5", "Vanilla CSS3", "Javascript (ES6)", "Local Playback Stream APIs"],
-            special: "Engineered a persistent media player that caches current sermon playback elapsed times locally, allowing users to resume media playback effortlessly.",
-            currentStatus: "Staging production build verified and optimized for church administrative evaluation.",
+            special: "Features a custom local state playback tracker. The sermon player remembers user positions across refreshes, providing a seamless resume function without database overhead.",
+            currentStatus: "Functional staging production build verified and optimized for church administrative evaluation.",
             liveLink: "",
-            liveLinkLabel: "Live Demo Preview",
-            nextImprovement: "Incorporate real-time prayer coordinate request loops with staff SMS alerts."
+            liveLinkLabel: "Staging Preview Locked",
+            nextImprovement: "Integrate live stream video API endpoints and a real-time event notice bulletin."
         },
         proof: {
             title: "Proof",
             tagline: "Premium Gamified 7-Day Challenge Suite",
             status: "Live Beta",
             statusClass: "live-beta",
-            problem: "Modern web products experience high drop-off during user onboarding due to dull, multi-step registration forms and a lack of immediate interactive feedback.",
-            whatIBuilt: "Designed an engaging 7-day challenge onboarding suite. Includes interactive task lists, immediate motivational checkpoints, and clean state progress logs.",
-            myRole: "Lead Product & Interaction Engineer",
+            problem: "Modern software platforms suffer from severe drop-offs during the initial 7 days of onboarding because user registrations are typically dry, multi-step, and lack immediate interactive feedback and validation.",
+            whatIBuilt: "Designed and developed Proof, an onboarding validation prototype that gamifies a user's first 7 days. Built a milestone tracker, interactive task lists with reactive feedback loops, and an integrated progress metric gauge.",
+            myRole: "Lead Product & Interaction Engineer. Authored the step-by-step state machine, designed interactive animations, and verified responsive layouts.",
             stack: ["React", "CSS Variables", "Interactive State Tracking", "GSAP Transitions"],
-            special: "Optimized transitions using GPU-accelerated CSS properties to guarantee absolute fluid, smooth renders even on entry-level mobile devices.",
-            currentStatus: "Active public beta testing. Utilized as an onboarding proof-of-concept template.",
+            special: "Utilized hardware-accelerated CSS and optimized requestAnimationFrame hooks to keep animation pipelines running at 60fps even on mobile devices.",
+            currentStatus: "Stable beta demo live on Vercel, functioning as a reusable onboarding pattern blueprint.",
             liveLink: "https://proof-7-day-beta.vercel.app/",
             liveLinkLabel: "Launch Live Beta",
-            nextImprovement: "Integrate user behavior analytics pipelines to audit onboarding drop-off points."
+            nextImprovement: "Implement user behavior cohort analytics to trace milestone drop-off points."
         }
     };
 
@@ -550,6 +551,35 @@ document.addEventListener('DOMContentLoaded', () => {
             liveButtonHtml = `<button type="button" class="live-link-btn disabled-btn" style="display: block; width: 100%; text-align: center; margin-top: 24px; padding: 12px; font-size: 11px;" disabled>[ ${data.liveLinkLabel.toUpperCase()} ]</button>`;
         }
 
+        let disclaimerHtml = '';
+        if (data.disclaimer) {
+            disclaimerHtml = `
+                <div class="drawer-section disclaimer-box" style="margin-bottom: 20px; padding: 12px; border: 1px solid #ff5f56; background: rgba(255, 95, 86, 0.05); border-radius: 4px;">
+                    <h4 style="font-family: var(--font-mono); font-size: 9px; color: #ff5f56; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ SAFETY & PROTOTYPE DISCLAIMER ]</h4>
+                    <p style="font-size: 11px; color: #ff8882; line-height: 1.5; font-family: var(--font-mono);">${data.disclaimer}</p>
+                </div>
+            `;
+        }
+
+        let screenshotsHtml = '';
+        if (projectKey !== 'bethel') {
+            screenshotsHtml = `
+                <div class="drawer-section" style="margin-bottom: 20px;">
+                    <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ PROJECT SCREENSHOTS (Click to enlarge) ]</h4>
+                    <div class="drawer-media-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
+                        <div class="drawer-media-card" style="border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden; background: rgba(0, 0, 0, 0.3); cursor: pointer;">
+                            <img src="assets/projects/${projectKey}/desktop.webp" alt="${data.title} Desktop Screenshot" class="screenshot-img" style="width: 100%; height: auto; aspect-ratio: 1440/900; object-fit: cover; display: block;" loading="lazy">
+                            <div style="font-family: var(--font-mono); font-size: 8px; color: var(--text-muted); padding: 4px 6px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">DESKTOP VIEW</div>
+                        </div>
+                        <div class="drawer-media-card" style="border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden; background: rgba(0, 0, 0, 0.3); cursor: pointer;">
+                            <img src="assets/projects/${projectKey}/mobile.webp" alt="${data.title} Mobile Screenshot" class="screenshot-img" style="width: 100%; height: auto; aspect-ratio: 375/800; object-fit: cover; display: block;" loading="lazy">
+                            <div style="font-family: var(--font-mono); font-size: 8px; color: var(--text-muted); padding: 4px 6px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">MOBILE VIEW</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
         drawerBodyContent.innerHTML = `
             <div class="drawer-project-meta" style="margin-bottom: 24px;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px;">
@@ -561,6 +591,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${tagsHtml}
                 </div>
             </div>
+
+            ${disclaimerHtml}
+
+            ${screenshotsHtml}
 
             <div class="drawer-section" style="margin-bottom: 20px;">
                 <h4 style="font-family: var(--font-mono); font-size: 9px; color: var(--neon-purple); letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase;">[ THE PROBLEM (Why it was needed) ]</h4>
@@ -599,6 +633,9 @@ document.addEventListener('DOMContentLoaded', () => {
         drawer.offsetHeight; // Force reflow to ensure CSS transitions run smoothly
         drawer.classList.add('active');
         drawer.setAttribute('aria-hidden', 'false');
+        
+        // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeCaseStudy() {
@@ -611,6 +648,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     drawer.style.display = 'none';
                 }
             }, 400);
+
+            // Restore body scroll only if lightbox is closed
+            const lightbox = document.getElementById('media-lightbox');
+            if (!lightbox || !lightbox.classList.contains('active')) {
+                document.body.style.overflow = '';
+            }
         }
     }
 
@@ -624,9 +667,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeCaseStudy);
     if (drawerOverlay) drawerOverlay.addEventListener('click', closeCaseStudy);
+    
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeCaseStudy();
+        if (e.key === 'Escape') {
+            const lightbox = document.getElementById('media-lightbox');
+            if (lightbox && lightbox.classList.contains('active')) {
+                // Let lightbox escape handler handle it first
+                return;
+            }
+            closeCaseStudy();
+        }
     });
+
+    // --- 8.5. LIGHTBOX IMAGES MODULE ---
+    const lightbox = document.getElementById('media-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+    if (lightbox && lightboxImg && lightboxCaption && lightboxCloseBtn) {
+        document.body.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.screenshot-img');
+            if (trigger) {
+                const src = trigger.getAttribute('src');
+                if (!src) return;
+
+                e.preventDefault();
+                
+                const altText = trigger.getAttribute('alt') || 'Project Preview';
+                
+                lightboxImg.src = src;
+                lightboxCaption.textContent = altText;
+                
+                lightbox.style.display = 'flex';
+                lightbox.offsetHeight; // Force reflow
+                lightbox.classList.add('active');
+                lightbox.setAttribute('aria-hidden', 'false');
+                
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            setTimeout(() => {
+                if (!lightbox.classList.contains('active')) {
+                    lightbox.style.display = 'none';
+                    lightboxImg.src = '';
+                }
+            }, 300);
+            
+            // Restore scrolling unless drawer is still active
+            if (!drawer || !drawer.classList.contains('active')) {
+                document.body.style.overflow = '';
+            }
+        };
+
+        lightboxCloseBtn.addEventListener('click', closeLightbox);
+        lightbox.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+                e.stopPropagation();
+            }
+        });
+    }
 
     // --- 9. SECURE COMMUNICATIONS CONTACT UPLINK TRANSMITTER ---
     const contactForm = document.getElementById('secure-contact-form');

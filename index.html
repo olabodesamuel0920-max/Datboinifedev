@@ -262,6 +262,7 @@
                         <h2 class="section-title" title="Active flagship builds"><span class="section-num">02.</span> SELECTED WORK <span class="section-subtitle">[ Projects: Real, Working Applications I Have Built ]</span></h2>
                         <span class="system-ping">REAL_SYSTEMS</span>
                     </div>
+                    <p class="section-trust-line">These are live builds, demos, and client-facing prototypes created to show how ideas can become working digital products.</p>
 
                     <div class="projects-stack">
                         
@@ -287,15 +288,20 @@
                                         <div class="project-preview-col">
                                             <!-- Visual Preview Area -->
                                             <div class="project-preview-box">
-                                                <div class="mock-vitals-box">
-                                                    <div class="mock-vitals-row">
-                                                        <span class="mock-vitals-label">BLOOD PRESSURE STATUS</span>
-                                                        <span class="mock-vitals-val">120/80 mmHg (NORMAL)</span>
+                                                <div class="device-frame-desktop">
+                                                    <div class="device-header">
+                                                        <span class="device-dot red"></span>
+                                                        <span class="device-dot yellow"></span>
+                                                        <span class="device-dot green"></span>
+                                                        <span class="device-tab-title">MAMA_GUARD [ Live Beta ]</span>
                                                     </div>
-                                                    <div class="mock-vitals-row">
-                                                        <span class="mock-vitals-label">VITAL WARNING TRIGGER</span>
-                                                        <span class="mock-vitals-val elevated">142/95 mmHg (NEEDS ATTENTION)</span>
+                                                    <img src="assets/projects/mamaguard/desktop.webp" alt="Mama Guard Maternal Safety Portal Desktop Interface" class="screenshot-img" loading="lazy" width="1440" height="900">
+                                                </div>
+                                                <div class="device-frame-mobile">
+                                                    <div class="device-header">
+                                                        <span class="device-tab-title">MAMA_GUARD</span>
                                                     </div>
+                                                    <img src="assets/projects/mamaguard/mobile.webp" alt="Mama Guard Maternal Safety Portal Mobile Interface" class="screenshot-img" loading="lazy" width="375" height="800">
                                                 </div>
                                             </div>
                                         </div>
@@ -397,23 +403,20 @@ export function evaluateVitals(log: HealthLog) {
                                         <div class="project-preview-col">
                                             <!-- Visual Preview Area -->
                                             <div class="project-preview-box">
-                                                <div class="mock-kitchen-grid">
-                                                    <div class="mock-kitchen-card">
-                                                        <div class="mock-kitchen-header">
-                                                            <span class="mock-kitchen-id">ORDER #1042</span>
-                                                            <span class="mock-kitchen-badge cooking">COOKING</span>
-                                                        </div>
-                                                        <span class="mock-kitchen-item">Jollof Rice & Grilled Chicken</span>
-                                                        <span class="mock-kitchen-time">EST: 4 MINS</span>
+                                                <div class="device-frame-desktop">
+                                                    <div class="device-header">
+                                                        <span class="device-dot red"></span>
+                                                        <span class="device-dot yellow"></span>
+                                                        <span class="device-dot green"></span>
+                                                        <span class="device-tab-title">CHIKINI_MONIE [ Food-Tech ]</span>
                                                     </div>
-                                                    <div class="mock-kitchen-card">
-                                                        <div class="mock-kitchen-header">
-                                                            <span class="mock-kitchen-id">ORDER #1043</span>
-                                                            <span class="mock-kitchen-badge ready">READY</span>
-                                                        </div>
-                                                        <span class="mock-kitchen-item">Fried Plantain (Dodo) & Pepper Fish</span>
-                                                        <span class="mock-kitchen-time">EST: 0 MINS</span>
+                                                    <img src="assets/projects/chikini/desktop.webp" alt="Chikini Monie Kitchen Operations System Desktop Interface" class="screenshot-img" loading="lazy" width="1440" height="900">
+                                                </div>
+                                                <div class="device-frame-mobile">
+                                                    <div class="device-header">
+                                                        <span class="device-tab-title">CHIKINI</span>
                                                     </div>
+                                                    <img src="assets/projects/chikini/mobile.webp" alt="Chikini Monie Kitchen Operations System Mobile Interface" class="screenshot-img" loading="lazy" width="375" height="800">
                                                 </div>
                                             </div>
                                         </div>
@@ -481,7 +484,7 @@ export const BranchStatusCard = ({ branch }) => {
 
                                 <div class="project-action-row">
                                     <button type="button" class="case-study-btn" data-open-case-study="chikini" aria-label="View case study for Chikini Monie">[ VIEW DETAILS ]</button>
-                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ OFFLINE STAGING ]</button>
+                                    <a href="https://chikini-monie-one.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ VIEW LIVE SITE ]</a>
                                 </div>
 
                             </div>
@@ -509,21 +512,31 @@ export const BranchStatusCard = ({ branch }) => {
                                         <div class="project-preview-col">
                                             <!-- Visual Preview Area -->
                                             <div class="project-preview-box">
-                                                <div class="mock-playback-widget">
-                                                    <div class="mock-playback-title">SERMON PLAYBACK: Navigating Dynamic Seasons</div>
-                                                    <div class="mock-waves-container">
-                                                        <div class="mock-wave-bar"></div>
-                                                        <div class="mock-wave-bar"></div>
-                                                        <div class="mock-wave-bar"></div>
-                                                        <div class="mock-wave-bar"></div>
-                                                        <div class="mock-wave-bar"></div>
-                                                        <div class="mock-wave-bar"></div>
-                                                        <div class="mock-wave-bar"></div>
-                                                        <div class="mock-wave-bar"></div>
+                                                <div class="device-frame-desktop">
+                                                    <div class="device-header">
+                                                        <span class="device-dot red"></span>
+                                                        <span class="device-dot yellow"></span>
+                                                        <span class="device-dot green"></span>
+                                                        <span class="device-tab-title">BETHEL_PORTAL [ Streaming ]</span>
                                                     </div>
-                                                    <div class="mock-playback-timer">
-                                                        <span>00:34:12</span>
-                                                        <span>01:12:00</span>
+                                                    <div class="mock-playback-widget-wrapper" style="padding: 24px; background: rgba(5, 5, 8, 0.9); height: 100%; display: flex; align-items: center; justify-content: center; width: 100%;">
+                                                        <div class="mock-playback-widget" style="width: 100%;">
+                                                            <div class="mock-playback-title">SERMON PLAYBACK: Navigating Dynamic Seasons</div>
+                                                            <div class="mock-waves-container">
+                                                                <div class="mock-wave-bar"></div>
+                                                                <div class="mock-wave-bar"></div>
+                                                                <div class="mock-wave-bar"></div>
+                                                                <div class="mock-wave-bar"></div>
+                                                                <div class="mock-wave-bar"></div>
+                                                                <div class="mock-wave-bar"></div>
+                                                                <div class="mock-wave-bar"></div>
+                                                                <div class="mock-wave-bar"></div>
+                                                            </div>
+                                                            <div class="mock-playback-timer">
+                                                                <span>00:34:12</span>
+                                                                <span>01:12:00</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -597,7 +610,7 @@ export class AudioPlayer {
 
                                 <div class="project-action-row">
                                     <button type="button" class="case-study-btn" data-open-case-study="bethel" aria-label="View case study for Bethel Portal">[ VIEW DETAILS ]</button>
-                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ PREVIEW DEMO ]</button>
+                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Environment Only">[ LOCAL DEMO ONLY ]</button>
                                 </div>
 
                             </div>
@@ -625,19 +638,20 @@ export class AudioPlayer {
                                         <div class="project-preview-col">
                                             <!-- Visual Preview Area -->
                                             <div class="project-preview-box">
-                                                <div class="mock-luxury-seating">
-                                                    <div class="mock-table-slot">
-                                                        <span class="mock-table-num">VIP SALON A</span>
-                                                        <span class="mock-table-status reserved">RESERVED</span>
+                                                <div class="device-frame-desktop">
+                                                    <div class="device-header">
+                                                        <span class="device-dot red"></span>
+                                                        <span class="device-dot yellow"></span>
+                                                        <span class="device-dot green"></span>
+                                                        <span class="device-tab-title">ARISTO_AFRIKANA [ Luxury ]</span>
                                                     </div>
-                                                    <div class="mock-table-slot">
-                                                        <span class="mock-table-num">TERRACE 04</span>
-                                                        <span class="mock-table-status available">AVAILABLE</span>
+                                                    <img src="assets/projects/aristo/desktop.webp" alt="Aristo Afrikana Luxury Restaurant Site Desktop Interface" class="screenshot-img" loading="lazy" width="1440" height="900">
+                                                </div>
+                                                <div class="device-frame-mobile">
+                                                    <div class="device-header">
+                                                        <span class="device-tab-title">ARISTO</span>
                                                     </div>
-                                                    <div class="mock-table-slot">
-                                                        <span class="mock-table-num">LOUNGE C1</span>
-                                                        <span class="mock-table-status reserved">RESERVED</span>
-                                                    </div>
+                                                    <img src="assets/projects/aristo/mobile.webp" alt="Aristo Afrikana Luxury Restaurant Site Mobile Interface" class="screenshot-img" loading="lazy" width="375" height="800">
                                                 </div>
                                             </div>
                                         </div>
@@ -702,7 +716,7 @@ export class AudioPlayer {
 
                                 <div class="project-action-row">
                                     <button type="button" class="case-study-btn" data-open-case-study="aristo" aria-label="View case study for Aristo Afrikana">[ VIEW DETAILS ]</button>
-                                    <button type="button" class="live-link-btn disabled-btn" aria-label="Client Proposal Staging Only">[ PROPOSAL STAGING ]</button>
+                                    <a href="https://aristo-africana.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ VIEW LIVE SITE ]</a>
                                 </div>
 
                             </div>
@@ -730,27 +744,20 @@ export class AudioPlayer {
                                         <div class="project-preview-col">
                                             <!-- Visual Preview Area -->
                                             <div class="project-preview-box">
-                                                <div class="mock-milestones-track">
-                                                    <div class="mock-milestone-node">
-                                                        <div class="mock-node-dot complete">✓</div>
-                                                        <span class="mock-node-label">Day 1</span>
+                                                <div class="device-frame-desktop">
+                                                    <div class="device-header">
+                                                        <span class="device-dot red"></span>
+                                                        <span class="device-dot yellow"></span>
+                                                        <span class="device-dot green"></span>
+                                                        <span class="device-tab-title">PROOF [ Onboarding ]</span>
                                                     </div>
-                                                    <div class="mock-milestone-node">
-                                                        <div class="mock-node-dot complete">✓</div>
-                                                        <span class="mock-node-label">Day 2</span>
+                                                    <img src="assets/projects/proof/desktop.webp" alt="Proof Gamified Onboarding Challenge Desktop Interface" class="screenshot-img" loading="lazy" width="1440" height="900">
+                                                </div>
+                                                <div class="device-frame-mobile">
+                                                    <div class="device-header">
+                                                        <span class="device-tab-title">PROOF</span>
                                                     </div>
-                                                    <div class="mock-milestone-node">
-                                                        <div class="mock-node-dot active">●</div>
-                                                        <span class="mock-node-label active">Day 3</span>
-                                                    </div>
-                                                    <div class="mock-milestone-node">
-                                                        <div class="mock-node-dot">4</div>
-                                                        <span class="mock-node-label">Day 4</span>
-                                                    </div>
-                                                    <div class="mock-milestone-node">
-                                                        <div class="mock-node-dot">5</div>
-                                                        <span class="mock-node-label">Day 5</span>
-                                                    </div>
+                                                    <img src="assets/projects/proof/mobile.webp" alt="Proof Gamified Onboarding Challenge Mobile Interface" class="screenshot-img" loading="lazy" width="375" height="800">
                                                 </div>
                                             </div>
                                         </div>
@@ -860,23 +867,20 @@ export const useChallengeProgress = (totalDays = 7) => {
                                             <div class="project-preview-col">
                                                 <!-- Visual Preview Area -->
                                                 <div class="project-preview-box">
-                                                    <div class="mock-wallet-chart">
-                                                        <div class="mock-wallet-header">
-                                                            <span class="mock-wallet-addr">ADDR: 0x71F...2b9a</span>
-                                                            <span class="mock-wallet-balance">12.4042 ETH</span>
+                                                    <div class="device-frame-desktop">
+                                                        <div class="device-header">
+                                                            <span class="device-dot red"></span>
+                                                            <span class="device-dot yellow"></span>
+                                                            <span class="device-dot green"></span>
+                                                            <span class="device-tab-title">PREDCHAIN [ Web3 Staking ]</span>
                                                         </div>
-                                                        <div class="mock-chart-canvas">
-                                                            <div class="mock-chart-bar" style="height: 45%;"></div>
-                                                            <div class="mock-chart-bar" style="height: 60%;"></div>
-                                                            <div class="mock-chart-bar" style="height: 80%;"></div>
-                                                            <div class="mock-chart-bar" style="height: 50%;"></div>
-                                                            <div class="mock-chart-bar" style="height: 70%;"></div>
-                                                            <div class="mock-chart-bar" style="height: 95%;"></div>
+                                                        <img src="assets/projects/predchain/desktop.webp" alt="PredChain Blockchain Staking Dashboard Desktop Interface" class="screenshot-img" loading="lazy" width="1440" height="900">
+                                                    </div>
+                                                    <div class="device-frame-mobile">
+                                                        <div class="device-header">
+                                                            <span class="device-tab-title">PREDCHAIN</span>
                                                         </div>
-                                                        <div class="mock-wallet-footer">
-                                                            <span>STAKING POOL A2</span>
-                                                            <span>EST. APY: +14.2%</span>
-                                                        </div>
+                                                        <img src="assets/projects/predchain/mobile.webp" alt="PredChain Blockchain Staking Dashboard Mobile Interface" class="screenshot-img" loading="lazy" width="375" height="800">
                                                     </div>
                                                 </div>
                                             </div>
@@ -939,7 +943,7 @@ export async function executeAtomicSwap(payload: TransactionPayload): Promise&lt
 
                                     <div class="project-action-row">
                                         <button type="button" class="case-study-btn" data-open-case-study="predchain" aria-label="View case study for PredChain">[ VIEW DETAILS ]</button>
-                                        <button type="button" class="live-link-btn disabled-btn" aria-label="Staging Repository Only">[ TOKENS STAGING ]</button>
+                                        <a href="https://predchain.vercel.app/" class="live-link-btn" target="_blank" rel="noopener noreferrer">[ VIEW LIVE SITE ]</a>
                                         <a href="https://github.com/olabodesamuel0920-max/predchain" target="_blank" rel="noopener noreferrer" class="repo-link-btn">[ VIEW GITHUB ]</a>
                                     </div>
 
@@ -1261,6 +1265,18 @@ export async function executeAtomicSwap(payload: TransactionPayload): Promise&lt
     <button type="button" id="back-to-top" class="back-to-top-btn" aria-label="Scroll to top of the page">
         [ ↑ BACK_TO_TOP ]
     </button>
+
+    <!-- MEDIA LIGHTBOX OVERLAY -->
+    <div id="media-lightbox" class="lightbox-overlay" aria-hidden="true" style="display: none;">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-container">
+            <button type="button" class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close image overview">&times;</button>
+            <div class="lightbox-content">
+                <img id="lightbox-img" src="" alt="Enlarged Project Screenshot">
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Custom App Script -->
     <script src="app.js"></script>
