@@ -747,6 +747,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const sender = document.getElementById('sender_identity').value.trim();
             const callback = document.getElementById('callback_coordinate').value.trim();
             const message = document.getElementById('communications_payload').value.trim();
+            const honeypot = document.getElementById('system_verify_token').value;
 
             if (!sender || !callback || !message) return;
 
@@ -757,14 +758,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const inputs = contactForm.querySelectorAll('.form-input');
             inputs.forEach(inp => inp.disabled = true);
 
-            // Sequential compilation simulation logs
+            // Track form submit attempt
+            window.trackEvent('contact-form-submit-attempt', { sender: sender });
+
+            // Compilation simulation logs
             const sendLogs = [
                 `sys_uplink:// Initiating contact packet structure...`,
-                `sys_uplink:// Resolving local callback coordinate: [${callback}]`,
-                `sys_uplink:// Validating message payload integrity...`,
-                `sys_uplink:// Packaging payload for local routing...`,
-                `sys_uplink:// Compiling final envelope: samuel@olabode.com`,
-                `sys_uplink:// LOCAL TRANSMISSION PREPARATION COMPLETE.`
+                `sys_uplink:// Checking spam prevention registry...`,
+                `sys_uplink:// Attempting connection to Vercel Serverless Uplink...`
             ];
 
             let logStep = 0;
@@ -772,59 +773,144 @@ document.addEventListener('DOMContentLoaded', () => {
             function printFormProgress() {
                 if (logStep < sendLogs.length) {
                     formConsole.innerHTML = `<span class="console-prompt highlight-cyan">${sendLogs[logStep]}</span>`;
-                    
-                    // Also print to active main terminal log!
                     printCliOutput(sendLogs[logStep]);
-                    
                     logStep++;
                     setTimeout(printFormProgress, 400);
                 } else {
-                    // Inject action buttons
-                    formConsole.innerHTML = `
-                        <div class="console-actions-wrapper" style="display: flex; flex-direction: column; width: 100%; gap: 6px;">
-                            <span class="console-prompt highlight-green" style="margin-bottom: 2px;">status:// Envelope compiled. Action required:</span>
-                            <div class="console-action-buttons-row" style="display: flex; gap: 8px;">
-                                <button type="button" class="console-btn-action" id="action-mail-client" style="flex: 1; background: transparent; border: 1px solid var(--neon-cyan); border-radius: 4px; padding: 4px 8px; font-family: var(--font-mono); font-size: 8px; color: var(--neon-cyan); cursor: pointer; transition: var(--transition-smooth);">[ OPEN MAIL CLIENT ]</button>
-                                <button type="button" class="console-btn-action" id="action-copy-clipboard" style="flex: 1; background: transparent; border: 1px solid var(--neon-purple); border-radius: 4px; padding: 4px 8px; font-family: var(--font-mono); font-size: 8px; color: var(--neon-purple); cursor: pointer; transition: var(--transition-smooth);">[ COPY CLIPBOARD ]</button>
-                            </div>
-                        </div>
-                    `;
+                    // Send request to API
+                    transmitPayload();
+                }
+            }
 
-                    // Set up event listeners for the action buttons
-                    const mailBtn = document.getElementById('action-mail-client');
-                    const copyBtn = document.getElementById('action-copy-clipboard');
+            async function transmitPayload() {
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            sender_identity: sender,
+                            callback_coordinate: callback,
+                            communications_payload: message,
+                            system_verify_token: honeypot
+                        })
+                    });
 
-                    if (mailBtn) {
-                        mailBtn.addEventListener('click', () => {
-                            const mailtoUrl = `mailto:samuel@olabode.com?subject=Inquiry from Olabode OS&body=Hi Samuel,%0A%0A${encodeURIComponent(message)}%0A%0ABest regards,%0A${encodeURIComponent(sender)}%0A(${encodeURIComponent(callback)})`;
-                            window.location.href = mailtoUrl;
-                            printCliOutput("sys_network:// Redirected to local email client.");
-                        });
-                    }
+                    const data = await response.json();
 
-                    if (copyBtn) {
-                        copyBtn.addEventListener('click', () => {
-                            const formattedText = `From: ${sender} (${callback})\nMessage: ${message}`;
-                            navigator.clipboard.writeText(formattedText).then(() => {
-                                copyBtn.textContent = "[ COPIED! ]";
-                                printCliOutput("sys_network:// Copied contact details payload to clipboard.");
+                    if (response.ok && data.success) {
+                        // Success logs
+                        const successLogs = [
+                            `sys_uplink:// Handshake established with endpoint.`,
+                            `sys_uplink:// Sending encrypted payload...`,
+                            `sys_uplink:// Message delivered successfully to olabodesamuel0920@gmail.com.`,
+                            `sys_uplink:// TRANSMISSION COMPLETE. COORDINATE SECURED.`
+                        ];
+                        
+                        let successStep = 0;
+                        function printSuccessProgress() {
+                            if (successStep < successLogs.length) {
+                                formConsole.innerHTML = `<span class="console-prompt highlight-green">${successLogs[successStep]}</span>`;
+                                printCliOutput(successLogs[successStep]);
+                                successStep++;
+                                setTimeout(printSuccessProgress, 400);
+                            } else {
+                                // Success state UI
+                                formConsole.innerHTML = `<span class="console-prompt highlight-green">status:// Packet successfully transmitted. I will review and coordinate a callback shortly.</span>`;
+                                printCliOutput("sys_network:// Contact message sent successfully via serverless API.", true);
+                                
+                                const netLine = cliOutputLog.lastChild;
+                                if (netLine) netLine.classList.add('success');
+
+                                // Track success
+                                window.trackEvent('contact-form-submit-success');
+
+                                // Reset form but keep controls active after a delay
+                                contactForm.reset();
                                 setTimeout(() => {
-                                    copyBtn.textContent = "[ COPY CLIPBOARD ]";
-                                }, 2000);
-                            });
-                        });
+                                    inputs.forEach(inp => inp.disabled = false);
+                                    submitBtn.disabled = false;
+                                    submitBtn.textContent = "[ COMPILE_MESSAGE.EXE ]";
+                                }, 3000);
+                            }
+                        }
+                        printSuccessProgress();
+                    } else {
+                        // API error or failure
+                        throw new Error(data.error || 'Server rejected packet');
                     }
+                } catch (err) {
+                    console.warn('API Uplink offline or error, falling back to local client compilation:', err);
                     
-                    // Reset inputs
-                    contactForm.reset();
-                    inputs.forEach(inp => inp.disabled = false);
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "[ COMPILE_MESSAGE.EXE ]";
+                    // Fallback logs
+                    const fallbackLogs = [
+                        `sys_uplink:// API Endpoint offline: ${err.message || 'unknown error'}`,
+                        `sys_uplink:// Initializing fallback local compilation...`,
+                        `sys_uplink:// LOCAL TRANSMISSION PREPARATION COMPLETE.`
+                    ];
 
-                    // Notify in main CLI
-                    printCliOutput("sys_network:// Contact envelope compiled. Complete action in bottom uplink terminal.", true);
-                    const netLine = cliOutputLog.lastChild;
-                    netLine.classList.add('success');
+                    let fallbackStep = 0;
+                    function printFallbackProgress() {
+                        if (fallbackStep < fallbackLogs.length) {
+                            formConsole.innerHTML = `<span class="console-prompt highlight-yellow">${fallbackLogs[fallbackStep]}</span>`;
+                            printCliOutput(fallbackLogs[fallbackStep]);
+                            fallbackStep++;
+                            setTimeout(printFallbackProgress, 400);
+                        } else {
+                            // Inject fallback buttons
+                            formConsole.innerHTML = `
+                                <div class="console-actions-wrapper" style="display: flex; flex-direction: column; width: 100%; gap: 6px;">
+                                    <span class="console-prompt highlight-yellow" style="margin-bottom: 2px;">status:// Local fallback compiled. Send manually:</span>
+                                    <div class="console-action-buttons-row" style="display: flex; gap: 8px;">
+                                        <button type="button" class="console-btn-action" id="action-mail-client" style="flex: 1; background: transparent; border: 1px solid var(--neon-cyan); border-radius: 4px; padding: 6px 8px; font-family: var(--font-mono); font-size: 8.5px; color: var(--neon-cyan); cursor: pointer; transition: var(--transition-smooth);">[ OPEN MAIL CLIENT ]</button>
+                                        <button type="button" class="console-btn-action" id="action-copy-clipboard" style="flex: 1; background: transparent; border: 1px solid var(--neon-purple); border-radius: 4px; padding: 6px 8px; font-family: var(--font-mono); font-size: 8.5px; color: var(--neon-purple); cursor: pointer; transition: var(--transition-smooth);">[ COPY CLIPBOARD ]</button>
+                                    </div>
+                                </div>
+                            `;
+
+                            const mailBtn = document.getElementById('action-mail-client');
+                            const copyBtn = document.getElementById('action-copy-clipboard');
+
+                            if (mailBtn) {
+                                mailBtn.addEventListener('click', () => {
+                                    const mailtoUrl = `mailto:olabodesamuel0920@gmail.com?subject=Inquiry from Olabode OS&body=Hi Samuel,%0A%0A${encodeURIComponent(message)}%0A%0ABest regards,%0A${encodeURIComponent(sender)}%0A(${encodeURIComponent(callback)})`;
+                                    window.location.href = mailtoUrl;
+                                    printCliOutput("sys_network:// Redirected to local email client.");
+                                    window.trackEvent('contact-fallback-mail-click');
+                                });
+                            }
+
+                            if (copyBtn) {
+                                copyBtn.addEventListener('click', () => {
+                                    const formattedText = `From: ${sender} (${callback})\nMessage: ${message}`;
+                                    navigator.clipboard.writeText(formattedText).then(() => {
+                                        copyBtn.textContent = "[ COPIED! ]";
+                                        printCliOutput("sys_network:// Copied contact details payload to clipboard.");
+                                        window.trackEvent('contact-fallback-copy-click');
+                                        setTimeout(() => {
+                                            copyBtn.textContent = "[ COPY CLIPBOARD ]";
+                                        }, 2000);
+                                    });
+                                });
+                            }
+
+                            // Reset and enable
+                            contactForm.reset();
+                            inputs.forEach(inp => inp.disabled = false);
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = "[ COMPILE_MESSAGE.EXE ]";
+
+                            // Track fallback
+                            window.trackEvent('contact-form-submit-fallback', { reason: err.message });
+
+                            // Notify in main CLI
+                            printCliOutput("sys_network:// Contact envelope compiled locally. Complete action in bottom uplink terminal.", true);
+                            const netLine = cliOutputLog.lastChild;
+                            if (netLine) netLine.classList.add('success');
+                        }
+                    }
+                    printFallbackProgress();
                 }
             }
 
@@ -877,7 +963,76 @@ document.addEventListener('DOMContentLoaded', () => {
         
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.trackEvent('back-to-top-click');
         });
     }
+
+    // --- 11. LIGHTWEIGHT ANALYTICS EVENT ORCHESTRATOR ---
+    window.trackEvent = function(eventName, eventParams = {}) {
+        console.log(`[Analytics] Track Event: ${eventName}`, eventParams);
+        
+        // Forward to Vercel Analytics if active
+        if (typeof window.va === 'function') {
+            window.va('event', { name: eventName, data: eventParams });
+        }
+        
+        // Forward to Google Analytics if active
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, eventParams);
+        }
+    };
+
+    document.body.addEventListener('click', (e) => {
+        // 1. Direct data-analytics attributes
+        const target = e.target.closest('[data-analytics]');
+        if (target) {
+            const eventName = target.getAttribute('data-analytics');
+            const label = target.textContent.trim();
+            window.trackEvent(eventName, {
+                label: label,
+                url: window.location.href
+            });
+            return;
+        }
+
+        // 2. Project View Details button
+        const detailsBtn = e.target.closest('[data-open-case-study]');
+        if (detailsBtn) {
+            const project = detailsBtn.getAttribute('data-open-case-study');
+            window.trackEvent('view-project-details', { project: project });
+            return;
+        }
+
+        // 3. Project View Live Site button
+        const liveBtn = e.target.closest('.live-link-btn');
+        if (liveBtn) {
+            if (liveBtn.classList.contains('disabled-btn') || liveBtn.disabled) return;
+            const href = liveBtn.getAttribute('href') || 'static-waveform';
+            window.trackEvent('view-project-live', { href: href });
+            return;
+        }
+
+        // 4. Project View GitHub repo link
+        const repoLink = e.target.closest('.repo-link-btn');
+        if (repoLink) {
+            const href = repoLink.getAttribute('href');
+            window.trackEvent('view-project-repo', { href: href });
+            return;
+        }
+
+        // 5. Contact fallback mail client
+        const mailFallback = e.target.closest('#action-mail-client');
+        if (mailFallback) {
+            window.trackEvent('contact-fallback-mail');
+            return;
+        }
+
+        // 6. Contact fallback copy clipboard
+        const copyFallback = e.target.closest('#action-copy-clipboard');
+        if (copyFallback) {
+            window.trackEvent('contact-fallback-copy');
+            return;
+        }
+    });
 
 });
