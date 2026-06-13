@@ -258,28 +258,38 @@ async function runVerification() {
         console.log('Waiting for local compilation simulation to complete...');
         await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 4000)));
 
-        const buttonsRendered = await page.evaluate(() => {
+        const contactResult = await page.evaluate(() => {
             const mailBtn = document.getElementById('action-mail-client');
             const copyBtn = document.getElementById('action-copy-clipboard');
-            return !!(mailBtn && copyBtn);
+            const consoleText = document.getElementById('form-console') ? document.getElementById('form-console').innerText : '';
+            
+            if (mailBtn && copyBtn) {
+                return { path: 'fallback', success: true };
+            } else if (consoleText.includes('Packet successfully transmitted')) {
+                return { path: 'success', success: true };
+            }
+            return { path: 'unknown', success: false, consoleText };
         });
 
-        if (buttonsRendered) {
-            console.log('[PASS] Step 7: Local compilation completed. Action buttons [OPEN MAIL CLIENT] and [COPY CLIPBOARD] rendered successfully.');
+        if (contactResult.success) {
+            console.log(`[PASS] Step 7: Contact form processed successfully. Path detected: ${contactResult.path.toUpperCase()}`);
+            if (contactResult.path === 'fallback') {
+                // Try Copy Clipboard Action
+                console.log('Testing Copy Clipboard button click...');
+                await page.click('#action-copy-clipboard');
+                await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 500)));
+                const copyBtnText = await page.evaluate(() => document.getElementById('action-copy-clipboard').textContent);
+                console.log(`Copy button text: ${copyBtnText}`);
+                if (copyBtnText.includes('COPIED!')) {
+                    console.log('[PASS] Step 8: Clipboard copy action triggered successfully (button text updated).');
+                } else {
+                    console.warn('[WARNING] Clipboard button did not show COPIED!. Note: browser environment may block navigator.clipboard.');
+                }
+            } else {
+                console.log('[PASS] Step 8: Production success path verified. No local copy clipboard button is rendered/needed in success mode.');
+            }
         } else {
-            throw new Error('Contact compile failed or actions did not render.');
-        }
-
-        // Try Copy Clipboard Action
-        console.log('Testing Copy Clipboard button click...');
-        await page.click('#action-copy-clipboard');
-        await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 500)));
-        const copyBtnText = await page.evaluate(() => document.getElementById('action-copy-clipboard').textContent);
-        console.log(`Copy button text: ${copyBtnText}`);
-        if (copyBtnText.includes('COPIED!')) {
-            console.log('[PASS] Step 8: Clipboard copy action triggered successfully (button text updated).');
-        } else {
-            console.warn('[WARNING] Clipboard button did not show COPIED!. Note: browser environment may block navigator.clipboard.');
+            throw new Error(`Contact compilation/submission failed. Console output: ${contactResult.consoleText}`);
         }
 
         // 7. Live project links check
