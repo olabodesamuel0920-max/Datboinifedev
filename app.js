@@ -753,7 +753,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Lock controls
             submitBtn.disabled = true;
-            submitBtn.textContent = "[ COMPILING... ]";
+            submitBtn.textContent = "SENDING...";
             
             const inputs = contactForm.querySelectorAll('.form-input');
             inputs.forEach(inp => inp.disabled = true);
@@ -831,7 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 setTimeout(() => {
                                     inputs.forEach(inp => inp.disabled = false);
                                     submitBtn.disabled = false;
-                                    submitBtn.textContent = "[ COMPILE_MESSAGE.EXE ]";
+                                    submitBtn.textContent = "Send Message →";
                                 }, 3000);
                             }
                         }
@@ -860,11 +860,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         } else {
                             // Inject fallback buttons
                             formConsole.innerHTML = `
-                                <div class="console-actions-wrapper" style="display: flex; flex-direction: column; width: 100%; gap: 6px;">
-                                    <span class="console-prompt highlight-yellow" style="margin-bottom: 2px;">status:// Local fallback compiled. Send manually:</span>
-                                    <div class="console-action-buttons-row" style="display: flex; gap: 8px;">
-                                        <button type="button" class="console-btn-action" id="action-mail-client" style="flex: 1; background: transparent; border: 1px solid var(--neon-cyan); border-radius: 4px; padding: 6px 8px; font-family: var(--font-mono); font-size: 8.5px; color: var(--neon-cyan); cursor: pointer; transition: var(--transition-smooth);">[ OPEN MAIL CLIENT ]</button>
-                                        <button type="button" class="console-btn-action" id="action-copy-clipboard" style="flex: 1; background: transparent; border: 1px solid var(--neon-purple); border-radius: 4px; padding: 6px 8px; font-family: var(--font-mono); font-size: 8.5px; color: var(--neon-purple); cursor: pointer; transition: var(--transition-smooth);">[ COPY CLIPBOARD ]</button>
+                                <div class="console-actions-wrapper" style="display: flex; flex-direction: column; width: 100%; gap: 10px;">
+                                    <span class="console-prompt highlight-yellow" style="margin-bottom: 4px;">Uplink offline. Send your message manually:</span>
+                                    <div class="console-action-buttons-row" style="display: flex; gap: 12px; width: 100%;">
+                                        <button type="button" class="console-btn-action" id="action-mail-client" style="flex: 1; background: var(--neon-cyan); border: none; border-radius: 6px; padding: 10px 14px; font-family: var(--font-sans); font-size: 11px; font-weight: 600; color: #050508; cursor: pointer; transition: var(--transition-smooth); text-transform: uppercase;">Open Mail Client</button>
+                                        <button type="button" class="console-btn-action" id="action-copy-clipboard" style="flex: 1; background: transparent; border: 1px solid var(--neon-purple); border-radius: 6px; padding: 10px 14px; font-family: var(--font-sans); font-size: 11px; font-weight: 600; color: var(--neon-purple); cursor: pointer; transition: var(--transition-smooth); text-transform: uppercase;">Copy Details</button>
                                     </div>
                                 </div>
                             `;
@@ -885,11 +885,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                 copyBtn.addEventListener('click', () => {
                                     const formattedText = `From: ${sender} (${callback})\nMessage: ${message}`;
                                     navigator.clipboard.writeText(formattedText).then(() => {
-                                        copyBtn.textContent = "[ COPIED! ]";
+                                        copyBtn.textContent = "COPIED!";
                                         printCliOutput("sys_network:// Copied contact details payload to clipboard.");
                                         window.trackEvent('contact-fallback-copy-click');
                                         setTimeout(() => {
-                                            copyBtn.textContent = "[ COPY CLIPBOARD ]";
+                                            copyBtn.textContent = "COPY DETAILS";
                                         }, 2000);
                                     });
                                 });
@@ -899,7 +899,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             contactForm.reset();
                             inputs.forEach(inp => inp.disabled = false);
                             submitBtn.disabled = false;
-                            submitBtn.textContent = "[ COMPILE_MESSAGE.EXE ]";
+                            submitBtn.textContent = "Send Message →";
 
                             // Track fallback
                             window.trackEvent('contact-form-submit-fallback', { reason: err.message });
