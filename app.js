@@ -388,29 +388,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 6. PROJECT WINDOW TAB SYSTEM ---
-    const projectCards = document.querySelectorAll('.project-card');
+        // --- 6. PROJECT WINDOW TAB SYSTEM (Event Delegation for Dynamic Cards) ---
+    document.body.addEventListener('click', (e) => {
+        const tabBtn = e.target.closest('.project-card .tab-btn');
+        if (tabBtn) {
+            const card = tabBtn.closest('.project-card');
+            if (!card) return;
 
-    projectCards.forEach(card => {
-        const tabs = card.querySelectorAll('.tab-btn');
-        const contents = card.querySelectorAll('.tab-content');
+            const targetTab = tabBtn.getAttribute('data-tab');
+            const tabs = card.querySelectorAll('.tab-btn');
+            const contents = card.querySelectorAll('.tab-content');
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetTab = tab.getAttribute('data-tab');
+            // Remove active class from all tabs & contents in this card
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
 
-                // Remove active class from all tabs & contents in this card
-                tabs.forEach(t => t.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
-
-                // Set active current tab & content
-                tab.classList.add('active');
-                const matchingContent = card.querySelector(`.tab-content[data-tab-content="${targetTab}"]`);
-                if (matchingContent) {
-                    matchingContent.classList.add('active');
-                }
-            });
-        });
+            // Set active current tab & content
+            tabBtn.classList.add('active');
+            const matchingContent = card.querySelector(`.tab-content[data-tab-content="${targetTab}"]`);
+            if (matchingContent) {
+                matchingContent.classList.add('active');
+            }
+        }
     });
 
     // --- 7. INTERACTIVE SKILLS OUTCOME TABLE MATRIX ---
@@ -438,100 +437,243 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 8. PROJECT CASE-STUDY DRAWER MODULE ---
-    const projectsData = {
-        chikini: {
-            title: "Chikini Monie",
-            tagline: "Premium Food-Tech Ordering & Operations Demo",
-            status: "Stakeholder-Ready Demo",
-            statusClass: "stakeholder-ready",
-            problem: "Quick-service food enterprises in high-volume settings struggle with synchronization latency between point-of-sale systems, kitchen preparation status logs, and administrative inventory trackers. This leads to operational bottlenecks, wrong orders, and untracked ingredient utilization.",
-            whatIBuilt: "Architected a unified hospitality operations simulator. Created three synchronized workspaces: a customer digital menu catalog for order dispatch, an administrative kitchen terminal queue tracking ticket ages, and a manager dashboard presenting real-time business health indicators.",
-            myRole: "Solo Product Architect & Frontend Engineer. Conceived the visual design system, set up the global state orchestrator, and programmed the real-time simulation queues.",
-            stack: ["React", "TailwindCSS", "State Isolation", "Status Checker"],
-            special: "Features an integrated offline-first branch network health monitor. The application performs defensive connectivity handshakes before executing data state transitions, preventing local queues from breaking during simulated dropouts.",
-            currentStatus: "Staging demo deployed to Vercel. Fully optimized for customer reviews and operational walkthroughs.",
-            liveLink: "https://chikini-monie-one.vercel.app/",
-            liveLinkLabel: "Launch Live Demo",
-            nextImprovement: "Connect to local node endpoints to test webhooks and persistent state storage using Redis queues."
-        },
-        aristo: {
-            title: "Aristo Afrikana",
-            tagline: "Premium Restaurant Website & Luxury Digital Upgrade",
-            status: "Client Proposal Direction",
-            statusClass: "client-proposal",
-            problem: "Bespoke fine-dining and cultural brands require digital portals that match the premium visual and tactile standards of their physical establishments. Standard pre-packaged booking tools or low-tier templates fail to communicate prestige and lead to low booking conversion rates.",
-            whatIBuilt: "Created a premium digital brand portal for Aristo Afrikana. Built an immersive visual landing page featuring bespoke layout structures, a multi-tier reservation pipeline (Fine Dining, Lounge reservations, and Event tickets), and sleek parallax interactions.",
-            myRole: "Lead UI/UX Developer & Brand Strategist. Engineered the custom layout structures, set up the CSS token system, and optimized graphic assets for rapid browser loading.",
-            stack: ["HTML5", "Vanilla CSS3", "Javascript (ES6)", "Custom CSS Variables"],
-            special: "Authored 100% custom CSS code without any third-party framework layout overhead (like Bootstrap or Tailwind). The entire site maintains lightweight, sub-second visual load performance indices and scales responsively on viewports down to 320px.",
-            currentStatus: "Staging sandbox proposal live on Vercel, demonstrating design viability to target client stakeholders.",
-            liveLink: "https://aristo-africana.vercel.app/",
-            liveLinkLabel: "Proposal Sandbox Preview",
-            nextImprovement: "Implement an interactive digital table reservation engine using customized SVG maps."
-        },
-        predchain: {
-            title: "PredChain",
-            tagline: "Experimental Predictive Blockchain Pool Dashboard",
-            status: "Experimental Build",
-            statusClass: "experimental",
-            problem: "Web3 predictive pools and decentralized staking applications require deep technical clarity, yet most dashboards overload the user with complex charts and fail to handle network errors gracefully during high-velocity state changes.",
-            whatIBuilt: "Constructed a high-fidelity prediction pool management dashboard featuring reactive pool statistics, staking analytics graphs, and interactive contract validation triggers.",
-            myRole: "Frontend Developer & Interface Hardener. Integrated the state machine, styled interactive chart components, and implemented error-handling screens.",
-            stack: ["TypeScript", "Next.js", "Atomic State Isolation", "TailwindCSS"],
-            special: "Engineered strict atomic state isolation guards inside the frontend container to securely simulate block transactions and prevent race-condition UI regressions.",
-            currentStatus: "Functional experimental repository. Verified and frozen as a master design token reference point.",
-            liveLink: "https://predchain.vercel.app/",
-            liveLinkLabel: "Launch Live Site",
-            nextImprovement: "Connect direct wallet providers (MetaMask, WalletConnect) to EVM testnet pools."
-        },
-        mamaguard: {
-            title: "Mama Guard",
-            tagline: "Maternal Health Tracking & Support Platform",
-            status: "Live Beta",
-            statusClass: "live-beta",
-            problem: "In low-income and under-resourced medical environments, pregnant mothers face significant challenges tracking pregnancy milestones, identifying dangerous symptoms, and coordinating timely contact with clinical providers. Fragmented health education and lack of instant, offline-capable digital logs lead to delayed care and avoidable prenatal risks.",
-            whatIBuilt: "Engineered Mama Guard, an interactive maternal support simulator and patient portal. Built a responsive vital health symptom logger, a guidelines lookup dashboard, and a provider summary dashboard that simulates data syncs. Designed as a high-fidelity patient-facing interface to model how critical symptoms can be structured and communicated to clinicians under varying bandwidth constraints.",
-            myRole: "Solo Frontend Architect & System Designer. Responsible for prototyping the complete client-side simulation, designing the dashboard data structures, setting up local state tracking, and building the user interaction flow.",
-            stack: ["React", "Next.js", "TailwindCSS", "Vercel Serverless Functions"],
-            special: "Engineered an offline-first service architecture utilizing service caching simulations, allowing the client-side system to load educational safety checklists and previous symptom logs without an active internet connection. Programmed automatic queue sync triggers that mock data dispatch as soon as the simulated network is restored.",
-            currentStatus: "Technical verification prototype and high-fidelity simulator. Active demo deployed to Vercel for stakeholder reviews and UI/UX validation.",
-            liveLink: "https://guard-pink.vercel.app/",
-            liveLinkLabel: "Launch Live Beta",
-            nextImprovement: "Refine simulated offline queues with a local IndexedDB store and implement a secure SMS fallback engine for offline alert delivery.",
-            disclaimer: "IMPORTANT SAFETY & PROTOTYPE DISCLAIMER: Mama Guard is a high-fidelity diagnostic simulation and interactive prototype built for technology verification. It is NOT a medical-grade or HIPAA-compliant system, does not diagnose or treat medical conditions, and should not be used as a substitute for professional clinical guidance or emergency services."
-        },
-        bethel: {
-            title: "Bethel Portal",
-            tagline: "Unified Community Portal & Media Hub",
-            status: "Live Demo",
-            statusClass: "live-demo",
-            problem: "Local faith and community organizations often lack unified web spaces to archive weekly media, broadcast streams, organize coordinates, and manage weekly calendars, resulting in fragmented communication across external third-party platforms.",
-            whatIBuilt: "Developed a unified community media portal. Integrated a custom audio playback queue with interactive waveforms, a searchable media archive, a digital bulletin registry, and community contact logs.",
-            myRole: "Solo Full-Stack Developer. Designed the database structure (simulated), frontend architecture, and custom audio playback hooks.",
-            stack: ["HTML5", "Vanilla CSS3", "Javascript (ES6)", "Local Playback Stream APIs"],
-            special: "Features a custom local state playback tracker. The sermon player remembers user positions across refreshes, providing a seamless resume function without database overhead.",
-            currentStatus: "Functional staging production build verified and optimized for church administrative evaluation.",
-            liveLink: "",
-            liveLinkLabel: "Staging Preview Locked",
-            nextImprovement: "Integrate live stream video API endpoints and a real-time event notice bulletin."
-        },
-        proof: {
-            title: "Proof",
-            tagline: "Premium Gamified 7-Day Challenge Suite",
-            status: "Live Beta",
-            statusClass: "live-beta",
-            problem: "Modern software platforms suffer from severe drop-offs during the initial 7 days of onboarding because user registrations are typically dry, multi-step, and lack immediate interactive feedback and validation.",
-            whatIBuilt: "Designed and developed Proof, an onboarding validation prototype that gamifies a user's first 7 days. Built a milestone tracker, interactive task lists with reactive feedback loops, and an integrated progress metric gauge.",
-            myRole: "Lead Product & Interaction Engineer. Authored the step-by-step state machine, designed interactive animations, and verified responsive layouts.",
-            stack: ["React", "CSS Variables", "Interactive State Tracking", "GSAP Transitions"],
-            special: "Utilized hardware-accelerated CSS and optimized requestAnimationFrame hooks to keep animation pipelines running at 60fps even on mobile devices.",
-            currentStatus: "Stable beta demo live on Vercel, functioning as a reusable onboarding pattern blueprint.",
-            liveLink: "https://proof-7-day-beta.vercel.app/",
-            liveLinkLabel: "Launch Live Beta",
-            nextImprovement: "Implement user behavior cohort analytics to trace milestone drop-off points."
-        }
-    };
+    let projectsData = {};
 
+    // Helper to escape HTML characters
+    function escapeHtml(text) {
+        if (!text) return '';
+        return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    // Dynamic Projects Fetch & Render (Phase 2F)
+    fetch('./data/projects.json')
+        .then(res => res.json())
+        .then(projects => {
+            const portfolioContainer = document.getElementById('portfolio-projects-container');
+            const experimentalContainer = document.getElementById('experimental-projects-container');
+            const atlasContainer = document.getElementById('atlas-grid-container');
+
+            if (!portfolioContainer || !experimentalContainer || !atlasContainer) {
+                console.error('Error: Project containers not found in DOM.');
+                return;
+            }
+
+            // Clear placeholders
+            portfolioContainer.innerHTML = '';
+            experimentalContainer.innerHTML = '';
+            atlasContainer.innerHTML = '';
+
+            // Sort & Filter
+            const featuredProjects = projects.filter(p => p.featured && !p.experimental);
+            const clientProjects = projects.filter(p => !p.featured && !p.experimental);
+            const experimentalProjects = projects.filter(p => p.experimental);
+
+            const allSelectedWork = [...featuredProjects, ...clientProjects];
+
+            // Render Selected Work
+            allSelectedWork.forEach(p => {
+                portfolioContainer.innerHTML += renderProjectCard(p, false);
+            });
+
+            // Render Experimental Work
+            experimentalProjects.forEach(p => {
+                experimentalContainer.innerHTML += renderProjectCard(p, true);
+            });
+
+            // Render Atlas Grid (All 13 Projects)
+            projects.forEach(p => {
+                atlasContainer.innerHTML += renderAtlasCard(p);
+            });
+
+            // Populate global projectsData for the drawer
+            projects.forEach(p => {
+                projectsData[p.slug] = {
+                    title: p.name,
+                    tagline: p.tagline || p.category,
+                    status: p.status,
+                    statusClass: p.statusClass,
+                    problem: p.problem,
+                    whatIBuilt: p.solution,
+                    myRole: p.role,
+                    stack: p.stack || (p.techNotes ? p.techNotes.split(', ') : []),
+                    special: p.outcomeExplanation || p.techNotes,
+                    currentStatus: p.status + (p.url ? " - Live & Deployed." : " - Local sandbox staging."),
+                    liveLink: p.url,
+                    liveLinkLabel: p.liveLinkLabel || "Launch Live Demo",
+                    nextImprovement: p.nextStep,
+                    disclaimer: p.disclaimer
+                };
+            });
+
+            printCliOutput(`sys_kernel:// Successfully compiled and synchronized ${projects.length} dynamic projects.`, true);
+        })
+        .catch(err => {
+            console.error('Error fetching projects registry:', err);
+            printCliOutput('sys_error:// Failed to initialize dynamic portfolio registry.', true);
+        });
+
+    function renderProjectCard(p, isExperimental) {
+        const { name, slug, url, repoUrl, category, status, statusClass, shortDescription, problem, solution, role, stack, featured, screenshots, blueprint, metrics, outcomeExplanation, liveLinkLabel } = p;
+        const hasScreenshots = screenshots && screenshots.desktop && screenshots.mobile;
+        
+        return `
+        <div class="window-panel project-card ${isExperimental ? 'experimental-card' : ''}" id="project-${slug}" data-project="${slug}">
+            <div class="window-bar">
+                <div class="window-actions">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                </div>
+                <span class="window-title">${name} [ ${category} ]</span>
+            </div>
+            <div class="project-tabs">
+                <button type="button" class="tab-btn active" data-tab="summary" aria-label="View ${name} summary">Overview</button>
+                <button type="button" class="tab-btn" data-tab="blueprint" aria-label="View ${name} technical blueprint">Code Snippet</button>
+                <button type="button" class="tab-btn" data-tab="impact" aria-label="View ${name} project impact">Results</button>
+            </div>
+            <div class="window-content project-card-body">
+                
+                <div class="tab-content active" data-tab-content="summary">
+                    <div class="project-summary-layout">
+                        <div class="project-preview-col">
+                            <div class="project-preview-box">
+                                ${hasScreenshots ? `
+                                <div class="device-frame-desktop">
+                                    <div class="device-header">
+                                        <span class="device-dot red"></span>
+                                        <span class="device-dot yellow"></span>
+                                        <span class="device-dot green"></span>
+                                        <span class="device-tab-title">${slug.toUpperCase()} [ Desktop ]</span>
+                                    </div>
+                                    <img src="${screenshots.desktop}" alt="${name} Desktop Interface" class="screenshot-img" loading="lazy" width="1440" height="900">
+                                </div>
+                                <div class="device-frame-mobile">
+                                    <div class="device-header">
+                                        <span class="device-tab-title">${slug.toUpperCase()}</span>
+                                    </div>
+                                    <img src="${screenshots.mobile}" alt="${name} Mobile Interface" class="screenshot-img" loading="lazy" width="375" height="800">
+                                </div>
+                                ` : `
+                                <div class="fallback-preview" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%; background: rgba(5, 5, 8, 0.9); padding: 24px;">
+                                    <div class="fallback-frame" style="text-align: center;">
+                                        <span class="fallback-icon" style="font-size: 24px; display: block; margin-bottom: 8px;">🛡️</span>
+                                        <span class="fallback-text" style="font-family: var(--font-mono); font-size: 10px; color: var(--text-primary); text-transform: uppercase;">INTERNAL BULLETINS AND ARCHIVES SECURED</span>
+                                        <span class="fallback-sub" style="font-family: var(--font-mono); font-size: 8px; color: var(--text-muted); display: block; margin-top: 4px;">Local client-evaluation sandbox only</span>
+                                    </div>
+                                </div>
+                                `}
+                            </div>
+                        </div>
+                        <div class="project-details-col">
+                            <div class="project-headline-row">
+                                <h4>${name}</h4>
+                                <span class="project-category-tag">${category}</span>
+                                <div class="project-meta-badges">
+                                    <span class="status-tag ${statusClass}">${status}</span>
+                                    ${featured ? `<span class="status-tag flagship-badge" style="background: rgba(189, 94, 255, 0.05); border: 1px solid var(--neon-purple); color: var(--neon-purple); box-shadow: 0 0 10px rgba(189, 94, 255, 0.25);">Flagship Build</span>` : ''}
+                                </div>
+                            </div>
+                            <p class="project-desc">
+                                ${shortDescription}
+                            </p>
+                            <div class="project-tags-row">
+                                ${(stack || []).map(t => `<span class="p-tag">${t}</span>`).join('\n                                ')}
+                            </div>
+                            
+                            <div class="project-brief-info">
+                                <p class="brief-item"><strong>The Problem:</strong> ${problem}</p>
+                                <p class="brief-item"><strong>What I Built:</strong> ${solution}</p>
+                                <p class="brief-item"><strong>My Role:</strong> ${role}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" data-tab-content="blueprint">
+                    <pre class="code-block"><code>${escapeHtml(blueprint ? blueprint.code : '')}</code></pre>
+                </div>
+
+                <div class="tab-content" data-tab-content="impact">
+                    <div class="metric-outcome-row">
+                        ${(metrics || []).map(m => `
+                        <div class="metric-box">
+                            <span class="metric-num">${m.value}</span>
+                            <span class="metric-label">${m.label}</span>
+                        </div>
+                        `).join('')}
+                    </div>
+                    <p class="outcome-explanation">
+                        ${outcomeExplanation || ''}
+                    </p>
+                </div>
+
+                <div class="project-action-row">
+                    <button type="button" class="case-study-btn" data-open-case-study="${slug}" aria-label="View case study for ${name}">View Details</button>
+                    ${url ? `
+                    <a href="${url}" class="live-link-btn" target="_blank" rel="noopener noreferrer">${liveLinkLabel || 'View Live Site'}</a>
+                    ` : `
+                    <button type="button" class="live-link-btn disabled-btn" disabled>${liveLinkLabel || 'Staging Environment Only'}</button>
+                    `}
+                    ${repoUrl ? `
+                    <a href="${repoUrl}" target="_blank" rel="noopener noreferrer" class="repo-link-btn">View GitHub</a>
+                    ` : ''}
+                </div>
+
+            </div>
+        </div>
+        `;
+    }
+
+    function renderAtlasCard(p) {
+        const { name, slug, url, category, status, statusClass, shortDescription, conversionType } = p;
+        const hasScreenshots = p.screenshots && p.screenshots.desktop && p.screenshots.mobile;
+        
+        return `
+        <div class="atlas-card" data-slug="${slug}">
+            <div class="atlas-preview-container">
+                ${hasScreenshots ? `
+                <div class="atlas-desktop-frame">
+                    <img src="${p.screenshots.desktop}" alt="${name} Desktop View" loading="lazy" class="screenshot-img">
+                </div>
+                <div class="atlas-mobile-frame">
+                    <img src="${p.screenshots.mobile}" alt="${name} Mobile View" loading="lazy" class="screenshot-img">
+                </div>
+                ` : `
+                <div class="atlas-placeholder">
+                    <span class="atlas-placeholder-icon">🔒</span>
+                    <span>STAGING / LOCAL PREVIEW ONLY</span>
+                </div>
+                `}
+            </div>
+            <div class="atlas-body">
+                <div class="atlas-title-row">
+                    <h3 class="atlas-project-name">${name}</h3>
+                    <span class="status-tag ${statusClass}" style="font-family: var(--font-mono); font-size: 8px; padding: 2px 6px; border-radius: 3px; font-weight: 600; text-transform: uppercase;">${status}</span>
+                </div>
+                <div class="atlas-category">${category}</div>
+                <p class="atlas-description">${shortDescription}</p>
+                <div class="atlas-badges">
+                    <span class="atlas-badge conversion">${conversionType}</span>
+                </div>
+                <div class="atlas-actions">
+                    <button type="button" class="atlas-btn secondary" data-open-case-study="${slug}">View Details</button>
+                    ${url ? `
+                    <a href="${url}" class="atlas-btn primary" target="_blank" rel="noopener noreferrer">Live Site</a>
+                    ` : `
+                    <button type="button" class="atlas-btn disabled" disabled>Offline</button>
+                    `}
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
+    
     const drawer = document.getElementById('case-study-drawer');
     const drawerOverlay = document.getElementById('drawer-overlay');
     const drawerCloseBtn = document.getElementById('close-drawer-btn');
@@ -657,12 +799,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Attach click listeners to all open-case-study triggers
-    document.querySelectorAll('[data-open-case-study]').forEach(btn => {
-        btn.addEventListener('click', () => {
+        // Attach click listeners to all open-case-study triggers using event delegation
+    document.body.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-open-case-study]');
+        if (btn) {
             const key = btn.getAttribute('data-open-case-study');
             openCaseStudy(key);
-        });
+        }
     });
 
     if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeCaseStudy);

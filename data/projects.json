@@ -1,0 +1,651 @@
+[
+  {
+    "name": "Mama Guard",
+    "slug": "mamaguard",
+    "url": "https://guard-pink.vercel.app/",
+    "repoUrl": "https://github.com/olabodesamuel0920-max/mamaguard",
+    "category": "Maternal Health Platform",
+    "status": "Live Beta",
+    "statusClass": "live-beta",
+    "conversionType": "Prototype Demo",
+    "shortDescription": "Maternal health tracking & support platform helping mothers connect with vital checks, guidelines, and safety alerts.",
+    "problem": "Pregnant mothers in under-resourced medical environments lack quick, offline-friendly medical guidelines and symptom logging capability.",
+    "solution": "Engineered Mama Guard, an interactive maternal support simulator and patient portal. Built vital symptom loggers and guideline dashboards caching state offline.",
+    "role": "Solo Frontend Architect & System Designer",
+    "techNotes": "React, Next.js, TailwindCSS, Vercel Serverless Functions",
+    "nextStep": "Refine simulated offline queues with a local IndexedDB store and implement SMS fallback alerts.",
+    "featured": true,
+    "experimental": false,
+    "tagline": "Maternal Health Tracking & Support Platform",
+    "stack": [
+      "React",
+      "Next.js",
+      "Offline Caching",
+      "Serverless"
+    ],
+    "disclaimer": "IMPORTANT SAFETY & PROTOTYPE DISCLAIMER: Mama Guard is a high-fidelity diagnostic simulation and interactive prototype built for technology verification. It is NOT a medical-grade or HIPAA-compliant system, does not diagnose or treat medical conditions, and should not be used as a substitute for professional clinical guidance or emergency services.",
+    "liveLinkLabel": "Launch Live Beta",
+    "blueprint": {
+      "file": "services/pregnancyTracker.ts",
+      "code": "export interface HealthLog {\n  systolic: number;\n  diastolic: number;\n  weightKg: number;\n  symptoms: string[];\n}\n\nexport function evaluateVitals(log: HealthLog) {\n  const isElevated = log.systolic >= 140 || log.diastolic >= 90;\n  return {\n    status: isElevated ? 'attention_required' : 'stable',\n    actionCode: isElevated ? 'TRIGGER_PROVIDER_UPLINK' : 'CONTINUE_ROUTINE'\n  };\n}"
+    },
+    "metrics": [
+      {
+        "value": "Verified",
+        "label": "Health Guides"
+      },
+      {
+        "value": "Cached",
+        "label": "Offline Logs"
+      },
+      {
+        "value": "Active",
+        "label": "Community Beta"
+      }
+    ],
+    "outcomeExplanation": "Developed with strict offline-first loading criteria so mothers in under-resourced regions can reliably check wellness logs and maternal safety guidelines.",
+    "screenshots": {
+      "desktop": "assets/projects/mamaguard/desktop.webp",
+      "mobile": "assets/projects/mamaguard/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:50:27.856Z"
+  },
+  {
+    "name": "Chikini Monie",
+    "slug": "chikini",
+    "url": "https://chikini-monie-one.vercel.app/",
+    "repoUrl": "https://github.com/olabodesamuel0920-max/chikini-monie",
+    "category": "Food Ordering & Kitchen Operations System",
+    "status": "Stakeholder-Ready Demo",
+    "statusClass": "stakeholder-ready",
+    "conversionType": "Prototype Demo",
+    "shortDescription": "Premium food-tech ordering and operations simulator with menu flow, staff kitchen queue boards, and real-time dashboard analytics.",
+    "problem": "Quick-service food enterprises struggle with synchronization latency between point-of-sale systems, kitchen queue age tracking, and inventory logs.",
+    "solution": "Architected a unified hospitality operations simulator handling point-of-sale order creation, staff order dispatch, and manager metrics with connection drop-out resiliency.",
+    "role": "Solo Product Architect & Frontend Engineer",
+    "techNotes": "React, TailwindCSS, State Isolation, Status Checker",
+    "nextStep": "Connect to local node endpoints to test webhooks and persistent state storage using Redis queues.",
+    "featured": true,
+    "experimental": false,
+    "tagline": "Premium Food-Tech Ordering & Operations Demo",
+    "stack": [
+      "React",
+      "TailwindCSS",
+      "State Isolation",
+      "Status Checker"
+    ],
+    "liveLinkLabel": "Launch Live Demo",
+    "blueprint": {
+      "file": "component/BranchStatusChecker.tsx",
+      "code": "export const BranchStatusCard = ({ branch }) => {\n    const isOperational = branch.status === 'operational';\n    return (\n        <div className=\"branch-card border border-glass\">\n            <span className={`pulse-dot ${isOperational ? 'online' : 'maintenance'}`} />\n            <h4>{branch.name}</h4>\n            <p>Status: {isOperational ? 'Active' : 'Pending Management Approval'}</p>\n        </div>\n    );\n};"
+    },
+    "metrics": [
+      {
+        "value": "Audit OK",
+        "label": "Copy Compliance"
+      },
+      {
+        "value": "Fast Static",
+        "label": "Render Cycle"
+      },
+      {
+        "value": "Responsive",
+        "label": "Touch Frame"
+      }
+    ],
+    "outcomeExplanation": "Overhauled marketing structures, verified operations statuses, and aligned platform preview copy perfectly with strict 'Business Review Prototype' requirements.",
+    "screenshots": {
+      "desktop": "assets/projects/chikini/desktop.webp",
+      "mobile": "assets/projects/chikini/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:50:49.028Z"
+  },
+  {
+    "name": "Olabode OS",
+    "slug": "olabode-os",
+    "url": "https://datboinifedev.vercel.app/",
+    "repoUrl": "https://github.com/olabodesamuel0920-max/Datboinifedev",
+    "category": "Product Builder Portfolio",
+    "status": "Live Production",
+    "statusClass": "live-beta",
+    "conversionType": "Contact Lead",
+    "shortDescription": "Premium personal product operating system & living proof engine built using native web standards with custom telemetry.",
+    "problem": "Standard developers portfolios look generic and dry, failing to demonstrate creative system architecture and sub-second loading performance.",
+    "solution": "Built Olabode OS, a luxury-style dark portfolio console utilizing responsive CSS layouts, interactive mockup systems, and a fully functional telemetry analytics logger.",
+    "role": "Solo Frontend Architect & Designer",
+    "techNotes": "HTML5, Vanilla CSS3, Javascript (ES6), Vercel Serverless Functions",
+    "nextStep": "Integrate real-time socket connections displaying system uptime indices and visitor footprints.",
+    "featured": true,
+    "experimental": false,
+    "tagline": "Premium Personal Product Operating System & Living Proof Engine",
+    "stack": [
+      "HTML5",
+      "Vanilla CSS3",
+      "Javascript (ES6)",
+      "Serverless"
+    ],
+    "liveLinkLabel": "Launch System Console",
+    "blueprint": {
+      "file": "telemetry/analytics.js",
+      "code": "export function trackTelemetryEvent(name, payload = {}) {\n    const eventParams = {\n        ...payload,\n        timestamp: new Date().toISOString(),\n        viewportWidth: window.innerWidth\n    };\n    console.log(`[TELEMETRY] Logging event: ${name}`, eventParams);\n    if (typeof window.gtag === 'function') {\n        window.gtag('event', name, eventParams);\n    }\n}"
+    },
+    "metrics": [
+      {
+        "value": "Sub-100ms",
+        "label": "Visual Settlement"
+      },
+      {
+        "value": "Zero CSS",
+        "label": "Framework Bloat"
+      },
+      {
+        "value": "Resend OK",
+        "label": "Email Dispatch"
+      }
+    ],
+    "outcomeExplanation": "Formulated a premium creative dev console, establishing strong brand positioning and a high-converting automated lead capture pipeline.",
+    "screenshots": {
+      "desktop": "assets/projects/olabode-os/desktop.webp",
+      "mobile": "assets/projects/olabode-os/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:50:57.250Z"
+  },
+  {
+    "name": "Aristo Afrikana",
+    "slug": "aristo",
+    "url": "https://aristo-africana.vercel.app/",
+    "repoUrl": "https://github.com/olabodesamuel0920-max/aristo-africana",
+    "category": "Premium Restaurant Website",
+    "status": "Client Proposal",
+    "statusClass": "client-proposal",
+    "conversionType": "Booking",
+    "shortDescription": "Bespoke fine-dining brand experience and lounge/event table booking funnel with luxury aesthetic design.",
+    "problem": "Pre-packaged templates and clunky widget modules dilute the prestige and booking conversions of premium fine-dining establishments.",
+    "solution": "Engineered a fast, sub-second custom CSS portal featuring lounges, event ticketing pipelines, and responsive parallax brand layouts.",
+    "role": "Lead UI/UX Developer & Brand Strategist",
+    "techNotes": "HTML5, Vanilla CSS3, Javascript (ES6), Custom CSS Variables",
+    "nextStep": "Implement an interactive reservation booking layout using optimized inline SVG restaurant grid guides.",
+    "featured": false,
+    "experimental": false,
+    "tagline": "Premium Restaurant Website & Luxury Digital Upgrade",
+    "stack": [
+      "HTML5",
+      "Vanilla CSS3",
+      "CSS Variables",
+      "Luxury UI",
+      "Funnels"
+    ],
+    "liveLinkLabel": "Proposal Sandbox Preview",
+    "blueprint": {
+      "file": "style/luxury-theme.css",
+      "code": ".luxury-container {\n    background: radial-gradient(circle at top, var(--gold-glow), var(--matte-black));\n    backdrop-filter: blur(15px);\n    border: 1px solid rgba(212, 175, 55, 0.15);\n    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);\n    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);\n}"
+    },
+    "metrics": [
+      {
+        "value": "Bespoke",
+        "label": "Dark Aesthetics"
+      },
+      {
+        "value": "3 Core",
+        "label": "Experience Funnels"
+      },
+      {
+        "value": "Launch-Ready",
+        "label": "Staging State"
+      }
+    ],
+    "outcomeExplanation": "Eliminated layout placeholders, resolved style inconsistencies, and created an outstanding mobile-first reservation landing page.",
+    "screenshots": {
+      "desktop": "assets/projects/aristo/desktop.webp",
+      "mobile": "assets/projects/aristo/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:51:07.757Z"
+  },
+  {
+    "name": "Proof",
+    "slug": "proof",
+    "url": "https://proof-7-day-beta.vercel.app/",
+    "repoUrl": "https://github.com/olabodesamuel0920-max/proof",
+    "category": "Gamified Onboarding Suite",
+    "status": "Live Beta",
+    "statusClass": "live-beta",
+    "conversionType": "Signup",
+    "shortDescription": "Gamified onboarding pattern tracker validating user milestone progress dynamically with hardware-accelerated animations.",
+    "problem": "SaaS and digital platforms experience massive drop-offs during initial registrations due to dry, uninspiring data input procedures.",
+    "solution": "Built Proof, an interactive milestone tracker checking daily challenge accomplishments and compiling status states with GPU transitions.",
+    "role": "Lead Product & Interaction Engineer",
+    "techNotes": "React, CSS Variables, Interactive State Tracking, GSAP Transitions",
+    "nextStep": "Integrate cohort telemetry metrics to map the drop-off coordinates of new registrations.",
+    "featured": false,
+    "experimental": false,
+    "tagline": "Premium Gamified 7-Day Challenge Suite",
+    "stack": [
+      "React",
+      "CSS Variables",
+      "State Logging",
+      "Gamified UI"
+    ],
+    "liveLinkLabel": "Launch Live Beta",
+    "blueprint": {
+      "file": "hooks/useChallengeProgress.ts",
+      "code": "import { useState } from 'react';\n\nexport const useChallengeProgress = (totalDays = 7) => {\n  const [completedDays, setCompletedDays] = useState<number[]>([]);\n  const toggleDayComplete = (day: number) => {\n    setCompletedDays(prev => \n      prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]\n    );\n  };\n  const isFullyComplete = completedDays.length === totalDays;\n  return { completedDays, toggleDayComplete, isFullyComplete };\n};"
+    },
+    "metrics": [
+      {
+        "value": "Smooth",
+        "label": "Mobile Render"
+      },
+      {
+        "value": "7-Day",
+        "label": "Onboarding Setup"
+      },
+      {
+        "value": "Gamified",
+        "label": "State Flow"
+      }
+    ],
+    "outcomeExplanation": "Built a high-converting onboarding experience designed to maximize retention by visualizing user completion milestones dynamically with GPU-accelerated node transitions.",
+    "screenshots": {
+      "desktop": "assets/projects/proof/desktop.webp",
+      "mobile": "assets/projects/proof/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:51:17.825Z"
+  },
+  {
+    "name": "PredChain",
+    "slug": "predchain",
+    "url": "https://predchain.vercel.app/",
+    "repoUrl": "https://github.com/olabodesamuel0920-max/predchain",
+    "category": "Web3 Staking Dashboard",
+    "status": "Experimental Build",
+    "statusClass": "experimental",
+    "conversionType": "Prototype Demo",
+    "shortDescription": "Experimental Web3 prediction pool dashboard utilizing atomic state isolation structures to manage staking analytics.",
+    "problem": "Crypto dashboards suffer from complex visual clutter and fail to handle network disruptions during critical atomic staking actions.",
+    "solution": "Constructed a responsive staking dashboard caching analytics data states and utilizing secure validation boundaries.",
+    "role": "Frontend Developer & Interface Hardener",
+    "techNotes": "TypeScript, Next.js, Atomic State Isolation, TailwindCSS",
+    "nextStep": "Connect live wallet providers (like MetaMask and WalletConnect) to EVM testnet pools.",
+    "featured": false,
+    "experimental": true,
+    "tagline": "Experimental Predictive Blockchain Pool Dashboard",
+    "stack": [
+      "TypeScript",
+      "Next.js",
+      "State Isolation",
+      "Web3 Handshake"
+    ],
+    "liveLinkLabel": "Launch Live Site",
+    "blueprint": {
+      "file": "service/WalletSecurityService.ts",
+      "code": "export async function executeAtomicSwap(payload: TransactionPayload): Promise<SwapResult> {\n    const sessionToken = await validateSessionHandshake();\n    if (!sessionToken) throw new SecurityError(\"Unauthorized signature attempt\");\n    return await blockchainProvider.commitAtomicTransaction(payload, sessionToken);\n}"
+    },
+    "metrics": [
+      {
+        "value": "Hardened",
+        "label": "Staking Views"
+      },
+      {
+        "value": "Isolated",
+        "label": "State Containers"
+      },
+      {
+        "value": "Verified",
+        "label": "Handshake Logic"
+      }
+    ],
+    "outcomeExplanation": "Constructed atomic transaction interfaces and custom pool widgets using robust reactive state isolation models to secure frontend data flow.",
+    "screenshots": {
+      "desktop": "assets/projects/predchain/desktop.webp",
+      "mobile": "assets/projects/predchain/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:51:31.426Z"
+  },
+  {
+    "name": "Gadel Foods",
+    "slug": "gadel-foods",
+    "url": "",
+    "category": "Food Delivery Catalog",
+    "status": "Coming soon",
+    "statusClass": "coming-soon",
+    "conversionType": "WhatsApp Order",
+    "shortDescription": "Local restaurant food delivery portal enabling direct checkout ordering directly to the merchant's WhatsApp.",
+    "problem": "Local food vendors require digital shopping carts without paying high platform margins or maintaining expensive server databases.",
+    "solution": "Programmed a responsive static catalog compilation compiling the shopping cart summary directly into formatted WhatsApp messages.",
+    "role": "Solo Full-Stack Developer",
+    "techNotes": "HTML5, Vanilla CSS3, Javascript (ES6), WhatsApp API",
+    "nextStep": "Integrate local cash-on-delivery validation and online checkout payment gateway links.",
+    "featured": false,
+    "experimental": false,
+    "tagline": "Food Catalog & WhatsApp Order Uplink System",
+    "stack": [
+      "HTML5",
+      "Vanilla CSS3",
+      "WhatsApp API",
+      "Staging Only"
+    ],
+    "liveLinkLabel": "Staging Preview Locked",
+    "blueprint": {
+      "file": "whatsapp-uplink.js",
+      "code": "export function generateWhatsAppLink(cartItems, customer) {\n    const cartText = cartItems.map(item => `- ${item.name} x${item.qty}`).join('%0A');\n    const baseText = `Hi, I\\'d like to order:%0A${cartText}%0A%0ADelivery to: ${customer.address}`;\n    return `https://wa.me/2348123456789?text=${encodeURIComponent(baseText)}`;\n}"
+    },
+    "metrics": [
+      {
+        "value": "Zero-Database",
+        "label": "Setup"
+      },
+      {
+        "value": "Direct",
+        "label": "WhatsApp Send"
+      },
+      {
+        "value": "Static",
+        "label": "Asset Load"
+      }
+    ],
+    "outcomeExplanation": "Constructed lightweight, zero-dependency shopping catalogs allowing merchant entities to securely coordinate orders via simple instant messaging.",
+    "screenshots": {
+      "desktop": "",
+      "mobile": ""
+    },
+    "screenshotStatus": "skipped_no_url"
+  },
+  {
+    "name": "ATC Procurement",
+    "slug": "atc",
+    "url": "https://atc-iota.vercel.app/",
+    "category": "B2B Procurement Platform",
+    "status": "Live Beta",
+    "statusClass": "live-beta",
+    "conversionType": "Checkout",
+    "shortDescription": "B2B supply chain procurement portal and corporate invoice checkout system.",
+    "problem": "Corporate procurement pipelines struggle with multi-stage purchase approval delay and tracking itemized bulk invoices.",
+    "solution": "Built a corporate order procurement dashboard housing inventory checklists, digital invoicing checkout, and corporate payment gateways.",
+    "role": "Lead Software Engineer",
+    "techNotes": "React, TailwindCSS, State Management",
+    "nextStep": "Integrate live PDF rendering engines to produce downloadable corporate order receipts.",
+    "featured": false,
+    "experimental": false,
+    "tagline": "Corporate B2B Supply Chain Procurement Portal",
+    "stack": [
+      "React",
+      "TailwindCSS",
+      "State Management"
+    ],
+    "liveLinkLabel": "Launch Staging Site",
+    "blueprint": {
+      "file": "procurement/invoiceReducer.ts",
+      "code": "export function calculateInvoice(items: InvoiceItem[]) {\n    const subtotal = items.reduce((sum, item) => sum + (item.unitPrice * item.quantity), 0);\n    const tax = subtotal * 0.075; // 7.5% Vat\n    return { subtotal, tax, total: subtotal + tax };\n}"
+    },
+    "metrics": [
+      {
+        "value": "B2B-Compliant",
+        "label": "Layout"
+      },
+      {
+        "value": "Calculated",
+        "label": "Invoice Logs"
+      },
+      {
+        "value": "Rapid",
+        "label": "Inventory Filter"
+      }
+    ],
+    "outcomeExplanation": "Engineered corporate-grade bulk inventory managers, smoothing checkout states and reducing procurement invoicing latency.",
+    "screenshots": {
+      "desktop": "assets/projects/atc/desktop.webp",
+      "mobile": "assets/projects/atc/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:51:43.005Z"
+  },
+  {
+    "name": "CineForge Rendering",
+    "slug": "cineforge",
+    "url": "",
+    "category": "Render Queue Dashboard",
+    "status": "Local / not public yet",
+    "statusClass": "coming-soon",
+    "conversionType": "Admin Dashboard",
+    "shortDescription": "Creative render job scheduler and video asset telemetry logger prototype.",
+    "problem": "Visual effects artists need centralized managers to log processing jobs and track remote rendering durations.",
+    "solution": "Designed a dashboard interface modeling render age tracking, processor telemetry logs, and task allocation.",
+    "role": "Frontend Developer",
+    "techNotes": "HTML5, TailwindCSS, LocalStorage API",
+    "nextStep": "Connect remote cloud rendering servers via node webhooks to transcode media assets.",
+    "featured": false,
+    "experimental": true,
+    "tagline": "Internal Cinematic Render Queue Dashboard",
+    "stack": [
+      "HTML5",
+      "TailwindCSS",
+      "LocalStorage API"
+    ],
+    "liveLinkLabel": "System Staging Locked",
+    "blueprint": {
+      "file": "scheduler/renderQueue.js",
+      "code": "export function addRenderJob(queue, asset) {\n    return [...queue, {\n        id: `job_${Date.now()}`,\n        filename: asset.name,\n        status: 'queued',\n        progress: 0\n    }];\n}"
+    },
+    "metrics": [
+      {
+        "value": "Interactive",
+        "label": "Job Queue"
+      },
+      {
+        "value": "Clean",
+        "label": "Status Telemetry"
+      },
+      {
+        "value": "JSON-Saved",
+        "label": "Staging State"
+      }
+    ],
+    "outcomeExplanation": "Formulated creative rendering logs charting device queue allocations to organize creative digital workflows.",
+    "screenshots": {
+      "desktop": "",
+      "mobile": ""
+    },
+    "screenshotStatus": "skipped_no_url"
+  },
+  {
+    "name": "Acadrop Repository",
+    "slug": "acadrop",
+    "url": "",
+    "category": "Academic Study Vault",
+    "status": "Coming soon",
+    "statusClass": "coming-soon",
+    "conversionType": "Signup",
+    "shortDescription": "Academic study materials archive indexing documents by course codes and departments.",
+    "problem": "Higher education scholars face difficulties sharing study guides, review files, and research summaries in centralized portals.",
+    "solution": "Formulated a course material archive allowing index lookups by department labels and downloading course materials.",
+    "role": "Full-Stack Developer",
+    "techNotes": "React, TailwindCSS, File Upload APIs",
+    "nextStep": "Program peer rating guidelines to filter high-quality study documents.",
+    "featured": false,
+    "experimental": false,
+    "tagline": "Academic Materials Catalog & Study Vault",
+    "stack": [
+      "React",
+      "TailwindCSS",
+      "Local File Uploads"
+    ],
+    "liveLinkLabel": "Local Database Offline",
+    "blueprint": {
+      "file": "vault/searchIndex.ts",
+      "code": "export function filterGuides(guides: Guide[], query: string) {\n    const cleanQuery = query.toLowerCase().trim();\n    return guides.filter(g => \n        g.courseCode.toLowerCase().includes(cleanQuery) || \n        g.title.toLowerCase().includes(cleanQuery)\n    );\n}"
+    },
+    "metrics": [
+      {
+        "value": "Course-Indexed",
+        "label": "Guides"
+      },
+      {
+        "value": "Fast",
+        "label": "Client Filter"
+      },
+      {
+        "value": "Lightweight",
+        "label": "Asset Struct"
+      }
+    ],
+    "outcomeExplanation": "Synthesized academic vault directories, establishing clean structural search flows to index academic assets.",
+    "screenshots": {
+      "desktop": "",
+      "mobile": ""
+    },
+    "screenshotStatus": "skipped_no_url"
+  },
+  {
+    "name": "Smart Connect IoT",
+    "slug": "smart-connect",
+    "url": "https://smart-connect-jade.vercel.app/",
+    "category": "IoT Device Telemetry Hub",
+    "status": "Live Beta",
+    "statusClass": "live-beta",
+    "conversionType": "Admin Dashboard",
+    "shortDescription": "IoT hardware network tracker displaying status alerts and battery telemetry signals.",
+    "problem": "Smart building managers lack real-time signals indicating network failures or battery drops across active sensors.",
+    "solution": "Designed a telemetry board graphing signals strength indexes, battery lifespans, and warning states.",
+    "role": "Solo Frontend Engineer",
+    "techNotes": "React, TailwindCSS, Telemetry WebSockets",
+    "nextStep": "Integrate WebSocket connections mapping sensor triggers dynamically on SVG floorplans.",
+    "featured": false,
+    "experimental": false,
+    "tagline": "IoT Deployed Hardware Network Status Portal",
+    "stack": [
+      "React",
+      "TailwindCSS",
+      "Data Telemetry"
+    ],
+    "liveLinkLabel": "Launch Telemetry Portal",
+    "blueprint": {
+      "file": "iot/batteryMonitor.ts",
+      "code": "export function checkBatteryState(sensor: IoTSensor) {\n    const isCritical = sensor.batteryLevel <= 0.15;\n    return {\n        sensorId: sensor.id,\n        level: sensor.batteryLevel,\n        alertState: isCritical ? 'LOW_BATTERY_WARNING' : 'NOMINAL'\n    };\n}"
+    },
+    "metrics": [
+      {
+        "value": "Reactive",
+        "label": "Status Signals"
+      },
+      {
+        "value": "Sub-Second",
+        "label": "Signal Updates"
+      },
+      {
+        "value": "Clean",
+        "label": "Alert Loggers"
+      }
+    ],
+    "outcomeExplanation": "Developed modular telemetry dashboards to display hardware states, battery health metrics, and network signal strength indices.",
+    "screenshots": {
+      "desktop": "assets/projects/smart-connect/desktop.webp",
+      "mobile": "assets/projects/smart-connect/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:51:50.383Z"
+  },
+  {
+    "name": "Shaytee's Treat",
+    "slug": "shaytees-treat",
+    "url": "https://shaytee-s-treat.vercel.app/",
+    "category": "Bakery E-Commerce Portal",
+    "status": "Live Beta",
+    "statusClass": "live-beta",
+    "conversionType": "Checkout",
+    "shortDescription": "Artisanal bakery e-commerce site showcasing menu catalogs and cart checkout flows.",
+    "problem": "Specialty bakeries lose booking potential when clients cannot customize selections or calculate invoice estimates.",
+    "solution": "Created an e-commerce catalog featuring dynamic product details and cart summary calculations.",
+    "role": "Full-Stack Developer",
+    "techNotes": "React, CSS Modules, Stripe Payments",
+    "nextStep": "Integrate custom cake design description fields with dynamic pricing modifiers.",
+    "featured": false,
+    "experimental": false,
+    "tagline": "Artisanal Bakery E-Commerce Store & Catalog",
+    "stack": [
+      "React",
+      "CSS Modules",
+      "Cart Calculations"
+    ],
+    "liveLinkLabel": "Launch Store Preview",
+    "blueprint": {
+      "file": "cart/bakeryCart.js",
+      "code": "export function addToBakeryCart(cart, item) {\n    const exists = cart.find(i => i.id === item.id);\n    if (exists) {\n        return cart.map(i => i.id === item.id ? { ...i, qty: i.qty + 1 } : i);\n    }\n    return [...cart, { ...item, qty: 1 }];\n}"
+    },
+    "metrics": [
+      {
+        "value": "Dynamic",
+        "label": "Cart Calculation"
+      },
+      {
+        "value": "Stripe-Ready",
+        "label": "Checkout"
+      },
+      {
+        "value": "Outfit",
+        "label": "Brand Typography"
+      }
+    ],
+    "outcomeExplanation": "Engineered specialty product catalogs, integrating cart states to capture sales inquiries and checkout calculations.",
+    "screenshots": {
+      "desktop": "assets/projects/shaytees-treat/desktop.webp",
+      "mobile": "assets/projects/shaytees-treat/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:52:15.086Z"
+  },
+  {
+    "name": "Elevator Concept",
+    "slug": "elevator-concept",
+    "url": "https://elevator-umber.vercel.app/",
+    "category": "Elevator Physics Simulator",
+    "status": "Live Beta",
+    "statusClass": "live-beta",
+    "conversionType": "Prototype Demo",
+    "shortDescription": "Interactive physics simulation modeling car dispatch sequences, cabin queues, and weight alerts.",
+    "problem": "System designers require visual modeling platforms to verify elevator dispatch algos under varying lobby load constraints.",
+    "solution": "Developed a custom HTML5 canvas dashboard displaying multi-cabin transitions, call buttons, and weight warning logs.",
+    "role": "Creator & System Engineer",
+    "techNotes": "HTML5 Canvas, CSS Grid, Vanilla Javascript",
+    "nextStep": "Code destination dispatch comparative reports tracking wait age averages.",
+    "featured": false,
+    "experimental": true,
+    "tagline": "Lobby Transit Elevator Physics Simulation Dashboard",
+    "stack": [
+      "Canvas API",
+      "CSS Grid",
+      "State Algorithms"
+    ],
+    "liveLinkLabel": "Launch Physics Simulator",
+    "blueprint": {
+      "file": "elevator/cabinController.js",
+      "code": "export function updateCabinPosition(cabin, targetFloor) {\n    const distance = targetFloor - cabin.currentFloor;\n    if (Math.abs(distance) < 0.05) {\n        return { ...cabin, currentFloor: targetFloor, motorState: 'idle' };\n    }\n    const direction = Math.sign(distance);\n    return {\n        ...cabin,\n        currentFloor: cabin.currentFloor + (direction * 0.08),\n        motorState: direction > 0 ? 'moving_up' : 'moving_down'\n    };\n}"
+    },
+    "metrics": [
+      {
+        "value": "Canvas-Rendered",
+        "label": "Physics Engine"
+      },
+      {
+        "value": "Algorithmic",
+        "label": "Dispatch Logs"
+      },
+      {
+        "value": "Fully Reactive",
+        "label": "Lobby Controls"
+      }
+    ],
+    "outcomeExplanation": "Synthesized reactive dispatch visualizers, rendering movement states, alarms, and floor coordinates for multi-car configurations.",
+    "screenshots": {
+      "desktop": "assets/projects/elevator-concept/desktop.webp",
+      "mobile": "assets/projects/elevator-concept/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-13T20:52:23.540Z"
+  }
+]

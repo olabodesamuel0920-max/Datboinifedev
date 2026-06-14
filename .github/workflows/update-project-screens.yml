@@ -1,0 +1,49 @@
+name: Sync Project Screenshots
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-screenshots:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Google Chrome (for Puppeteer)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Screenshot Sync
+        run: npm run capture:projects
+
+      - name: Check for Changes & Commit
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Add assets and registry JSON
+          git add assets/projects/ data/projects.json
+          
+          # Check if there are changes to commit
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(auto): sync projects screenshots and registry"
+            git push origin main
+            echo "Screenshots sync pushed successfully."
+          else
+            echo "No changes in screenshots detected."
+          fi

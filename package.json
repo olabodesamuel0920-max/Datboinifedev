@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "start": "http-server ./ -p 3000 -c-1",
-    "dev": "http-server ./ -p 3000 -c-1"
+    "dev": "http-server ./ -p 3000 -c-1",
+    "capture:projects": "node scripts/capture-project-screens.js",
+    "sync:portfolio": "node scripts/capture-project-screens.js"
   },
   "keywords": [
     "portfolio",
@@ -17,6 +19,7 @@
   "author": "Olabode Samuel",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "puppeteer-core": "^22.0.0"
   }
 }
