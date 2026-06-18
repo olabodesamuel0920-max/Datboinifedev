@@ -49,7 +49,7 @@
       "mobile": "assets/projects/mamaguard/mobile.webp"
     },
     "screenshotStatus": "success",
-    "screenshotTimestamp": "2026-06-13T20:50:27.856Z"
+    "screenshotTimestamp": "2026-06-18T08:55:51.370Z"
   },
   {
     "name": "Chikini Monie",
@@ -100,7 +100,58 @@
       "mobile": "assets/projects/chikini/mobile.webp"
     },
     "screenshotStatus": "success",
-    "screenshotTimestamp": "2026-06-13T20:50:49.028Z"
+    "screenshotTimestamp": "2026-06-18T08:56:17.755Z"
+  },
+  {
+    "name": "Shawarma Plug",
+    "slug": "shawarma-plug",
+    "url": "https://shawarma-plug.vercel.app/",
+    "repoUrl": "https://github.com/olabodesamuel0920-max/SHAWARMA-plug",
+    "category": "Food Ordering Platform",
+    "status": "Stakeholder-Ready Demo",
+    "statusClass": "stakeholder-ready",
+    "conversionType": "WhatsApp Order",
+    "shortDescription": "Akure's bold street-food ordering plug for custom wraps, toasted breadwarma, gourmet milkshakes, and WhatsApp checkout generation.",
+    "problem": "Local street-food customers require a fast, mobile-friendly interface to customize shawarma/breadwarma toppings and submit structured orders directly to the vendor via WhatsApp.",
+    "solution": "Designed and engineered Shawarma Plug, a responsive ordering portal featuring a live cart drawer and a dynamic WhatsApp checkout receipt generator.",
+    "role": "Solo Frontend Developer & System Designer",
+    "techNotes": "HTML5, Vanilla CSS3, Javascript (ES6), WhatsApp API",
+    "nextStep": "Integrate a sales tracking dashboard and construct custom delivery fee calculator maps.",
+    "featured": true,
+    "experimental": false,
+    "tagline": "Akure's Premium Fast-Food & WhatsApp Ordering Brand",
+    "stack": [
+      "HTML5",
+      "Vanilla CSS3",
+      "Javascript (ES6)",
+      "WhatsApp API"
+    ],
+    "liveLinkLabel": "Launch Live Demo",
+    "blueprint": {
+      "file": "app.js",
+      "code": "export function generateWhatsAppReceipt(cartItems, customer) {\n  const header = \"🌯 *SHAWARMA PLUG ORDER* 🌯\\n\\n\";\n  const itemsText = cartItems.map(item => `- ${item.name} x${item.qty} (${item.meatChoice || 'Beef'})`).join('\\n');\n  const footer = `\\n\\n📍 Delivery Address: ${customer.address}\\n📞 Phone: ${customer.phone}`;\n  return `https://wa.me/2348133728255?text=${encodeURIComponent(header + itemsText + footer)}`;\n}"
+    },
+    "metrics": [
+      {
+        "value": "Fast Static",
+        "label": "Asset Load"
+      },
+      {
+        "value": "Direct",
+        "label": "WhatsApp Send"
+      },
+      {
+        "value": "Tactile",
+        "label": "Cart System"
+      }
+    ],
+    "outcomeExplanation": "Designed a responsive ordering web catalog, enabling direct checkout transitions to the merchant's WhatsApp line.",
+    "screenshots": {
+      "desktop": "assets/projects/shawarma-plug/desktop.webp",
+      "mobile": "assets/projects/shawarma-plug/mobile.webp"
+    },
+    "screenshotStatus": "success",
+    "screenshotTimestamp": "2026-06-18T08:57:03.768Z"
   },
   {
     "name": "Olabode OS",
@@ -150,7 +201,7 @@
       "desktop": "assets/projects/olabode-os/desktop.webp",
       "mobile": "assets/projects/olabode-os/mobile.webp"
     },
-    "screenshotStatus": "success",
+    "screenshotStatus": "failed",
     "screenshotTimestamp": "2026-06-13T20:50:57.250Z"
   },
   {
@@ -203,7 +254,7 @@
       "mobile": "assets/projects/aristo/mobile.webp"
     },
     "screenshotStatus": "success",
-    "screenshotTimestamp": "2026-06-13T20:51:07.757Z"
+    "screenshotTimestamp": "2026-06-18T08:58:06.356Z"
   },
   {
     "name": "Proof",
@@ -253,7 +304,7 @@
       "desktop": "assets/projects/proof/desktop.webp",
       "mobile": "assets/projects/proof/mobile.webp"
     },
-    "screenshotStatus": "success",
+    "screenshotStatus": "failed",
     "screenshotTimestamp": "2026-06-13T20:51:17.825Z"
   },
   {
@@ -304,7 +355,7 @@
       "desktop": "assets/projects/predchain/desktop.webp",
       "mobile": "assets/projects/predchain/mobile.webp"
     },
-    "screenshotStatus": "success",
+    "screenshotStatus": "failed",
     "screenshotTimestamp": "2026-06-13T20:51:31.426Z"
   },
   {
@@ -403,7 +454,7 @@
       "mobile": "assets/projects/atc/mobile.webp"
     },
     "screenshotStatus": "success",
-    "screenshotTimestamp": "2026-06-13T20:51:43.005Z"
+    "screenshotTimestamp": "2026-06-18T08:58:32.339Z"
   },
   {
     "name": "CineForge Rendering",
@@ -548,7 +599,7 @@
       "mobile": "assets/projects/smart-connect/mobile.webp"
     },
     "screenshotStatus": "success",
-    "screenshotTimestamp": "2026-06-13T20:51:50.383Z"
+    "screenshotTimestamp": "2026-06-18T08:58:45.507Z"
   },
   {
     "name": "Shaytee's Treat",
@@ -597,7 +648,7 @@
       "mobile": "assets/projects/shaytees-treat/mobile.webp"
     },
     "screenshotStatus": "success",
-    "screenshotTimestamp": "2026-06-13T20:52:15.086Z"
+    "screenshotTimestamp": "2026-06-18T08:59:00.293Z"
   },
   {
     "name": "Elevator Concept",
@@ -646,6 +697,6 @@
       "mobile": "assets/projects/elevator-concept/mobile.webp"
     },
     "screenshotStatus": "success",
-    "screenshotTimestamp": "2026-06-13T20:52:23.540Z"
+    "screenshotTimestamp": "2026-06-18T08:59:18.492Z"
   }
 ]
